@@ -13,9 +13,9 @@ jobs:
     name: Tests, lint et données
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: 22
 
@@ -25,7 +25,7 @@ jobs:
       - name: Fiches publiées valides
         run: npm run validate
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
 
@@ -34,8 +34,8 @@ jobs:
           pip install lupa==2.8
           python addon/tests/smoke_test.py
 
+      # Action officielle lunarmodules (image Docker) : pas de dépendance aux miroirs apt d'Ubuntu.
       - name: Luacheck de l'addon
-        run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq lua-check
-          luacheck addon/PexGuideExport
+        uses: lunarmodules/luacheck@v1
+        with:
+          args: addon/PexGuideExport

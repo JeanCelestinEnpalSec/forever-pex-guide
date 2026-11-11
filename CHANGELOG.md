@@ -4,6 +4,10 @@ Format : [Keep a Changelog](https://keepachangelog.com/fr/1.1.0/). L'addon suit 
 
 ## [Non publié]
 
+### Modifié
+- CI : luacheck passe par l'action officielle `lunarmodules/luacheck@v1` (le premier passage avait échoué sur une panne DNS des miroirs apt d'Ubuntu, pas sur le code).
+- CI et release : actions GitHub en v6 (Node 24), plus d'avertissement de dépréciation Node 20.
+
 ## [0.1.0] — 2026-11-11
 
 ### Ajouté
