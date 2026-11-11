@@ -1,0 +1,21 @@
+# Dépendances et caches
+node_modules/
+__pycache__/
+*.pyc
+
+# Sauvegardes locales créées par tools/sv2json.js
+docs/data/characters/.backup/
+
+# Fichiers SavedVariables bruts : ne pas publier par erreur (ils peuvent contenir d'autres données de compte)
+*.lua.bak
+exports/
+
+# Système et éditeurs
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Dossier « à supprimer » (règle : on ne supprime rien, on déplace pour relecture)
+a-supprimer/

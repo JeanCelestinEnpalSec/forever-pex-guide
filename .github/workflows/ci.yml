@@ -1,0 +1,41 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  checks:
+    name: Tests, lint et données
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Tests du lecteur SavedVariables
+        run: npm test
+
+      - name: Fiches publiées valides
+        run: npm run validate
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Test de fumée de l'addon (API WoW simulée)
+        run: |
+          pip install lupa==2.8
+          python addon/tests/smoke_test.py
+
+      - name: Luacheck de l'addon
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq lua-check
+          luacheck addon/PexGuideExport

@@ -1,0 +1,31 @@
+name: Correction de guide
+description: Une info fausse, périmée ou sans source dans un carnet (prix, coordonnées, talent, route…)
+title: "[guide] "
+labels: ["guide"]
+body:
+  - type: input
+    id: carnet
+    attributes:
+      label: Carnet et section
+      placeholder: "Chasseur nain › Sorts › niveau 12"
+    validations:
+      required: true
+  - type: textarea
+    id: actuel
+    attributes:
+      label: Ce que dit le carnet
+    validations:
+      required: true
+  - type: textarea
+    id: correct
+    attributes:
+      label: Ce qui est juste
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source (lien ou capture du jeu) et date
+      description: "Ordre de confiance : Blizzard > jeu > guide d'auteur identifié > base de données > communauté."
+    validations:
+      required: true

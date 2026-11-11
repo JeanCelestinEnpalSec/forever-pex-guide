@@ -1,0 +1,24 @@
+name: Problème avec l'addon
+description: Pex Guide Export ne charge pas, n'exporte pas une section, ou affiche une erreur
+title: "[addon] "
+labels: ["addon"]
+body:
+  - type: input
+    id: version
+    attributes:
+      label: Version de l'addon et du jeu
+      placeholder: "addon 0.1.0 · client 1.60.1 (70888)"
+    validations:
+      required: true
+  - type: textarea
+    id: probleme
+    attributes:
+      label: Ce qui se passe
+      description: Message d'erreur en jeu, section vide sur la fiche, etc.
+    validations:
+      required: true
+  - type: textarea
+    id: erreur
+    attributes:
+      label: Champ « error » de la fiche, s'il y en a un
+      description: Sur la page Fiches perso, une section illisible affiche le message d'erreur de l'addon. Copie-le ici.

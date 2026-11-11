@@ -1,0 +1,1300 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>:root{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Carnet de chasse de Jeanpalsec</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout : carnet de terrain. Bandeau collant (niveau + familier), onglets, puis une vue à la fois. Ton glacier de Dun Morogh, accent bleu fjord, pièces or/argent/cuivre pour les prix. */
+:root{
+  --bg:#edf1f4; --surface:#ffffff; --surface-2:#e3e9ee; --ink:#14202b; --muted:#566573; --line:#c8d2da;
+  --accent:#1c6886; --accent-soft:#d6e8f0; --accent-ink:#ffffff;
+  --gold:#946410; --silver:#66737c; --copper:#a1502a;
+  --ok:#2c7a4c; --warn:#a05f00; --bad:#b0352d;
+  --pet:#b5741a; --pet-soft:rgba(181,116,26,.16);
+  --f-display:"Marcellus", "Palatino Linotype", Georgia, serif;
+  --f-body:"Alegreya Sans", "Segoe UI", system-ui, sans-serif;
+  --f-mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0d141a; --surface:#152029; --surface-2:#1c2a35; --ink:#e1e8ed; --muted:#93a2ae; --line:#2a3946;
+    --accent:#62b2d2; --accent-soft:#18394a; --accent-ink:#06202b;
+    --gold:#e2ae49; --silver:#b6c0c7; --copper:#d98a5f;
+    --ok:#6bbf8e; --warn:#e2a149; --bad:#ee7b71;
+    --pet:#e2a54a; --pet-soft:rgba(226,165,74,.18);
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0d141a; --surface:#152029; --surface-2:#1c2a35; --ink:#e1e8ed; --muted:#93a2ae; --line:#2a3946;
+  --accent:#62b2d2; --accent-soft:#18394a; --accent-ink:#06202b;
+  --gold:#e2ae49; --silver:#b6c0c7; --copper:#d98a5f;
+  --ok:#6bbf8e; --warn:#e2a149; --bad:#ee7b71;
+  --pet:#e2a54a; --pet-soft:rgba(226,165,74,.18);
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16.5px;line-height:1.5;margin:0}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:10;background:var(--surface)}
+a{color:var(--accent)}
+h1,h2,h3{font-family:var(--f-display);font-weight:400;text-wrap:balance;margin:0}
+h2{font-size:1.65rem;line-height:1.2}
+h3{font-size:1.18rem;line-height:1.25}
+p{margin:0}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.mono{font-family:var(--f-mono);font-size:.86em}
+.muted{color:var(--muted)}
+.small{font-size:.9rem}
+.stack{display:flex;flex-direction:column;gap:14px}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr))}
+.grid > *{min-width:0}
+.grid.two{grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr))}
+
+/* Bandeau */
+header.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--surface);border-bottom:1px solid var(--line)}
+.top-in{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:center;padding-block:12px}
+.ident{display:flex;gap:12px;align-items:center;min-width:0;flex:1 1 260px}
+.lvl-badge{width:52px;height:52px;border-radius:50%;flex:none;display:grid;place-items:center;background:var(--surface-2);border:2px solid var(--gold);font-family:var(--f-display);font-size:1.45rem;color:var(--ink)}
+.ident h1{font-size:1.25rem;line-height:1.15}
+.ident p{color:var(--muted);font-size:.92rem}
+.controls{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center}
+.lvl-ctl{display:flex;align-items:center;gap:6px}
+.lvl-ctl input[type=range]{width:min(180px,40vw);accent-color:var(--accent)}
+button,.btn{font:inherit;font-size:.92rem;border:1px solid var(--line);background:var(--surface-2);color:var(--ink);border-radius:7px;padding:5px 10px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+button:focus-visible,select:focus-visible,input:focus-visible,a:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.icon-btn{width:32px;height:32px;padding:0;display:grid;place-items:center;font-size:1.1rem}
+select,input[type=number]{font:inherit;font-size:.92rem;background:var(--surface);color:var(--ink);border:1px solid var(--line);border-radius:7px;padding:5px 8px}
+input[type=number]{width:5.2em}
+label.ctl{display:flex;align-items:center;gap:6px;font-size:.9rem;color:var(--muted)}
+
+nav.tabs{display:flex;gap:4px;overflow-x:auto;scrollbar-width:thin;padding-bottom:8px}
+nav.tabs a{flex:none;text-decoration:none;color:var(--muted);padding:6px 11px;border-radius:999px;font-size:.95rem;border:1px solid transparent}
+nav.tabs a:hover{color:var(--ink);border-color:var(--line)}
+nav.tabs a[aria-current="page"]{background:var(--accent);color:var(--accent-ink)}
+
+main{padding-block:22px 60px}
+section.view{display:flex;flex-direction:column;gap:20px}
+.lead{max-width:68ch;color:var(--muted)}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.panel.key{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.panel h3 .tag{margin-left:6px}
+.eyebrow{font-family:var(--f-mono);font-size:.74rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+ul.clean{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:7px}
+ol.steps{margin:0;padding-left:1.3em;display:flex;flex-direction:column;gap:9px}
+ol.steps li::marker{font-family:var(--f-mono);color:var(--accent)}
+
+/* Sources : fiabilité */
+.tag{display:inline-block;font-family:var(--f-mono);font-size:.68rem;letter-spacing:.04em;text-transform:uppercase;padding:1px 6px;border-radius:4px;border:1px solid currentColor;vertical-align:middle;white-space:nowrap}
+.t-off{color:var(--ok)}
+.t-guide{color:var(--accent)}
+.t-db{color:var(--silver)}
+.t-weak{color:var(--warn)}
+.t-me{color:var(--pet)}
+.t-game{color:var(--gold)}
+.note{border-left:3px solid var(--warn);background:var(--surface-2);padding:9px 12px;border-radius:0 7px 7px 0;font-size:.95rem}
+.note.info{border-left-color:var(--accent)}
+.note.ok{border-left-color:var(--ok)}
+
+/* Prix */
+.coin{white-space:nowrap;font-family:var(--f-mono);font-size:.86em}
+.coin i{font-style:normal}
+.coin .g{color:var(--gold)} .coin .s{color:var(--silver)} .coin .c{color:var(--copper)}
+.coin i::before{content:"";display:inline-block;width:.62em;height:.62em;border-radius:50%;background:currentColor;margin:0 2px 0 4px;vertical-align:.02em}
+
+/* Tables */
+.tw{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.95rem}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--f-mono);font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:500;background:var(--surface-2);position:sticky;top:0}
+tr:last-child td{border-bottom:0}
+td.num,th.num{text-align:right;font-variant-numeric:tabular-nums}
+tr.past td{color:var(--muted)}
+tr.now td{background:var(--accent-soft)}
+tr.done td{text-decoration:line-through;color:var(--muted)}
+.en{color:var(--muted);font-size:.86em}
+.prio{font-family:var(--f-mono);font-size:.72rem;padding:1px 6px;border-radius:4px}
+.p-E{background:var(--accent);color:var(--accent-ink)}
+.p-U{border:1px solid var(--accent);color:var(--accent)}
+.p-O{border:1px solid var(--line);color:var(--muted)}
+
+/* Checklist */
+.chk{display:flex;gap:9px;align-items:flex-start}
+.chk input{margin-top:.3em;accent-color:var(--accent);width:1.05em;height:1.05em;flex:none}
+.chk.is-done > span{color:var(--muted);text-decoration:line-through}
+
+/* Coordonnées */
+.coord{display:inline-flex;align-items:center;gap:4px;font-family:var(--f-mono);font-size:.84em;background:var(--surface-2);border:1px solid var(--line);border-radius:5px;padding:0 2px 0 6px;white-space:nowrap}
+.coord button,.coord a{border:0;background:transparent;font-size:.72rem;padding:1px 5px;color:var(--accent);text-decoration:none;border-left:1px solid var(--line);border-radius:0}
+.coord a:hover,.coord button:hover{text-decoration:underline}
+.maplink{display:inline-flex;align-items:center;gap:4px;font-size:.9rem;text-decoration:none;border:1px solid var(--accent);border-radius:6px;padding:2px 8px;white-space:nowrap}
+.maplink:hover{background:var(--accent-soft)}
+.coord.approx{border-style:dashed}
+
+/* Talents */
+.tree{display:flex;flex-direction:column;gap:8px}
+.tier{display:grid;grid-template-columns:44px 1fr;gap:8px;align-items:start}
+.tier-n{font-family:var(--f-mono);font-size:.72rem;color:var(--muted);padding-top:8px}
+.tier-t{display:flex;flex-wrap:wrap;gap:8px}
+.tal{border:1px solid var(--line);border-radius:8px;padding:6px 10px;background:var(--surface);min-width:0;flex:1 1 170px;display:flex;flex-direction:column;gap:2px}
+.tal b{font-weight:500}
+.tal .pts{font-family:var(--f-mono);font-size:.8rem;color:var(--muted)}
+.tal.has{border-color:var(--accent)}
+.tal.has .pts{color:var(--accent)}
+.tal.full{background:var(--accent-soft)}
+.tal.next{box-shadow:0 0 0 2px var(--pet)}
+.tal p{font-size:.86rem;color:var(--muted)}
+.path{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:6px}
+.path div{font-size:.86rem;border:1px solid var(--line);border-radius:6px;padding:4px 8px;background:var(--surface)}
+.path div span{font-family:var(--f-mono);color:var(--muted);margin-right:6px}
+.path div.cur{border-color:var(--pet);background:var(--pet-soft)}
+.path div.past{opacity:.6}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.seg button{border:0;border-radius:0;background:var(--surface)}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+
+/* Cartes & graphiques */
+.figure{display:flex;flex-direction:column;gap:8px;min-width:0}
+.svgbox{overflow-x:auto;border:1px solid var(--line);border-radius:10px;background:var(--surface);padding:8px}
+.svgbox svg{display:block;max-width:100%;height:auto;margin:0 auto}
+svg text{font-family:var(--f-body);fill:var(--ink)}
+svg .ax{font-family:var(--f-mono);font-size:10px;fill:var(--muted)}
+svg .gl{stroke:var(--line);stroke-width:1}
+svg .halo{paint-order:stroke;stroke:var(--surface);stroke-width:4px;stroke-linejoin:round}
+svg .pt{fill:var(--accent);stroke:var(--surface);stroke-width:2}
+svg .pt.pet{fill:var(--pet)}
+svg .pt.trainer{fill:var(--ok)}
+svg .pt.vendor{fill:var(--gold)}
+svg .area{fill:var(--pet-soft);stroke:var(--pet);stroke-width:1;stroke-dasharray:3 3}
+svg .ring{fill:none;stroke:var(--muted);stroke-width:1.2;stroke-dasharray:3 3}
+svg .bar{fill:var(--surface-2);stroke:var(--line)}
+svg .bar.on{fill:var(--accent);stroke:var(--accent)}
+svg .bar.near{fill:var(--accent-soft);stroke:var(--accent)}
+svg .lvl-line{stroke:var(--pet);stroke-width:2}
+svg .rec{fill:var(--pet);stroke:var(--surface);stroke-width:1.5}
+svg .arrow{stroke:var(--muted);stroke-width:1.5;fill:none}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.86rem;color:var(--muted)}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:50%;margin-right:5px;vertical-align:-1px}
+
+pre.macro{margin:0;font-family:var(--f-mono);font-size:.84rem;background:var(--surface-2);border:1px solid var(--line);border-radius:8px;padding:10px 12px;overflow-x:auto;white-space:pre}
+.macro-h{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.toast{position:fixed;left:50%;bottom:calc(16px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:7px 14px;border-radius:8px;font-size:.92rem;z-index:20}
+
+footer{border-top:1px solid var(--line);padding-block:18px;color:var(--muted);font-size:.88rem}
+@media (max-width:700px){
+  header.top{position:static}
+}
+@media (max-width:520px){
+  h2{font-size:1.4rem}
+  .lvl-badge{width:44px;height:44px;font-size:1.2rem}
+  .panel{padding:14px}
+}
+@media (prefers-reduced-motion: reduce){*{scroll-behavior:auto!important;transition:none!important}}
+</style>
+
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <div class="top-in">
+      <div class="ident">
+        <div class="lvl-badge" id="badge" aria-hidden="true">10</div>
+        <div>
+          <h1>Carnet de chasse de Jeanpalsec</h1>
+          <p>Nain · Chasseur · Alliance · WoW Forever · <a href="../../">Forever Pex Guide</a></p>
+        </div>
+      </div>
+      <div class="controls">
+        <div class="lvl-ctl">
+          <button class="icon-btn" id="lvl-down" aria-label="Niveau précédent">−</button>
+          <label class="ctl" for="lvl">Niveau <input type="number" id="lvl" min="10" max="60" value="10"></label>
+          <button class="icon-btn" id="lvl-up" aria-label="Niveau suivant">+</button>
+          <input type="range" id="lvl-range" min="10" max="60" value="10" aria-label="Niveau">
+        </div>
+        <label class="ctl" for="pet">Familier
+          <select id="pet">
+            <option value="none">pas encore</option>
+            <option value="bear">Ours</option>
+            <option value="boar">Sanglier</option>
+            <option value="cat">Félin</option>
+            <option value="other">Autre</option>
+          </select>
+        </label>
+      </div>
+    </div>
+    <nav class="tabs" aria-label="Sections">
+      <a href="#maintenant">Maintenant</a>
+      <a href="#perso">Mon perso</a>
+      <a href="#familier">Familier</a>
+      <a href="#talents">Talents</a>
+      <a href="#sorts">Sorts</a>
+      <a href="#rotation">Rotation &amp; macros</a>
+      <a href="#route">Route &amp; donjons</a>
+      <a href="#stuff">Équipement</a>
+      <a href="#metiers">Métiers</a>
+      <a href="#camping">Camping</a>
+      <a href="#forever">Forever &amp; nouveautés</a>
+      <a href="#sources">Sources</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+<!-- ============ MAINTENANT ============ -->
+<section class="view" id="v-maintenant" aria-labelledby="h-now">
+  <div class="stack">
+    <span class="eyebrow">Données vérifiées le 10 nov. 2026</span>
+    <h2 id="h-now">À faire au niveau <span data-lvl>10</span></h2>
+    <p class="lead">Règle le niveau en haut : tout le carnet se recalcule (sorts à acheter, talent du niveau, zones, donjons, équipement). RestedXP reste ton guide de quêtes ; ce carnet couvre la classe, le familier, le stuff et les métiers.</p>
+  </div>
+  <div id="now-pet" class="stack"></div>
+  <div class="grid" id="now-grid"></div>
+  <div class="panel">
+    <h3>Tes métiers</h3>
+    <div class="row">
+      <label class="ctl" for="skin">Dépeçage <input type="number" id="skin" min="0" max="320" value="3"></label>
+      <label class="ctl" for="lw">Travail du cuir <input type="number" id="lw" min="0" max="300" value="0"></label>
+      <span class="small muted">Mets tes compétences à jour : les conseils suivent.</span>
+    </div>
+    <div id="now-prof" class="stack"></div>
+  </div>
+</section>
+
+<!-- ============ MON PERSO ============ -->
+<section class="view" id="v-perso" hidden aria-labelledby="h-me">
+  <div class="stack">
+    <span class="eyebrow">Lu dans ton jeu le 10 nov. 2026 à 23 h 16 <span class="tag t-game">jeu</span></span>
+    <h2 id="h-me">Jeanpalsec, chasseur nain niveau 10</h2>
+    <p class="lead">Fiche, équipement, familier, talents, sorts et métiers relevés directement dans WoW Forever le 10 nov. Pour la fiche à jour exportée par l’addon, ouvre <a href="../../perso/">Fiches perso</a>.</p>
+  </div>
+
+  <div class="panel key">
+    <h3>Tes 5 priorités, dans l’ordre</h3>
+    <ol class="steps" id="prio-list"></ol>
+    <p class="small" id="prio-budget"></p>
+    <p class="small muted">Prix : relevés des joueurs sur Wowhead Forever (ils varient de quelques pièces selon le vendeur et ta réputation). Prix des rangs de métier : non vérifiés, regarde chez l’entraîneur.</p>
+  </div>
+
+  <div class="grid">
+    <div class="panel">
+      <h3>Caractéristiques</h3>
+      <div class="tw"><table><tbody>
+        <tr><td>Vie · Mana</td><td class="num mono">269 · 286</td></tr>
+        <tr><td>Force · Agilité · Endurance</td><td class="num mono">26 · 31 · 34</td></tr>
+        <tr><td>Intelligence · Esprit</td><td class="num mono">24 · 25</td></tr>
+        <tr><td>Puissance d’attaque à distance</td><td class="num mono">82 <span class="muted">(62 + 20 de l’Aspect du faucon)</span></td></tr>
+        <tr><td>Puissance d’attaque en mêlée</td><td class="num mono">57</td></tr>
+        <tr><td>Dégâts à distance · mêlée</td><td class="num mono">20–26 · 14–22</td></tr>
+        <tr><td>Toucher · Critique · Hâte</td><td class="num mono">1,0 % · 4,9 % · 10 %</td></tr>
+        <tr><td>Armure · Esquive · Parade</td><td class="num mono">225 · 9,0 % · 4,9 %</td></tr>
+        <tr><td>Défense</td><td class="num mono">48 / 50</td></tr>
+        <tr><td>Argent</td><td class="num"><span class="coin">6<i class="s" title="argent"></i> 5<i class="c" title="cuivre"></i></span></td></tr>
+      </tbody></table></div>
+      <p class="small muted">Toucher 1 % = ton racial Précision artisanale. Hâte 10 % = ta Petite giberne. Il faut 5 % de toucher pour ne jamais rater un mob de ton niveau : en pex, ça se joue surtout sur l’Agilité et l’arme.</p>
+    </div>
+    <div class="panel">
+      <h3>Pumba, ton familier</h3>
+      <div class="tw"><table><tbody>
+        <tr><td>Famille · niveau</td><td>Sanglier · 10 (XP 0 / 1900)</td></tr>
+        <tr><td>Loyauté</td><td>Niveau 1, « Rebelle »</td></tr>
+        <tr><td>Vie · Armure</td><td class="mono">287 · 632</td></tr>
+        <tr><td>Dégâts · Critique</td><td class="mono">16–21 · 4,9 % <span class="muted">(ton critique)</span></td></tr>
+        <tr><td>Techniques</td><td>Charge rang 1 (35 de focalisation, 8–25 m, recharge 25 s, immobilise 1 s, +62 PA sur l’attaque suivante) · Grondement rang 2</td></tr>
+      </tbody></table></div>
+      <p class="small">Bon choix : le sanglier est l’un des deux familiers « fiables en solo » de Mobalytics, avec l’ours. Garde Pumba. Loyauté 1 : nourris-le régulièrement (il mange de tout, tu as de la viande dans ton sac) et évite qu’il meure, sa loyauté monte avec le temps.</p>
+    </div>
+  </div>
+
+  <h3>Équipement porté</h3>
+  <div class="tw"><table><thead><tr><th>Emplacement</th><th>Objet</th><th>Détails</th><th>À remplacer par</th></tr></thead><tbody>
+    <tr class="now"><td>À distance</td><td>Tromblon orné <span class="en">Ornate Blunderbuss</span></td><td class="mono small">4–9 · vitesse 2,20 · 3,0 DPS</td><td class="small">Daryl’s Hunting Rifle (Loch Modan, ≈6 DPS) puis Calibrated Blunderbuss (Hall of Thanes, 9,57 DPS)</td></tr>
+    <tr class="now"><td>Munitions</td><td>Balle légère ×444 <span class="en">Light Shot</span></td><td class="mono small">1,5 DPS</td><td class="small"><b>Balle lourde (Heavy Shot), 3,5 DPS</b> : priorité n°1</td></tr>
+    <tr><td>Giberne</td><td>Petite giberne</td><td class="small">+10 % de vitesse de tir</td><td class="small">Hunting Ammo Sack (quête Vyrin’s Revenge, Loch Modan)</td></tr>
+    <tr><td>Main droite</td><td>Dague d’artisan <span class="tag t-db">verte</span></td><td class="mono small">8–15 · 1,70 · 6,8 DPS · +1 Agi</td><td class="small">Une arme à deux mains avec Agilité quand tu en croises une</td></tr>
+    <tr><td>Torse</td><td>Tunique en cuir souple <span class="tag t-db">verte</span></td><td class="mono small">62 armure · +2 End</td><td class="small">—</td></tr>
+    <tr><td>Jambes</td><td>Pantalon nain en cuir</td><td class="mono small">29 armure</td><td class="small">Pièce verte avec Agilité</td></tr>
+    <tr><td>Mains</td><td>Gants d’éleveur de loups</td><td class="mono small">21 armure</td><td class="small">Pièce verte avec Agilité</td></tr>
+    <tr><td>Taille</td><td>Ceinture rapiécée en cuir</td><td class="mono small">18 armure</td><td class="small">Pièce verte avec Agilité</td></tr>
+    <tr><td>Pieds</td><td>Bottes rapiécées en cuir</td><td class="mono small">16 armure</td><td class="small">Pièce verte avec Agilité</td></tr>
+    <tr><td>Poignets</td><td>Brassards rapiécés en cuir</td><td class="mono small">12 armure</td><td class="small">Pièce verte avec Agilité</td></tr>
+    <tr><td>Dos</td><td>Cape râpée</td><td class="mono small">5 armure</td><td class="small">Une cape avec Agilité</td></tr>
+    <tr class="past"><td>Tête, cou, épaules, anneaux, bijoux</td><td>vides</td><td></td><td class="small">Normal au niveau 10 : les premiers arrivent en quêtes et en donjon</td></tr>
+  </tbody></table></div>
+  <p class="small muted">Plusieurs pièces sont abîmées (Brassards 13/16, Gants 14/16, Bottes 12/20, Tromblon 25/30) : fais réparer chez un marchand qui propose la réparation (icône d’enclume) quand tu passes.</p>
+
+  <div class="grid two">
+    <div class="panel">
+      <h3>Talents</h3>
+      <p class="small">1 point placé : <b>Œil de faucon 1/3</b> (Précision, +2 m de portée). Aucun point restant. Le chemin de pex en Maîtrise des bêtes commence au 11 ; l’onglet <a href="#talents">Talents</a> affiche « Ton arbre » avec ce point déjà pris.</p>
+    </div>
+    <div class="panel">
+      <h3>Sorts connus</h3>
+      <p class="small">Tir automatique, Tir des Arcanes 1, Marque du chasseur 1, Morsure de serpent 2, Trait de choc, Attaque du raptor 1, Aspect du faucon 1, Aspect du singe, Pistage des bêtes, Parade, sorts de familier et Dressage des bêtes.</p>
+      <p class="small muted">Pas encore appris : Attaque du raptor rang 2, Pistage des humanoïdes (optionnel).</p>
+    </div>
+    <div class="panel">
+      <h3>Métiers</h3>
+      <ul class="clean small">
+        <li><b>Dépeçage 57 / 75</b> (Apprenti). Rang Compagnon disponible : tu as le niveau 10 et plus de 50.</li>
+        <li><b>Deuxième métier principal libre</b> : place pour le Travail du cuir. Tu as déjà 22 Cuir léger.</li>
+        <li>Cuisine 3 / 75 · Secourisme 3 / 75 · Pêche non apprise.</li>
+        <li>Recettes de camp connues : Feu de camp basique (il te manque le Silex et amadou) et Chaise du camp (il te manque 1 Bois simple).</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>Quêtes</h3>
+      <ul class="clean small">
+        <li>En cours : Opération Recombobulation (Rouage de rééquilibrage 0/8, Engrenage gyromécanique 0/8).</li>
+        <li>Abandonnée : <b>La bière parfaite</b> (Chatoyante 0/6), étape 82 de RestedXP. Voir la priorité n°4.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAMILIER ============ -->
+<section class="view" id="v-familier" hidden aria-labelledby="h-pet">
+  <div class="stack">
+    <span class="eyebrow">Niveau 10 : le gros pic de puissance</span>
+    <h2 id="h-pet">Choisir et apprivoiser ton familier</h2>
+  </div>
+
+  <div class="panel key">
+    <h3>Ton familier : Pumba, un sanglier. Garde-le. <span class="tag t-game">jeu</span></h3>
+    <p class="small">Tu as apprivoisé un sanglier niveau 10 (vu en jeu le 10 nov.). Sanglier et ours sont les deux choix « fiables en solo » de Mobalytics : pas besoin d’en changer. Ce qui suit reste valable si tu veux un deuxième familier.</p>
+    <h3>Si tu en veux un deuxième : l’ours (Ice Claw Bear) <span class="tag t-me">mon avis</span></h3>
+    <ul class="clean">
+      <li><b>Robuste quand ça compte.</b> Blizzard a reconnu le 6 nov. que les familiers ne tankent pas assez ; un correctif de stats est annoncé pour aujourd’hui, mardi 10 nov. <span class="tag t-off">officiel</span> Les chiffres finaux n’étaient pas publiés quand j’ai vérifié. Tant que ce n’est pas confirmé en jeu, prends le familier le plus solide.</li>
+      <li><b>Swipe touche plusieurs ennemis</b>, utile avec la méthode multi-mobs du guide de Feor. <span class="tag t-guide">Mobalytics</span></li>
+      <li><b>Les ours et sangliers</b> sont les deux choix « fiables en solo » du guide familiers de Mobalytics (6 nov.). <span class="tag t-guide">Mobalytics</span></li>
+    </ul>
+    <p class="note">Contre-avis à connaître : Feor (guide de pex Mobalytics, 9 nov.) classe le <b>félin</b> comme le familier le plus DPS. Si tu préfères un félin, prends-en un de ton niveau : Elder Snow Leopard (9–10, nouveau) ou le rare Ghostfang (10), tous deux à Dun Morogh d’après Wowhead Forever, plutôt que le Snow Leopard 7–8 de la quête. Le sanglier vaut l’ours en solo. Dans le guide du 8 nov. j’avais dit sanglier, puis ours : l’écart est faible, ne perds pas de temps à hésiter.</p>
+  </div>
+
+  <div class="grid">
+    <div class="panel">
+      <h3>La quête de classe, étape par étape</h3>
+      <ol class="steps" id="pet-steps"></ol>
+      <p class="note info small">Baguette d’apprivoisement (Taming Rod) : 3 charges, 20 s de recharge. Plus de charge ? Attends 20 s. Baguette vide : détruis-la, abandonne la quête et reprends-la chez Grif. Si ta quête liste les trois bêtes d’un coup, enchaîne-les sans revenir.</p>
+      <p class="small muted">Coordonnées : ForeverDB (PNJ confirmés Forever) <span class="tag t-db">base de données</span>. Pour les bêtes, ouvre « carte ↗ » : Wowhead montre tous leurs points d’apparition. Quêtes sur Wowhead Forever : <a href="https://www.wowhead.com/forever/quest=6064" target="_blank" rel="noopener">Taming the Beast (1)</a>, <a href="https://www.wowhead.com/forever/quest=6084" target="_blank" rel="noopener">(2)</a>, <a href="https://www.wowhead.com/forever/quest=6085" target="_blank" rel="noopener">(3)</a>.</p>
+    </div>
+    <div class="panel">
+      <h3>Sur la vraie carte</h3>
+      <p class="small muted">« carte ↗ » ouvre la page Wowhead Forever du PNJ ou de la bête : vraie carte du jeu, avec ses points d’apparition. « /way » copie la commande TomTom, qui pose le point directement sur ta carte en jeu (à taper dans la zone).</p>
+      <div class="tw"><table><thead><tr><th>Qui</th><th>Rôle</th><th>Coordonnées</th></tr></thead><tbody id="real-pins"></tbody></table></div>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="panel">
+      <h3>Cartes complètes des zones (Forever)</h3>
+      <p class="small muted">Cartes Forever en grand format sur Guild Order : passe la souris dessus pour lire les coordonnées exactes du jeu.</p>
+      <ul class="clean" id="zone-maps"></ul>
+      <p class="small muted">Je ne copie pas les images de carte de Blizzard dans ce carnet : chaque lien ouvre la vraie carte.</p>
+    </div>
+    <div class="panel">
+      <h3>Ce que fait un familier dans Forever</h3>
+      <ul class="clean small">
+        <li>Il hérite de <b>100 % de ton critique</b> et de <b>10 % de ta puissance d’attaque</b>. <span class="tag t-guide">Method</span> <span class="tag t-guide">Warcraft Tavern</span> Notes beta : 30 % de ton armure, 1 Endurance = 2 PV du familier. Chaque meilleure arme améliore aussi le familier.</li>
+        <li>Les buffs des autres joueurs (bénédictions, parchemins) ne marchent plus sur lui. <span class="tag t-guide">Mobalytics</span></li>
+        <li>Tous les familiers ont la même vitesse d’attaque de base, mais chaque bête a un passif « Faster Attack » (I à VII) qu’on ne peut pas apprendre. À famille égale, prends la bête au rang le plus haut. <span class="tag t-guide">Mobalytics</span></li>
+        <li>Apprivoiser une bête de niveau supérieur au tien échoue. <span class="tag t-off">officiel</span></li>
+        <li>Pendant l’apprivoisement ton armure tombe à 0 : commence à portée max. Dès le 20, pose un Piège givrant avant. <span class="tag t-guide">Mobalytics</span></li>
+        <li>Bonheur : content = 100 % de dégâts, heureux = 125 %, mécontent = 75 %. Renvoyer le familier coûte 50 de bonheur, sa mort aussi en coûte. Nourris-le hors combat. <span class="tag t-guide">Warcraft Tavern</span></li>
+        <li>Il gagne 25 % de l’XP de tes victimes (mobs verts ou plus), jamais d’XP de quête ni reposée, et plafonne à ton niveau. <span class="tag t-guide">Warcraft Tavern</span></li>
+        <li>Écurie : 1 familier actif + 2 à l’écurie une fois les deux places achetées. <span class="tag t-guide">Mobalytics</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="panel">
+    <div class="row" style="justify-content:space-between">
+      <h3>Familles : capacité unique et où les trouver (Alliance)</h3>
+      <div class="seg" role="group" aria-label="Filtrer les familles">
+        <button type="button" data-ff="all" aria-pressed="true">Toutes</button>
+        <button type="button" data-ff="solo" aria-pressed="false">Pex solo</button>
+        <button type="button" data-ff="group" aria-pressed="false">Donjons</button>
+        <button type="button" data-ff="pvp" aria-pressed="false">JcJ</button>
+      </div>
+    </div>
+    <div class="tw"><table id="fam-table"><thead><tr><th>Famille</th><th>Capacité</th><th>Où (niveaux des bêtes)</th><th>Régime</th><th>Usage</th></tr></thead><tbody></tbody></table></div>
+    <p class="small muted">Capacités et lieux : guide familiers Mobalytics du 6 nov. et Deep Dive Blizzard. Régimes : ceux de Classic, non revérifiés dans Forever. Ghostfang (rare, niveau 10, félin apprivoisable) et Elder Snow Leopard (niveau 9–10, ajouté dans Forever) sont confirmés par Wowhead Forever, avec leur carte dans « Sur la vraie carte » plus haut.</p>
+  </div>
+
+  <div class="panel">
+    <h3>Garder ses techniques à jour (Claw, Bite)</h3>
+    <ol class="steps small">
+      <li>Mets ton familier principal à l’écurie.</li>
+      <li>Apprivoise une bête qui connaît un rang supérieur de Griffe ou Morsure (Connaissance des bêtes au 24 montre ce qu’elle connaît).</li>
+      <li>Combats avec elle jusqu’au message « Vous avez appris… ».</li>
+      <li>Libère-la, reprends ton familier, puis Dressage des bêtes dans le grimoire pour lui apprendre le nouveau rang.</li>
+    </ol>
+    <p class="small muted">Procédure du guide de Feor (Mobalytics, 9 nov.).</p>
+  </div>
+</section>
+
+<!-- ============ TALENTS ============ -->
+<section class="view" id="v-talents" hidden aria-labelledby="h-tal">
+  <div class="stack">
+    <span class="eyebrow">Maîtrise des bêtes · 31 / 20 / 0 à 60</span>
+    <h2 id="h-tal">Talents au niveau <span data-lvl>10</span></h2>
+    <p class="lead">Chemin de pex de Feor (Mobalytics, mis à jour le 9 nov.), point par point. Le contour orange marque le point du niveau choisi.</p>
+  </div>
+  <div class="row">
+    <div class="seg" role="group" aria-label="Variante">
+      <button type="button" data-var="mine" aria-pressed="true">Ton arbre</button>
+      <button type="button" data-var="feor" aria-pressed="false">Chemin Feor</button>
+      <button type="button" data-var="tank" aria-pressed="false">Variante familier solide</button>
+    </div>
+    <span class="small muted" id="var-note"></span>
+  </div>
+  <div class="grid">
+    <div class="panel">
+      <h3>Maîtrise des bêtes <span class="mono muted" id="bm-count"></span></h3>
+      <div class="tree" id="tree-bm"></div>
+      <p class="small muted">Ordre des talents par rangée tel qu’affiché par Mobalytics ; l’arithmétique des paliers (5 points par rangée) colle avec le chemin. Pathfinding apparaît après la rangée 2, donc rangée 3 : cohérent avec la correction du 2 nov., à vérifier dans ton arbre.</p>
+    </div>
+    <div class="panel">
+      <h3>Précision <span class="mono muted" id="mm-count"></span></h3>
+      <div class="tree" id="tree-mm"></div>
+      <p class="small muted">Précision ne commence qu’au 41. Les 51 points sont atteints au 60.</p>
+    </div>
+  </div>
+  <div class="panel">
+    <h3>Le chemin complet, niveau par niveau</h3>
+    <div class="path" id="path"></div>
+  </div>
+</section>
+
+<!-- ============ SORTS ============ -->
+<section class="view" id="v-sorts" hidden aria-labelledby="h-sp">
+  <div class="stack">
+    <span class="eyebrow">Entraîneur de chasseurs</span>
+    <h2 id="h-sp">Sorts : quoi acheter et quand</h2>
+    <p class="lead">Coche ce que tu as appris : le carnet s’en souvient sur cet appareil. Les prix affichés viennent de tes captures de l’entraîneur ; je n’affiche aucun autre prix tant qu’il n’est pas vérifié. Budget total d’entraînement 1 → 60 annoncé autour de 206 po (notes Blizzard du 2 nov., relayées).</p>
+  </div>
+  <div class="row small">
+    <span><span class="prio p-E">E</span> essentiel</span>
+    <span><span class="prio p-U">U</span> utile</span>
+    <span><span class="prio p-O">O</span> optionnel, peut attendre</span>
+    <span class="tag t-me">tri E/U/O : mon avis</span>
+  </div>
+  <div class="tw"><table id="spell-table"><thead><tr><th class="num">Niv.</th><th>Sort</th><th></th><th>Prix</th><th>Pourquoi</th><th>Appris</th></tr></thead><tbody></tbody></table></div>
+  <p class="note info small">Noms français du client Classic. Au-delà du 30, chaque niveau pair apporte aussi de nouveaux rangs : achète en priorité les rangs de Tir des Arcanes, Visée, Flèches multiples, Morsure de serpent, Marque du chasseur, Guérison du familier et Aspect du faucon. Les nouveaux sorts ne se placent plus tout seuls sur ta barre : glisse-les toi-même.</p>
+</section>
+
+<!-- ============ ROTATION ============ -->
+<section class="view" id="v-rotation" hidden aria-labelledby="h-rot">
+  <div class="stack">
+    <span class="eyebrow">Au combat</span>
+    <h2 id="h-rot">Rotation par palier</h2>
+    <p class="lead">Le palier de ton niveau est mis en avant. Base : guide de Feor (Mobalytics, 9 nov.) et Method, avec les règles officielles de Forever (Auto Shot qui demande 0,5 s d’immobilité, Visée qui partage 6 s de recharge avec Flèches multiples, Summon Hawk avec Tir des Arcanes).</p>
+  </div>
+  <div class="grid" id="rot-grid"></div>
+  <div class="grid">
+    <div class="panel">
+      <h3>Méthode multi-mobs (la plus rapide)</h3>
+      <ol class="steps small">
+        <li>Auto Shot sur un mob, cherche le suivant : ton prochain tir part sur lui.</li>
+        <li>Tu gères deux mobs : le plus proche prend tes coups de mêlée (Attaque du raptor), le plus loin tes tirs.</li>
+        <li>Morsure de serpent sur les deux si la mana suit, Trait de choc et Tir des Arcanes pour espacer.</li>
+        <li>Dès le 12, Coupure d’ailes pour garder la distance. Mobs collés ensemble : Flèches multiples.</li>
+        <li>Avec le familier : il prend son propre mob, ou achève ceux qui sont bas pendant que tu tires le mob lointain.</li>
+      </ol>
+      <p class="small muted">Résumé du guide de Feor <span class="tag t-guide">Mobalytics</span></p>
+    </div>
+    <div class="panel">
+      <h3>Règles qui évitent les morts</h3>
+      <ul class="clean small">
+        <li>Zone morte de 5 à 8 m : ni tir ni mêlée efficace. Coupure d’ailes, deux pas en arrière, tire.</li>
+        <li>Laisse le familier frapper 2 ou 3 fois avant de tirer, sinon tu reprends l’aggro.</li>
+        <li>Un mob quitte le familier pour toi : arrête de tirer, Coupure d’ailes, recule ; Intimidation dès le 30.</li>
+        <li>Pièges utilisables en combat (30 s). Blizzard annonçait Feu et Givre sur des recharges séparées ; une note du 2 nov. relayée par un site communautaire dit qu’ils partagent désormais la même. <span class="tag t-weak">contradictoire</span> Regarde l’infobulle.</li>
+        <li>Marque du chasseur augmente la puissance à distance de tout le monde sur la cible, familier compris : toujours la poser.</li>
+        <li>Forme de pierre (racial nain) : −10 % de dégâts physiques 8 s et purge saignements, poisons, maladies. Ton bouton panique avant Feindre la mort (30).</li>
+      </ul>
+    </div>
+  </div>
+  <div class="stack">
+    <h3>Macros pour un client en français</h3>
+    <p class="note small">Correction par rapport au guide du 8 nov. : ses macros utilisaient les noms anglais, qui ne marchent pas sur un client français. Celles-ci utilisent les noms français. Si une icône reste en « ? » rouge, ouvre le grimoire pendant que l’éditeur de macro est ouvert et fais Maj + clic sur le sort pour insérer son nom exact.</p>
+    <div class="grid" id="macros"></div>
+  </div>
+</section>
+
+<!-- ============ ROUTE ============ -->
+<section class="view" id="v-route" hidden aria-labelledby="h-route">
+  <div class="stack">
+    <span class="eyebrow">Alliance · départ Dun Morogh</span>
+    <h2 id="h-route">Route de pex et donjons</h2>
+    <p class="lead">Niveaux des zones et paliers recommandés : carte des zones Mobalytics (9 nov.). Le graphique ci-dessous compare les fourchettes de niveaux ; pour voir où sont les zones, ouvre la vraie carte.</p>
+    <div class="row">
+      <a class="maplink" href="https://mobalytics.gg/wow-forever/guides/zone-map-level-ranges" target="_blank" rel="noopener">Vraie carte du monde avec les niveaux (Mobalytics) ↗</a>
+      <a class="maplink" href="https://guildorder.com/games/wow_classic/maps/forever/eastern-kingdoms-1415" target="_blank" rel="noopener">Royaumes de l’Est, grand format ↗</a>
+    </div>
+  </div>
+  <div class="panel key" id="route-now"></div>
+  <div class="figure">
+    <div class="svgbox" id="chart-zones"></div>
+  </div>
+  <div class="stack">
+    <h3>Donjons : fourchette Method et niveau conseillé Mobalytics</h3>
+    <p class="small muted">Barre = fourchette Method ; point orange = niveau conseillé par Mobalytics. Les deux sites diffèrent de quelques niveaux : c’est normal sur un jeu sorti il y a 6 jours. En donjon, l’XP des mobs est environ 70 % plus basse qu’en Classic ; les quêtes de donjon et le stuff sont la vraie raison d’y aller. <span class="tag t-guide">Method</span></p>
+    <div class="svgbox" id="chart-dungeons"></div>
+  </div>
+  <div class="tw"><table id="dg-table"><thead><tr><th>Donjon</th><th class="num">Method</th><th class="num">Mobalytics</th><th>Note</th></tr></thead><tbody></tbody></table></div>
+</section>
+
+<!-- ============ STUFF ============ -->
+<section class="view" id="v-stuff" hidden aria-labelledby="h-gear">
+  <div class="stack">
+    <span class="eyebrow">L’arme à distance fait tes dégâts et ceux du familier</span>
+    <h2 id="h-gear">Équipement</h2>
+  </div>
+  <div class="grid">
+    <div class="panel">
+      <h3>Priorité des statistiques en pex</h3>
+      <ol class="steps small">
+        <li><b>Agilité</b> : dégâts et critique, pour toi et le familier.</li>
+        <li><b>Puissance d’attaque</b> : comme l’Agilité, sans le critique.</li>
+        <li><b>Endurance</b> : ta vie et celle du familier.</li>
+        <li><b>Esprit</b> : utile une fois Bestial Discipline pris (31–32).</li>
+        <li><b>Intelligence</b> : réserve de mana, peu de valeur en Maîtrise des bêtes.</li>
+      </ol>
+      <p class="note small">Désaccord entre sources : Method met Agilité = Intelligence, mais avec le talent Careful Aim (Précision) qui convertit l’Intelligence en puissance d’attaque. Dans le chemin de pex, Careful Aim n’arrive qu’au 46 ; avant, l’ordre de Feor ci-dessus est le bon. <span class="tag t-guide">Mobalytics</span> <span class="tag t-guide">Method</span></p>
+    </div>
+    <div class="panel">
+      <h3>Compétences d’arme d’un nain</h3>
+      <ul class="clean small">
+        <li>Tu as déjà <b>Fusils</b> : reste sur les fusils tant que possible.</li>
+        <li><b>Arbalètes</b> : maître d’armes de Forgefer. <b>Arcs</b> : Darnassus. <span class="tag t-guide">Mobalytics</span></li>
+        <li>Le guide de Feor conseille un Hornwood Recurve Bow en sortant de la zone de départ : c’est un arc, il te faudrait d’abord la compétence Arcs. Pour toi, ignore ce conseil.</li>
+        <li>Armure : cuir jusqu’au 40, puis mailles (à apprendre à l’entraîneur au 40).</li>
+        <li>Mêlée : arme à deux mains plutôt qu’à une main, pour Attaque du raptor. <span class="tag t-guide">Mobalytics</span></li>
+      </ul>
+    </div>
+  </div>
+  <h3>Armes à distance (Alliance)</h3>
+  <div class="tw"><table id="rng-table"><thead><tr><th class="num">Niv.</th><th>Objet</th><th>Type</th><th class="num">DPS</th><th>Source</th></tr></thead><tbody></tbody></table></div>
+  <p class="small muted">Liste Method 1–30 et guide du 8 nov. Retiré par rapport au 8 nov. : le Privateer Musket, récompense d’une quête des Tarides visant Northwatch, très probablement réservée à la Horde. « Daryl’s Hunting Rifle » ou « Bow » : les sources ne donnent pas le même nom, regarde la récompense en jeu.</p>
+  <div class="grid">
+    <div class="stack">
+      <h3>Munitions</h3>
+      <div class="tw"><table id="ammo-table"><thead><tr><th class="num">Niv.</th><th>Balles (fusil)</th><th>Flèches (arc, arbalète)</th><th class="num">DPS</th></tr></thead><tbody></tbody></table></div>
+      <p class="small muted">Noms anglais des bases de données : chez le vendeur, compare le DPS dans l’infobulle. Garde toujours 400 munitions ou plus.</p>
+    </div>
+    <div class="stack">
+      <h3>Giberne / carquois</h3>
+      <div class="tw"><table id="quiver-table"><thead><tr><th class="num">Niv.</th><th>Giberne (balles)</th><th>Carquois (flèches)</th><th>Cases · vitesse</th></tr></thead><tbody></tbody></table></div>
+      <p class="small muted">Avec un fusil il te faut une giberne : un carquois ne prend que des flèches.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ METIERS ============ -->
+<section class="view" id="v-metiers" hidden aria-labelledby="h-prof">
+  <div class="stack">
+    <span class="eyebrow">Dépeçage + Travail du cuir</span>
+    <h2 id="h-prof">Métiers</h2>
+    <p class="lead">Le duo conseillé par Method et Mobalytics pour un chasseur : tu tues des bêtes en continu, le cuir monte le Travail du cuir, qui fabrique tes gibernes et des pièces liées quand ramassées. Les deux métiers débloquent aussi un élément de camp chacun (voir Camping).</p>
+  </div>
+  <div class="grid">
+    <div class="panel">
+      <h3>Dépeçage</h3>
+      <div class="row">
+        <label class="ctl" for="skin2">Ta compétence <input type="number" id="skin2" min="0" max="320" value="3"></label>
+        <label class="ctl" for="moblvl">Niveau du mob <input type="number" id="moblvl" min="1" max="63" value="15"></label>
+      </div>
+      <p id="skin-calc" class="small"></p>
+      <p class="small muted">Formule Classic : compétence requise = 1 jusqu’au niveau 10, (niveau − 10) × 10 de 11 à 20, puis niveau × 5. Non confirmée pour Forever.</p>
+      <div class="tw"><table><thead><tr><th>Compétence</th><th>Où (Method, Alliance)</th></tr></thead><tbody>
+        <tr><td class="mono">1–75</td><td>Zone de départ, Elwynn</td></tr>
+        <tr><td class="mono">75–125</td><td>Sombrivage (Darkshore)</td></tr>
+        <tr><td class="mono">125–175</td><td>Bois de la Pénombre (Duskwood)</td></tr>
+        <tr><td class="mono">175–225</td><td>Strangleronce (Stranglethorn)</td></tr>
+      </tbody></table></div>
+      <p class="small">Rangs : Compagnon à partir du niveau 10 et compétence 50, Expert à 125, Artisan à 200. Bonus : Cartilage Shapers +4 (Lyn the Ignored, City of Dalaran) ; enchantement de gants Dépeçage +5, version avancée +10 ; maximum 317. <span class="tag t-guide">Method</span></p>
+    </div>
+    <div class="panel">
+      <h3>Entraîneurs Alliance</h3>
+      <div class="tw"><table><thead><tr><th>PNJ</th><th>Lieu</th><th>Rang</th></tr></thead><tbody id="trainers"></tbody></table></div>
+      <p class="small muted">Couteau à dépecer : 10 pc chez Golorn Frostbeard, Kharanos. Rangs du Travail du cuir : Wowhead Forever et Method ne s’accordent pas sur les titres. D’après Wowhead, Gretta (Forgefer) enseigne le rang Compagnon : essaie chez elle avant de prendre le tram pour Hurlevent.</p>
+    </div>
+  </div>
+  <div class="panel">
+    <div class="row" style="justify-content:space-between">
+      <h3>Travail du cuir 1 → 225</h3>
+      <label class="ctl" for="lw2">Ta compétence <input type="number" id="lw2" min="0" max="300" value="0"></label>
+    </div>
+    <p class="small">Rangs : Apprenti 1–75 (niveau 5), Compagnon 75–150 (compétence 50, niveau 10), Expert 150–225 (compétence 125, niveau 20), Artisan 225–300 (compétence 200, niveau 35). <span class="tag t-guide">Method, 6 nov.</span></p>
+    <div class="tw"><table id="lw-table"><thead><tr><th class="num">Compétence</th><th>À fabriquer</th></tr></thead><tbody></tbody></table></div>
+  </div>
+  <div class="grid" id="shop"></div>
+  <p class="small muted">Listes d’achat Method (6 nov.), pour monter sans aide. Tout ce que tu dépèces toi-même vient en déduction.</p>
+</section>
+
+<!-- ============ CAMPING ============ -->
+<section class="view" id="v-camping" hidden aria-labelledby="h-camp">
+  <div class="stack">
+    <span class="eyebrow">Système officiel de Forever</span>
+    <h2 id="h-camp">L’art du feu de camp</h2>
+    <p class="lead">Un feu de camp de base (Cuisine 1) accueille jusqu’à 3 éléments ; les feux améliorés en accueillent 5 ou 10. Chaque joueur proche en ajoute un en fabriquant l’objet de camp de son métier. Assieds-toi ou fabrique au moins 1 minute près du feu pour recevoir les effets. Tous les éléments partagent une recharge d’une heure. <span class="tag t-off">Blizzard</span></p>
+  </div>
+  <div class="grid">
+    <div class="panel key">
+      <h3>Tes deux éléments</h3>
+      <ul class="clean">
+        <li><b>Camp Chair (Dépeçage)</b> : +2 % de chances de critique sur tous les sorts et attaques. Ne se cumule pas avec Aura de sélénien. Selon Feor, le familier en profite aussi. Débloqué à Dépeçage 20, via ta quête « Introduction au camping : le dépeçage ». <span class="tag t-off">Blizzard</span> <span class="tag t-guide">Mobalytics</span></li>
+        <li><b>Camp Tent (Travail du cuir)</b> : ajoute de l’XP reposée égale à 5 % d’un niveau. Aucun effet si ton XP reposée dépasse déjà cette valeur. Débloqué à compétence 20 (quête de zone de départ ou entraîneur). <span class="tag t-off">Blizzard</span></li>
+      </ul>
+      <p class="small" id="camp-status"></p>
+    </div>
+    <div class="panel">
+      <h3>Routine conseillée</h3>
+      <ol class="steps small">
+        <li>Au début de chaque session : feu de camp, Camp Chair et Camp Tent, assis 1 minute.</li>
+        <li>Mange un plat qui donne le buff d’XP avant les longues séries de mobs.</li>
+        <li>Toutes les heures, recommence : la recharge est commune à tous les éléments.</li>
+      </ol>
+      <p class="note small">Buff de nourriture +5 % d’XP sur les victimes, « la plupart des plats le donnent » : affirmé par Feor (Mobalytics) et Method, pas par Blizzard dans ce que j’ai lu. Probable, à vérifier sur l’infobulle du buff. <span class="tag t-guide">2 guides</span></p>
+      <p class="note small">Détails communautaires non confirmés par Blizzard : feu qui dure environ 10 min, Briquet + bois, 5 min de recharge du feu, camps distants d’au moins 100 m, sac de couchage « Cozy Sleeping Bag » +3 % d’XP pendant 2 h. <span class="tag t-weak">communauté</span></p>
+    </div>
+  </div>
+  <div class="tw"><table><thead><tr><th>Métier</th><th>Élément</th><th>Effet</th><th>Ne se cumule pas avec</th></tr></thead><tbody>
+    <tr><td>Cuisine</td><td>Basic Campfire</td><td>Permet de cuisiner, accueille les autres éléments</td><td>—</td></tr>
+    <tr><td>Secourisme</td><td>First Aid Kit</td><td>3 à 56 Endurance selon le niveau</td><td>Mot de pouvoir : Robustesse</td></tr>
+    <tr><td>Pêche</td><td>Fishing Bowl</td><td>+8 % aux statistiques</td><td>Bénédiction des rois</td></tr>
+    <tr><td>Alchimie</td><td>Mana Well</td><td>10 à 29 mana toutes les 5 s</td><td>Bénédiction de sagesse</td></tr>
+    <tr><td>Forge</td><td>Sharpening Wheel</td><td>6 à 34 Force, 1 h</td><td>Totem de force de la terre</td></tr>
+    <tr><td>Enchantement</td><td>Enchanted Lute</td><td>Armure, toutes caractéristiques et résistances selon le niveau</td><td>Marque du fauve</td></tr>
+    <tr><td>Ingénierie</td><td>Reagent Bot</td><td>Vend des composants aux joueurs proches</td><td>—</td></tr>
+    <tr><td>Herboristerie</td><td>Incense Candle</td><td>2 à 25 Intelligence</td><td>Intelligence des Arcanes</td></tr>
+    <tr class="now"><td>Travail du cuir</td><td>Camp Tent</td><td>XP reposée : 5 % d’un niveau</td><td>—</td></tr>
+    <tr class="now"><td>Dépeçage</td><td>Camp Chair</td><td>+2 % de critique</td><td>Aura de sélénien</td></tr>
+    <tr><td>Couture</td><td>Faction Banner</td><td>14 à 32 Esprit, ta faction seulement</td><td>Esprit divin</td></tr>
+  </tbody></table></div>
+  <p class="small muted">Source : article Blizzard « Gather Around the Campfire ». Les objets de camp de compétence 140+ tombent en donjon et en raid. Method cite pour le Dépeçage des éléments plus avancés (Field Guide, Trapper’s Workbench) sans détail vérifiable.</p>
+</section>
+
+<!-- ============ FOREVER ============ -->
+<section class="view" id="v-forever" hidden aria-labelledby="h-fv">
+  <div class="stack">
+    <span class="eyebrow">Ce qui n’est pas comme dans Classic</span>
+    <h2 id="h-fv">Forever et nouveautés</h2>
+  </div>
+  <div class="panel key">
+    <h3>Correctif des familiers du 10 nov. <span class="tag t-off">officiel</span></h3>
+    <p>Kaivax (Blizzard, 6 nov.) : les familiers de chasseur et le Marcheur du Vide sont moins solides que prévu ; leurs stats seront ajustées mardi 10 nov. pour retrouver une efficacité proche de Classic Era. Aucun chiffre n’est donné dans l’annonce, et les notes finales n’étaient pas publiées quand j’ai vérifié.</p>
+    <p class="note small">Non officiel (datamine) : Grande endurance passerait de +30 PV (rang 1) à +400 PV (rang 10) ; Tir des Arcanes et Summon Hawk coûteraient un pourcentage de la mana de base. <span class="tag t-weak">datamine</span> Feor (7 nov.) : Tir des Arcanes fait plus de dégâts que Summon Hawk en solo pour l’instant.</p>
+  </div>
+  <div class="tw"><table><thead><tr><th>Changement</th><th>Détail</th><th>Ce que ça change pour toi</th></tr></thead><tbody>
+    <tr><td>Visée (Aimed Shot) de base</td><td>Apprise au 20 ; partage 6 s de recharge avec Flèches multiples</td><td>Pas besoin de talents Précision pour l’avoir</td></tr>
+    <tr><td>Summon Hawk</td><td>Talent Maîtrise des bêtes ; faucon 18 s, 2 actifs max, recharge partagée avec Tir des Arcanes</td><td>Pris au 25 dans le chemin de pex</td></tr>
+    <tr><td>Familiers liés à ton stuff</td><td>100 % de ton critique, 10 % de ta puissance d’attaque, plus de buffs extérieurs</td><td>Chaque meilleure arme améliore le familier</td></tr>
+    <tr><td>Une capacité par famille</td><td>Neuf familles reçoivent une nouvelle capacité ; nouvelle famille : renard</td><td>Le choix de famille compte vraiment</td></tr>
+    <tr><td>Apprivoisement</td><td>Impossible au-dessus de ton niveau</td><td>Vise une bête de ton niveau ou juste en dessous</td></tr>
+    <tr><td>Auto Shot</td><td>Demande 0,5 s d’immobilité avant chaque tir</td><td>Le kiting en marchant est moins fluide</td></tr>
+    <tr><td>Pièges</td><td>Utilisables en combat, 30 s de recharge</td><td>Piège givrant = contrôle d’urgence en plein combat</td></tr>
+    <tr><td>Lone Wolf (Précision)</td><td>+20 % de dégâts sans familier actif</td><td>Pas pour le pex Maîtrise des bêtes</td></tr>
+    <tr><td>Double spécialisation</td><td>Disponible au 40</td><td>Une spé pex, une spé donjon</td></tr>
+    <tr><td>Calendrier</td><td>Raids ouverts le 9 déc. 2026</td><td>—</td></tr>
+  </tbody></table></div>
+  <div class="grid">
+    <div class="panel">
+      <h3>Tes raciaux de nain</h3>
+      <ul class="clean small">
+        <li><b>Chasseur de gros gibier</b> : +5 % de dégâts contre les bêtes. Ton meilleur racial en pex : Dun Morogh, Loch Modan et les Paluns sont pleins de bêtes.</li>
+        <li><b>Précision artisanale</b> : +1 % de chances de toucher. Il en faut 5 % pour ne jamais rater un mob de ton niveau.</li>
+        <li><b>Forme de pierre</b> : −10 % de dégâts physiques 8 s, purge saignements, poisons et maladies, recharge 3 min.</li>
+        <li><b>Découverte de trésors</b> : montre les coffres sur la mini-carte.</li>
+      </ul>
+      <p class="small muted">Plus de spécialisation fusil pour les nains. Feor juge le nain « un peu en retrait » face à l’elfe de la nuit (Lumière d’Elune) ; en pex solo l’écart reste faible.</p>
+    </div>
+    <div class="panel">
+      <h3>Changé depuis le guide du 8 nov.</h3>
+      <ul class="clean small">
+        <li>Talents : Deadly Aspects 5/5 en premier (Feor) au lieu d’Endurance Training 5/5. L’ancienne logique reste disponible en variante dans l’onglet Talents.</li>
+        <li>Macros réécrites avec les noms français.</li>
+        <li>Familier : ours conseillé plutôt que sanglier (écart faible).</li>
+        <li>Summon Hawk : actuellement moins bon que Tir des Arcanes (Feor, 7 nov.), donc pas de remplacement automatique au 25.</li>
+        <li>Privateer Musket retiré de la liste (quête Horde probable).</li>
+        <li>Conseil d’arc de Feor écarté pour un nain (compétence Arcs absente).</li>
+        <li>Cartes dessinées supprimées : chaque lieu ouvre la vraie carte (Wowhead Forever, Guild Order).</li>
+        <li>Entraîneurs de cuir : Gretta (Forgefer) a le titre Journeyman sur Wowhead, donc rang Compagnon possible sans aller à Hurlevent.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOURCES ============ -->
+<section class="view" id="v-sources" hidden aria-labelledby="h-src">
+  <div class="stack">
+    <span class="eyebrow">D’où vient chaque information</span>
+    <h2 id="h-src">Sources et niveau de confiance</h2>
+    <p class="lead">Forever est sorti le 4 nov. 2026 : aucune route n’est encore éprouvée et Blizzard retouche les classes chaque semaine. Chaque bloc du carnet porte une étiquette.</p>
+  </div>
+  <div class="row small">
+    <span class="tag t-off">officiel</span><span>Blizzard</span>
+    <span class="tag t-game">jeu</span><span>tes captures d’écran</span>
+    <span class="tag t-guide">guide</span><span>site spécialisé, auteur identifié</span>
+    <span class="tag t-db">base de données</span><span>données extraites du jeu</span>
+    <span class="tag t-weak">faible</span><span>datamine, vendeur de services, page incohérente</span>
+    <span class="tag t-me">mon avis</span><span>mon arbitrage</span>
+  </div>
+  <div class="grid" id="src-grid"></div>
+  <div class="panel">
+    <h3>Ce que je n’ai pas pu vérifier</h3>
+    <ul class="clean small">
+      <li>Les chiffres du correctif des familiers du 10 nov. (non publiés au moment de la vérification).</li>
+      <li>Les prix des sorts au-delà du niveau 10 et ceux des gibernes : je ne les affiche pas.</li>
+      <li>Le rang du passif « Faster Attack » des léopards et ours de Dun Morogh.</li>
+      <li>Brighid Stormflayer et Faldron (entraîneurs cités par Method) : introuvables sur Wowhead Forever.</li>
+      <li>Les rangs enseignés par les entraîneurs de Travail du cuir : Wowhead et Method ne donnent pas les mêmes titres.</li>
+      <li>La route 30 → 60 : bonne base, mais peu de joueurs y sont déjà.</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+<footer><div class="wrap">Carnet établi le 10 nov. 2026 pour Jeanpalsec. Les cases cochées et réglages restent sur cet appareil uniquement.</div></footer>
+<div class="toast" id="toast" hidden></div>
+
+<script>
+(function(){
+"use strict";
+const KEY="jp-carnet-v2",OLDKEY="jp-carnet-v1";
+/* Relevé en jeu le 10 nov. 2026, 23 h 16 (heure de New York) */
+const OBS={lvl:10,pet:"boar",skin:57,lw:0,variant:"mine"};
+const DEF=Object.assign({checks:{},ff:"all"},OBS);
+let S,SEED=false;
+try{
+ const raw=localStorage.getItem(KEY);
+ if(raw){S=Object.assign({},DEF,JSON.parse(raw));}
+ else{const old=JSON.parse(localStorage.getItem(OLDKEY)||"{}");S=Object.assign({},DEF,{checks:old.checks||{},ff:old.ff||"all"},OBS);SEED=true;}
+}catch(e){S=Object.assign({},DEF);SEED=true;}
+if(!S.checks||typeof S.checks!=="object")S.checks={};
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+const $=(s,r)=>(r||document).querySelector(s);
+const $$=(s,r)=>Array.from((r||document).querySelectorAll(s));
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+
+function coin(g,s,c){let h='<span class="coin">';if(g)h+=g+'<i class="g" title="or"></i> ';if(s)h+=s+'<i class="s" title="argent"></i> ';if(c)h+=c+'<i class="c" title="cuivre"></i>';return h.trim()+'</span>';}
+const WH="https://www.wowhead.com/forever/npc=";
+function mapA(id){return id?'<a href="'+WH+id+'" target="_blank" rel="noopener" title="Vraie carte sur Wowhead Forever">carte ↗</a>':'';}
+function crd(x,y,name,approx,id){const t=(approx?"≈ ":"")+x+", "+y;const way="/way "+x+" "+y+" "+name;return '<span class="coord'+(approx?' approx':'')+'">'+t+'<button type="button" data-copy="'+esc(way)+'" title="Copier la commande TomTom">/way</button>'+mapA(id)+'</span>';}
+function onlyMap(id){return id?'<span class="coord">'+mapA(id)+'</span>':'';}
+function tag(k,t){return '<span class="tag t-'+k+'">'+t+'</span>';}
+
+/* ---------- Données ---------- */
+const SPELLS=[
+ {l:6,fr:"Marque du chasseur",en:"Hunter's Mark",p:"E",cost:[0,1,0],w:"Pose-la sur chaque cible : bonus de puissance à distance pour toi et le familier."},
+ {l:8,fr:"Trait de choc",en:"Concussive Shot",p:"E",cost:[0,2,0],w:"Ralentit le mob qui arrive sur toi."},
+ {l:8,fr:"Attaque du raptor (rang 2)",en:"Raptor Strike",p:"U",cost:[0,2,0],w:"Mêlée de la méthode multi-mobs."},
+ {l:8,fr:"Parade (passif)",en:"Parry",p:"U",cost:[0,2,0],w:"Moins de coups reçus au contact."},
+ {l:10,fr:"Aspect du faucon",en:"Aspect of the Hawk",p:"E",cost:[0,4,0],w:"Puissance à distance ; nécessaire à Deadly Aspects."},
+ {l:10,fr:"Morsure de serpent (rang 2)",en:"Serpent Sting",p:"E",cost:[0,4,0],w:"Dégâts sur la durée, mobs qui tiennent 10 s ou plus."},
+ {l:10,fr:"Pistage des humanoïdes",en:"Track Humanoids",p:"O",cost:[0,4,0],w:"Confort pour les quêtes d’humanoïdes."},
+ {l:10,fr:"Sorts de familier (quête)",en:"Tame Beast, Call/Dismiss/Feed/Revive Pet, Beast Training",p:"E",w:"Gratuits via la quête de classe."},
+ {l:12,fr:"Guérison du familier",en:"Mend Pet",p:"E",w:"Soin du familier."},
+ {l:12,fr:"Coupure d’ailes",en:"Wing Clip",p:"E",w:"Ralentit au contact, pour reprendre la distance."},
+ {l:12,fr:"Tir des Arcanes (rang 2)",en:"Arcane Shot",p:"E",w:"Ton tir principal à chaque recharge."},
+ {l:12,fr:"Trait provocateur",en:"Distracting Shot",p:"O",w:"Utile en groupe seulement."},
+ {l:14,fr:"Œil d’aigle",en:"Eagle Eye",p:"O",w:"Repérer un mob rare."},
+ {l:14,fr:"Œil de la bête",en:"Eyes of the Beast",p:"O",w:"Contrôler le familier à distance."},
+ {l:14,fr:"Effrayer une bête",en:"Scare Beast",p:"O",w:"Contrôle sur une bête, situationnel."},
+ {l:16,fr:"Piège d’immolation",en:"Immolation Trap",p:"U",w:"Dégâts de feu, utilisable en combat."},
+ {l:16,fr:"Morsure de la mangouste",en:"Mongoose Bite",p:"O",w:"Après une esquive du mob."},
+ {l:16,fr:"Attaque du raptor (rang 3)",en:"Raptor Strike",p:"O",w:"Si tu joues beaucoup au contact."},
+ {l:18,fr:"Flèches multiples",en:"Multi-Shot",p:"E",w:"Plusieurs mobs groupés ; recharge partagée avec Visée."},
+ {l:18,fr:"Aspect du faucon (rang 2)",en:"Aspect of the Hawk",p:"E",w:"Rang de dégâts."},
+ {l:18,fr:"Morsure de serpent (rang 3)",en:"Serpent Sting",p:"U",w:"Rang de dégâts."},
+ {l:18,fr:"Pistage des morts-vivants",en:"Track Undead",p:"O",w:"Confort."},
+ {l:20,fr:"Visée",en:"Aimed Shot",p:"E",w:"Désormais de base dans Forever ; ouverture sur les élites."},
+ {l:20,fr:"Aspect du guépard",en:"Aspect of the Cheetah",p:"E",w:"+30 % de vitesse hors combat."},
+ {l:20,fr:"Piège givrant",en:"Freezing Trap",p:"E",w:"Contrôle d’urgence sur un deuxième mob."},
+ {l:20,fr:"Guérison du familier (rang 2)",en:"Mend Pet",p:"E",w:"Rang de soin."},
+ {l:20,fr:"Tir des Arcanes (rang 3)",en:"Arcane Shot",p:"E",w:"Rang de dégâts."},
+ {l:20,fr:"Désengagement",en:"Disengage",p:"O",w:"Peu utile en solo."},
+ {l:20,fr:"Ambidextrie",en:"Dual Wield",p:"O",w:"Intérêt seulement en Survie mêlée."},
+ {l:22,fr:"Marque du chasseur (rang 2)",en:"Hunter's Mark",p:"U",w:"Rang supérieur."},
+ {l:22,fr:"Piqûre de scorpide",en:"Scorpid Sting",p:"O",w:"Dans Forever : −2 % de toucher pour la cible. Peu utile en pex."},
+ {l:24,fr:"Pistage des camouflés",en:"Track Hidden",p:"U",w:"Voir les mobs camouflés."},
+ {l:24,fr:"Connaissance des bêtes",en:"Beast Lore",p:"U",w:"Montre les techniques d’une bête avant de l’apprivoiser."},
+ {l:24,fr:"Attaque du raptor (rang 4)",en:"Raptor Strike",p:"O",w:"Rang de mêlée."},
+ {l:26,fr:"Tir rapide",en:"Rapid Fire",p:"E",w:"Sur les élites et les combats longs."},
+ {l:26,fr:"Morsure de serpent (rang 4)",en:"Serpent Sting",p:"U",w:"Rang de dégâts."},
+ {l:26,fr:"Piège d’immolation (rang 2)",en:"Immolation Trap",p:"O",w:"Rang de dégâts."},
+ {l:26,fr:"Pistage des élémentaires",en:"Track Elementals",p:"O",w:"Confort."},
+ {l:28,fr:"Visée (rang 2)",en:"Aimed Shot",p:"E",w:"Rang de dégâts."},
+ {l:28,fr:"Tir des Arcanes (rang 4)",en:"Arcane Shot",p:"E",w:"Rang de dégâts."},
+ {l:28,fr:"Aspect du faucon (rang 3)",en:"Aspect of the Hawk",p:"E",w:"Rang de dégâts."},
+ {l:28,fr:"Guérison du familier (rang 3)",en:"Mend Pet",p:"E",w:"Rang de soin."},
+ {l:28,fr:"Piège de givre",en:"Frost Trap",p:"U",w:"Zone ralentie contre les groupes."},
+ {l:30,fr:"Feindre la mort",en:"Feign Death",p:"E",w:"Sortir du combat ; peut être résisté."},
+ {l:30,fr:"Aspect de la bête",en:"Aspect of the Beast",p:"O",w:"Situationnel."},
+ {l:30,fr:"Morsure de la mangouste (rang 2)",en:"Mongoose Bite",p:"O",w:"Rang de mêlée."},
+ {l:32,fr:"Fusée éclairante",en:"Flare",p:"O",w:"Révèle les furtifs (JcJ)."},
+ {l:32,fr:"Pistage des démons",en:"Track Demons",p:"O",w:"Confort."},
+ {l:34,fr:"Piège explosif",en:"Explosive Trap",p:"U",w:"Dégâts de zone pour les groupes."},
+ {l:36,fr:"Morsure de vipère",en:"Viper Sting",p:"U",w:"Vide la mana des lanceurs de sorts."},
+ {l:40,fr:"Mailles (armure)",en:"Mail",p:"E",w:"Passe en armure de mailles."},
+ {l:40,fr:"Aspect de la meute",en:"Aspect of the Pack",p:"U",w:"Vitesse de groupe."},
+ {l:40,fr:"Salve",en:"Volley",p:"U",w:"Dégâts de zone canalisés."},
+ {l:40,fr:"Pistage des géants",en:"Track Giants",p:"O",w:"Confort."},
+ {l:46,fr:"Aspect de la nature",en:"Aspect of the Wild",p:"O",w:"Résistance à la nature (raid)."},
+ {l:50,fr:"Pistage des draconiens",en:"Track Dragonkin",p:"O",w:"Confort."}
+];
+
+const BM=[
+ {r:1,n:"Deadly Aspects",m:5,d:"Sous Aspect du faucon, Auto Shot a 2/4/6/8/10 % de chances de donner +30 % de vitesse de tir pendant 12 s (wiki, patch du 4 nov.)."},
+ {r:1,n:"Endurance Training",m:5,d:"Plus de points de vie pour le familier."},
+ {r:2,n:"Focused Fire",m:2,d:"+1 % de dégâts par rang tant que ton familier est là."},
+ {r:2,n:"Improved Aspect of the Monkey",m:3,d:"Plus d’esquive sous Aspect du singe."},
+ {r:2,n:"Improved Revive Pet",m:2,d:"Ressusciter le familier plus vite et avec plus de vie."},
+ {r:3,n:"Pathfinding",m:2,d:"Plus de vitesse sous Aspect du guépard."},
+ {r:3,n:"Bestial Swiftness",m:1,d:"Familier plus rapide."},
+ {r:3,n:"Unleashed Fury",m:5,d:"Plus de dégâts pour le familier (et les faucons selon les guides)."},
+ {r:4,n:"Improved Mend Pet",m:2,d:"Guérison du familier peut dissiper un effet néfaste."},
+ {r:4,n:"Ferocity",m:5,d:"Critique du familier et des faucons ; bonus réduit sur le familier dans Forever."},
+ {r:4,n:"Summon Hawk",m:1,d:"Dégâts + un faucon 18 s, 2 actifs max, recharge partagée avec Tir des Arcanes."},
+ {r:5,n:"Spirit Bond",m:2,d:"Régénération de vie pour toi et le familier."},
+ {r:5,n:"Intimidation",m:1,d:"Le familier étourdit la cible et attire la menace."},
+ {r:5,n:"Bestial Discipline",m:2,d:"Dans Forever : régénération de mana liée à l’Esprit (Feor)."},
+ {r:6,n:"Frenzy",m:5,d:"Les critiques du familier accélèrent ses attaques."},
+ {r:7,n:"Bestial Wrath",m:1,d:"+50 % de dégâts du familier pendant 18 s, recharge 2 min (Method)."}
+];
+const MM=[
+ {n:"Lethal Attacks",m:5,d:"+1 % de critique par rang."},
+ {n:"Careful Aim",m:5,d:"Convertit ton Intelligence en puissance d’attaque à distance."},
+ {n:"Rapid Killing",m:2,d:"Lié à Tir rapide ; lis l’infobulle en jeu."},
+ {n:"Hawk Eye",m:3,d:"Plus de portée de tir."},
+ {n:"Trueshot Aura",m:1,d:"Aura de puissance d’attaque pour tout le raid."},
+ {n:"Mortal Shots",m:5,d:"Plus de dégâts sur les critiques à distance."}
+];
+const PATH_FEOR=["Deadly Aspects","Deadly Aspects","Deadly Aspects","Deadly Aspects","Deadly Aspects","Focused Fire","Focused Fire","Improved Revive Pet","Improved Revive Pet","Endurance Training","Pathfinding","Pathfinding","Bestial Swiftness","Unleashed Fury","Unleashed Fury","Summon Hawk","Unleashed Fury","Unleashed Fury","Ferocity","Ferocity","Intimidation","Bestial Discipline","Bestial Discipline","Ferocity","Ferocity","Ferocity","Frenzy","Frenzy","Frenzy","Frenzy","Bestial Wrath","Lethal Attacks","Lethal Attacks","Lethal Attacks","Lethal Attacks","Lethal Attacks","Careful Aim","Careful Aim","Careful Aim","Careful Aim","Careful Aim","Rapid Killing","Rapid Killing","Hawk Eye","Hawk Eye","Hawk Eye","Trueshot Aura","Mortal Shots","Mortal Shots","Mortal Shots","Mortal Shots"];
+const PATH_TANK=PATH_FEOR.slice();
+for(let i=0;i<5;i++)PATH_TANK[i]="Endurance Training";
+PATH_TANK[9]="Deadly Aspects";
+/* Ton arbre : Œil de faucon déjà pris au 10, puis le chemin de Feor décalé d’un niveau */
+const PATH_MINE=(function(){const p=PATH_FEOR.slice();p.splice(p.indexOf("Hawk Eye"),1);return ["Hawk Eye"].concat(p);})();
+const path=()=>S.variant==="tank"?PATH_TANK:S.variant==="mine"?PATH_MINE:PATH_FEOR;
+function pointsAt(L){const p={};const P=path();for(let lv=10;lv<=Math.min(L,60);lv++){const t=P[lv-10];p[t]=(p[t]||0)+1;}return p;}
+
+const BRACKETS=[
+ [10,17,"Loch Modan, Marche de l’Ouest (Westfall), Sombrivage (Darkshore)","Hall of Thanes (13)","Pour un nain : Loch Modan d’abord, c’est à côté. Hall of Thanes dès 13 pour le Calibrated Blunderbuss.",["Loch Modan","Westfall","Darkshore"]],
+ [17,20,"Sombrivage, Marche de l’Ouest, Les Carmines (Redridge), Loch Modan, Orneval (Ashenvale)","Deadmines (16)","",["Darkshore","Westfall","Redridge","Loch Modan","Ashenvale"]],
+ [20,27,"Orneval, Bois de la Pénombre (Duskwood), Les Paluns (Wetlands)","Stockade (24), Blackfathom Deeps (25)","",["Ashenvale","Duskwood","Wetlands"]],
+ [27,30,"Bois de la Pénombre, Les Paluns, Hautebrande (Hillsbrad), Orneval","Excavation Site: Wetlands (29), Gnomeregan (30)","",["Duskwood","Wetlands","Hillsbrad","Ashenvale"]],
+ [30,33,"Hautebrande, Arathi, Strangleronce","City of Dalaran (32)","",["Hillsbrad","Arathi","Stranglethorn"]],
+ [33,36,"Mille pointes, Strangleronce, Désolace, Arathi, Alterac","Monastère écarlate : Cimetière (31), Bibliothèque (33)","",["Thousand Needles","Stranglethorn","Desolace","Arathi","Alterac"]],
+ [36,40,"Riverglades (nouveau), Strangleronce, Alterac, Marais des Chagrins, Arathi","Monastère : Armurerie (36), Cathédrale (37), Souilles de Tranchebauge (38)","",["Riverglades*","Stranglethorn","Alterac","Swamp of Sorrows","Arathi"]],
+ [40,42,"Âprefange (Dustwallow), Marais des Chagrins, Désolace, Terres ingrates","The Drowned City (40), Krol’dok Stronghold (40)","Double spécialisation disponible.",["Dustwallow","Swamp of Sorrows","Desolace","Badlands"]],
+ [42,44,"Désolace, Strangleronce, Tanaris, Féralas","Uldaman (42)","",["Desolace","Stranglethorn","Tanaris","Feralas"]],
+ [44,48,"Strangleronce, Marais des Chagrins, Tanaris, Âprefange, Féralas","Zul’Farrak (44), Temple englouti (45), Alcaz Prison (48)","",["Stranglethorn","Swamp of Sorrows","Tanaris","Dustwallow","Feralas"]],
+ [48,50,"Hinterlands, Tanaris, Féralas","Maraudon (48)","",["Hinterlands","Tanaris","Feralas"]],
+ [50,52,"Strangleronce, Gorge des Vents brûlants, Terres foudroyées, Gangrebois, Maleterres de l’Ouest","Alcaz Prison, Maraudon (48)","",["Stranglethorn","Searing Gorge","Blasted Lands","Felwood","W. Plaguelands"]],
+ [52,55,"Féralas, Azshara, Un’Goro, Gangrebois","Hache-Tripes (54)","",["Feralas","Azshara","Un'Goro","Felwood"]],
+ [55,58,"Berceau-de-l’Hiver, Steppes ardentes, Maleterres de l’Ouest et de l’Est","Rochenoire (56), Stratholme (58), Blackmaw Hold","",["Winterspring","W. Plaguelands","E. Plaguelands"]],
+ [58,61,"Berceau-de-l’Hiver, Silithus","Scholomance, Pic Rochenoire (58), Shaper’s Terrace (59)","Raids le 9 déc.",["Winterspring","Silithus"]]
+];
+const bracketFor=L=>BRACKETS.find(b=>L>=b[0]&&L<b[1])||BRACKETS[BRACKETS.length-1];
+
+const ZONES=[
+ ["Dun Morogh","",1,10],["Loch Modan","",10,20],["Westfall","Marche de l’Ouest",10,20],["Darkshore","Sombrivage",10,20],
+ ["Redridge","Les Carmines",15,25],["Ashenvale","Orneval",18,30],["Duskwood","Bois de la Pénombre",18,30],["Wetlands","Les Paluns",20,30],
+ ["Hillsbrad","Hautebrande",20,30],["Thousand Needles","Mille pointes",25,35],["Arathi","",30,40],["Alterac","",30,40],
+ ["Desolace","Désolace",30,40],["Stranglethorn","Strangleronce",30,45],["Riverglades*","nouveau",35,45],["Badlands","Terres ingrates",35,45],
+ ["Swamp of Sorrows","Marais des Chagrins",35,45],["Dustwallow","Âprefange",35,45],["Feralas","Féralas",40,50],["Tanaris","",40,50],
+ ["Hinterlands","",40,50],["Searing Gorge","Vents brûlants",43,50],["Azshara","",45,55],["Blasted Lands","Terres foudroyées",45,55],
+ ["Un'Goro","",48,55],["Felwood","Gangrebois",48,55],["W. Plaguelands","Maleterres O.",51,58],["E. Plaguelands","Maleterres E.",53,60],
+ ["Winterspring","Berceau-de-l’Hiver",55,60],["Silithus","",55,60]
+];
+const DUNGEONS=[
+ ["Hall of Thanes","",13,18,13,"Nouveau. Sous Forgefer, accès par la salle du trône. Quête Old Ironforge Incursion : Calibrated Blunderbuss (9,57 DPS)."],
+ ["Deadmines","Mortemines",17,20,16,"Marche de l’Ouest."],
+ ["Wailing Caverns","Cavernes des lamentations",18,24,null,"Tarides : loin pour un nain."],
+ ["Shadowfang Keep","Donjon d’Ombrecroc",21,26,null,"Bois des Pins-Argentés ; chauves-souris apprivoisables."],
+ ["Blackfathom Deeps","Brassenoire",23,28,25,"Orneval ; tortues apprivoisables."],
+ ["Excavation Site","nouveau",24,29,29,"Les Paluns, au-dessus de Whelgar’s Excavation. Golemsight Long Gun."],
+ ["Stockade","La Prison",25,29,24,"Hurlevent. Concealed Hand Crossbow."],
+ ["City of Dalaran","nouveau",28,33,32,"Harmonisation via Hautebrande. Gravespike Repeater."],
+ ["Gnomeregan","",29,34,30,"Dun Morogh."],
+ ["Razorfen Kraul","Kraal de Tranchebauge",30,38,null,"Tarides. Charge rang 3 sur les sangliers."],
+ ["Scarlet Monastery","Monastère écarlate",30,46,33,"4 ailes, de 31 à 37 selon Mobalytics."],
+ ["The Drowned City","nouveau",35,40,40,""],
+ ["Uldaman","",37,45,42,"Terres ingrates."],
+ ["Razorfen Downs","Souilles de Tranchebauge",37,45,38,""],
+ ["Zul'Farrak","",40,47,44,"Tanaris."],
+ ["Krol'dok Stronghold","nouveau",40,45,40,"Riverglades."],
+ ["Maraudon","",45,51,48,"Désolace."],
+ ["Alcaz Prison","nouveau",48,53,48,""],
+ ["Sunken Temple","Temple englouti",50,55,45,"Gros écart entre les deux sites."],
+ ["Blackrock Depths","Profondeurs de Rochenoire",52,60,56,""],
+ ["Blackmaw Hold","nouveau",55,60,null,""],
+ ["Blackrock Spire","Pic Rochenoire",57,60,58,""],
+ ["Shaper's Terrace","nouveau",58,60,59,""],
+ ["Dire Maul / Strat / Scholo","",58,60,54,"Mobalytics conseille Hache-Tripes dès 54."]
+];
+
+const RANGED=[
+ [4,"Ornate Blunderbuss","Fusil","3,0","HEGNAR"],
+ [11,"Fine Shortbow","Arc","—","Vendeur ; demande la compétence Arcs"],
+ [12,"Daryl’s Hunting Rifle / Bow","?","≈6,1–6,4","Quête A Hunter’s Boast, Loch Modan"],
+ [13,"Harvester’s Pestslayer","Arc","6,04","Quête The Killing Fields, Marche de l’Ouest"],
+ [16,"Calibrated Blunderbuss","Fusil","9,57","Quête Old Ironforge Incursion, Hall of Thanes (quête minimum 9). Ta cible n°1 entre 13 et 20."],
+ [19,"Venomstrike","Arc","—","Lord Serpentis, Wailing Caverns"],
+ [22,"Naga Heartpiercer","?","—","Blackfathom Deeps"],
+ [23,"Fallenroot Longbow","Arc","—","Blackfathom Deeps"],
+ [26,"Gravespike Repeater","Arbalète","—","City of Dalaran"],
+ [26,"Concealed Hand Crossbow","Arbalète","—","Stockade"],
+ [28,"Golemsight Long Gun","Fusil","—","Excavation Site: Wetlands"],
+ [30,"Booty Bay Bruiser’s Buckshot","Fusil","—","Baie-du-Butin, réputation Honoré"],
+ [30,"Quilboar Blaster","Fusil (?)","—","Quêtes de Razorfen Kraul"],
+ [40,"Truthseeker’s Bow","Arc","—","Quête Greater Friend of the Library (requis 40)"]
+];
+const AMMO=[[1,"Light Shot","Rough Arrow","1,5"],[10,"Heavy Shot","Sharp Arrow","3,5"],[25,"Solid Shot","Razor Arrow","7,5"],[40,"Accurate Slugs","Jagged Arrow","13"],[51,"Ice Threaded Bullet","Ice Threaded Arrow","16,5"],[52,"Thorium Shells","Thorium Headed Arrow","17,5"]];
+const QUIVERS=[[10,"Medium Shot Pouch","Medium Quiver","10 · +10 %"],[15,"Hunting Ammo Sack","Hunting Quiver","quête Vyrin’s Revenge, Loch Modan"],[18,"Bandolier of the Night Watch","Quiver of the Night Watch","12 · +11 %, Bois de la Pénombre"],[30,"Heavy Leather Ammo Pouch","Heavy Quiver","14 · +12 %"],[40,"Thick Leather Ammo Pouch","Quickdraw Quiver","16 · +13 %, Travail du cuir"],[55,"Gnoll Skin Bandolier","Harpy Hide Quiver","16 · +15 %"]];
+
+const LW=[[1,30,"Light Armor Kit ×30"],[30,55,"Cured Light Hide"],[55,75,"Embossed Leather Gloves"],[75,90,"Cured Medium Hide ×15"],[90,105,"Light Leather Pants"],[105,125,"Hillman’s Shoulders ×20"],[125,130,"Heavy Leather"],[130,140,"Cured Heavy Hide"],[140,155,"Hillman’s Leather Gloves"],[155,165,"Barbaric Shoulders ×10"],[165,195,"Guardian Gloves"],[195,210,"Nightscape Headband"],[210,225,"Nightscape Pants ×15"],[225,300,"Pas encore publié par Method"]];
+const SHOP=[
+ ["Apprenti (1–75)",[["Cuir léger","Light Leather",93],["Peau légère","Light Hide",28],["Sel","Salt",27],["Fil grossier","Coarse Thread",42]]],
+ ["Compagnon (75–150)",[["Peau moyenne","Medium Hide",15],["Cuir léger","Light Leather",150],["Peau légère traitée","Cured Light Hide",30],["Cuir moyen","Medium Leather",245],["Peau moyenne traitée","Cured Medium Hide",20],["Peau lourde","Heavy Hide",20],["Fil fin","Fine Thread",35],["Sel","Salt",75]]],
+ ["Expert (150–225)",[["Cuir moyen","Medium Leather",70],["Cuir lourd","Heavy Leather",200],["Peau lourde traitée","Cured Heavy Hide",40],["Cuir épais","Thick Leather",285],["Fil fin","Fine Thread",80],["Fil de soie","Silken Thread",90]]]
+];
+const TRAINERS=[
+ ["Balthus Stoneflayer","Forgefer",39.7,32.3,"Dépeçage, tous rangs (Method)",6291],
+ ["Gretta Finespindle","Forgefer",39.0,37.7,"Cuir. Wowhead : titre « Journeyman » (jusqu’à 150). Method : apprenti seulement.",1466],
+ ["Simon Tanner","Hurlevent",67.3,49.7,"Cuir. Wowhead : « Expert ». Method : compagnon.",5564],
+ ["Maris Granger","Hurlevent",72.2,62.5,"Dépeçage",1292],
+ ["Telonis","Darnassus",64.4,21.5,"Cuir. Wowhead : « Artisan ». Method : expert.",4212],
+ ["Eladriel","Darnassus",64.2,22.1,"Dépeçage",6292],
+ ["Jayla","Orneval",49.9,67.2,"Dépeçage, tous rangs (Method)",6288],
+ ["Drakk Stonehand","Hinterlands",13.4,43.3,"Cuir, maître",11097],
+ ["Brighid Stormflayer","Dun Morogh",29.2,67.6,"Dépeçage selon Method ; introuvable sur Wowhead Forever",0],
+ ["Faldron","Darnassus",64.9,21.6,"Cuir selon Method ; introuvable sur Wowhead Forever",0]
+];
+const FAMILIES=[
+ {n:"Ours",a:"Swipe : frappe plusieurs ennemis",w:"Dun Morogh : Ice Claw Bear 7–8 · Elwynn : Young Forest Bear 8–9 · Sombrivage : Thistle Bear 11–12 · Loch Modan : Black Bear Patriarch 16–17",d:"viande, poisson, fruit, champignon, pain, fromage",u:["solo"],me:"Mon choix pour toi"},
+ {n:"Sanglier",a:"Charge : immobilise 1 s, renforce l’attaque suivante",w:"Dun Morogh : Crag Boars · Westfall : Goretusks · Charge rang 2 : sangliers de Westfall et Loch Modan",d:"tout",u:["solo"],me:"Équivalent de l’ours en solo"},
+ {n:"Félin",a:"Prowl ; Claw, Bite, puis Dash",w:"Dun Morogh : Snow Leopard 7–8, Elder Snow Leopard 9–10 (nouveau), Ghostfang (rare 10) · Sombrivage : Moonstalkers · Teldrassil : Duskstalker (rare, attaque rapide)",d:"viande, poisson",u:["solo","group"],me:"Le plus DPS selon Feor"},
+ {n:"Loup",a:"Furious Howl : puissance d’attaque de mêlée pour le groupe",w:"Dun Morogh : plusieurs loups · Westfall : Coyote Pack Leader 11–12",d:"viande",u:["group"],me:"Groupes avec beaucoup de mêlée"},
+ {n:"Charognard",a:"Demoralizing Screech (appris sur les Young Fleshrippers de Westfall), Claw, Bite, Dive",w:"Westfall : Fleshrippers 10–17 · Loch Modan : Mountain Buzzards",d:"viande, poisson",u:["solo"],me:"Équilibré selon Feor"},
+ {n:"Raptor",a:"Saignement",w:"Les Paluns dès 22 (ou Zephras Isle)",d:"viande",u:["group"],me:"DPS"},
+ {n:"Araignée",a:"Toile : immobilise",w:"Loch Modan : Forest Lurkers 11–12",d:"viande",u:["pvp"],me:""},
+ {n:"Crocilisque",a:"−25 % de soins reçus 6 s",w:"Loch Modan : Loch Crocolisks 14–15, rare 15–16, Large Loch Crocolisk 22",d:"viande, poisson",u:["pvp"],me:"Contre les soigneurs"},
+ {n:"Crabe",a:"Pinch : dégâts et ralentit de 50 %",w:"Sombrivage : Tide Crawlers 12–14 · Westfall : Shore Crawlers",d:"pain, poisson, fruit, champignon",u:["solo"],me:""},
+ {n:"Haut-trotteur",a:"Dust Cloud : réduit l’armure de la cible",w:"Sombrivage : Foreststriders dès 11",d:"fruit, champignon, fromage",u:["group"],me:""},
+ {n:"Oiseau de proie",a:"Désarme 3 s (recharge 90 s)",w:"Teldrassil : chouettes 5–9, Nightscreech rare 10",d:"viande",u:["pvp"],me:"Contre la mêlée"},
+ {n:"Chauve-souris",a:"Sonic Blast : ralentit les incantations",w:"Donjon d’Ombrecroc",d:"fruit, champignon",u:["pvp"],me:"Contre les lanceurs"},
+ {n:"Tortue",a:"Shell Shield : défensif",w:"Tarides : Oasis Snapjaws 15–16 · Brassenoire",d:"poisson, fruit, champignon",u:["solo","pvp"],me:"Survie du familier"},
+ {n:"Renard (nouveau)",a:"Trickster’s Dance : +50 % d’esquive, attaques 30 % plus fréquentes",w:"Zephras Isle (navire céleste depuis Dalaran)",d:"—",u:["pvp"],me:""},
+ {n:"Gorille",a:"Thunderstomp",w:"Strangleronce vers 32",d:"fruit, champignon",u:["group"],me:""}
+];
+const SOURCES=[
+ ["off","Officiel Blizzard",[
+  ["Class Deep Dive : chasseur et druide (30 sept.)","https://news.blizzard.com/en-us/article/24301515/world-of-warcraft-forever-class-deep-dives-hunter-and-druid"],
+  ["Gather Around the Campfire (système de camp)","https://news.blizzard.com/en-us/article/24301516"],
+  ["Kaivax, Class Tuning Incoming – November 10 (6 nov.)","https://us.forums.blizzard.com/en/wow/t/class-tuning-incoming-november-10/2404092"],
+  ["Hotfixes du 6 nov.","https://us.forums.blizzard.com/en/wow/t/2403040/1"],
+  ["Hotfixes du 5 nov.","https://news.blizzard.com/en-us/article/24315281"]]],
+ ["game","Tes captures du jeu",[["Prix de l’entraîneur aux niveaux 8 et 10, raciaux, sorts connus",""]]],
+ ["guide","Guides spécialisés",[
+  ["Mobalytics : Hunter Leveling Guide, Feor (9 nov.)","https://mobalytics.gg/wow-forever/classes/hunter-leveling-guide"],
+  ["Mobalytics : Hunter Pets Guide and Locations (6 nov.)","https://mobalytics.gg/wow-forever/guides/hunter-pets"],
+  ["Mobalytics : Zone Map, niveaux et paliers (9 nov.)","https://mobalytics.gg/wow-forever/guides/zone-map-level-ranges"],
+  ["Method : hub WoW Forever (guides chasseur, cuir, dépeçage, donjons, armes)","https://www.method.gg/wow-forever"],
+  ["Method : guide de pex chasseur","https://www.method.gg/wow-forever/wow-forever-hunter-leveling-guide-and-talents"],
+  ["Method : raciaux de Forever","https://www.method.gg/wow-forever/all-new-racial-abilities-in-world-of-warcraft-forever"],
+  ["Warcraft Tavern : familiers de chasseur","https://www.warcrafttavern.com/forever/guides/hunter-pets/"],
+  ["Warcraft Tavern : annonce du correctif des familiers","https://www.warcrafttavern.com/forever/news/class-tuning-coming-for-shamans-warlocks-hunter-pets-in-wow-forever/"]]],
+ ["db","Bases de données",[
+  ["Wowhead Forever : pages PNJ et bêtes avec la vraie carte (Grif, Belia, bêtes de la quête, Ghostfang…)","https://www.wowhead.com/forever/npc=1231"],
+  ["Guild Order : cartes Forever en grand format avec coordonnées","https://guildorder.com/games/wow_classic/maps/forever/dun-morogh-1426"],
+  ["warcraft.wiki.gg : Deadly Aspects (page possiblement en retard)","https://warcraft.wiki.gg/wiki/Deadly_Aspects"],
+  ["warcraft.wiki.gg : sorts du chasseur (Forever)","https://warcraft.wiki.gg/wiki/Hunter_abilities_(Forever)"],
+  ["Wowhead Forever : carquois","https://www.wowhead.com/forever/items/quivers"],
+  ["ForeverDB, AllTheThings, Metaforge, wow-forever.gg : coordonnées des PNJ et prix d’Hegnar",""]]],
+ ["weak","Faible ou à recouper",[
+  ["Kami-labs : build Maîtrise des bêtes (publié le 14 sept., dates incohérentes, aucun ordre de pex)","https://kami-labs.fr/en/wow-forever/build-chasseur-maitrise-des-betes-wow-forever/"],
+  ["foreverchanges.pro : datamine du 10 nov. (non officiel)",""],
+  ["WoWForeverGuides : notes beta relayées","https://wowforeverguides.com/leveling/hunter"],
+  ["timesaver.gg et autres vendeurs de boost : utilisés seulement pour recouper des dates","https://timesaver.gg/blog/wow-forever-class-changes-november-10"]]]
+];
+
+/* ---------- Vraies cartes ---------- */
+const PINS=[
+ ["Grif Wildheart","Maître des chasseurs, Kharanos (Dun Morogh)",45.8,52.9,1231],
+ ["Large Crag Boar","Bête 1 de la quête · niv. 6–7",48.0,56.7,1126,1],
+ ["Snow Leopard","Bête 2 · niv. 7–8 · félin",48.5,59.1,1201,1],
+ ["Ice Claw Bear","Bête 3 · niv. 7–8 · mon conseil de familier",46.3,63.3,1196,1],
+ ["Elder Snow Leopard","Félin niv. 9–10, nouveau dans Forever (Dun Morogh)",null,null,260157,1],
+ ["Ghostfang","Félin rare niv. 10 (Dun Morogh)",null,null,276111,1],
+ ["Belia Thundergranite","Dresseur de familiers, Forgefer · Training the Beast",70.7,85.3,10090],
+ ["Hegnar Rumbleshot","Armurier (fusils), Dun Morogh",40.8,65.1,1243],
+ ["Golorn Frostbeard","Marchand, Kharanos · couteau à dépecer",null,null,1692],
+ ["Balthus Stoneflayer","Dépeçage, Forgefer",39.7,32.3,6291],
+ ["Gretta Finespindle","Travail du cuir, Forgefer",39.0,37.7,1466],
+ ["Gryth Thurden","Maître des griffons, Forgefer",null,null,1573],
+ ["Black Bear Patriarch","Ours niv. 16–17, Loch Modan (pour plus tard)",null,null,1189,1]
+];
+const GO="https://guildorder.com/games/wow_classic/maps/forever/";
+const ZMAPS=[["Dun Morogh","dun-morogh-1426"],["Forgefer (Ironforge)","ironforge-1455"],["Loch Modan","loch-modan-1432"],["Hurlevent (Stormwind)","stormwind-city-1453"],["Royaumes de l’Est (monde)","eastern-kingdoms-1415"]];
+const PRIO=[
+ ["pr1",()=>`<b>Passe aux Balles lourdes (Heavy Shot, 3,5 DPS contre 1,5).</b> Hegnar Rumbleshot ${crd(40.8,65.1,"Hegnar",false,1243)} les vend ${coin(0,0,50)} les 200 : 400 balles = ${coin(0,1,0)}. Range-les dans ta Petite giberne. C’est le plus gros gain de dégâts pour le prix.`],
+ ["pr2",()=>`<b>Active ton camp.</b> Chez Kreg Bilmn, Kharanos ${crd(47.2,52.4,"Kreg",false,1691)} : Silex et amadou ${coin(0,1,35)} et 2 Bois simple à ${coin(0,0,38)} (tu en as déjà 1). Total ${coin(0,2,11)}. Ensuite : Feu de camp basique (Cuisine), puis Chaise du camp (3 Cuir léger + 2 Bois simple) = +2 % de critique pour toi et Pumba pendant 1 h.`],
+ ["pr3",()=>`<b>Dépeçage : prends le rang Compagnon</b> chez Balthus Stoneflayer, Forgefer ${crd(39.5,32.5,"Balthus",false,6291)}. Tu es à 57 / 75 : sans ce rang, tu bloques à 75. Prix non vérifié.`],
+ ["pr4",()=>`<b>Reprends « La bière parfaite »</b> chez Rejold Barleybrew ${crd(30.2,45.8,"Rejold",false,1374)}, puis 6 Chatoyante sur les Frostmane Seers ${onlyMap(1397)} et dans les paniers ${'<span class="coord"><a href="https://www.wowhead.com/forever/object=276" target="_blank" rel="noopener">carte ↗</a></span>'} (les plus proches : ${crd(41.3,44.3,"Chatoyante")}), et rends-la. RestedXP reprend tout seul à l’étape 82.`],
+ ["pr5",()=>`<b>Apprends le Travail du cuir</b> chez Gretta Finespindle, Forgefer ${crd(39.0,37.7,"Gretta",false,1466)}, ton 2e métier est libre. Tes 22 Cuir léger servent aux premiers Light Armor Kits ; à 20 tu débloques la Camp Tent (XP reposée).`]
+];
+function renderPrio(){
+ $("#prio-list").innerHTML=PRIO.map(([k,f])=>`<li><label class="chk ${S.checks[k]?"is-done":""}"><input type="checkbox" data-chk="${k}" ${S.checks[k]?"checked":""}><span>${f()}</span></label></li>`).join("");
+ $("#prio-budget").innerHTML=`Budget : tu as ${coin(0,6,5)}. Les priorités 1 et 2 coûtent ${coin(0,3,11)} ; garde le reste pour le rang de Dépeçage et l’entraîneur au 12 (Guérison du familier, Coupure d’ailes, Tir des Arcanes 2).`;
+}
+function renderRealMaps(){
+ $("#real-pins").innerHTML=PINS.map(p=>`<tr class="${p[0]==="Ice Claw Bear"?"now":""}"><td><b>${esc(p[0])}</b></td><td class="small">${esc(p[1])}</td><td>${p[2]!=null?crd(p[2],p[3],p[0].split(" ")[0],!!p[5],p[4]):onlyMap(p[4])}</td></tr>`).join("");
+ $("#zone-maps").innerHTML=ZMAPS.map(z=>`<li><a class="maplink" href="${GO+z[1]}" target="_blank" rel="noopener">${esc(z[0])} ↗</a></li>`).join("")+`<li><a class="maplink" href="https://www.wowhead.com/forever/zone=16919" target="_blank" rel="noopener">Hall of Thanes (donjon) ↗</a> <span class="small muted">entrée par la salle du trône de Forgefer (Method)</span></li>`;
+}
+/* ---------- Rendus ---------- */
+function petSteps(){
+ const steps=[
+  ["ps1",`<b>Grif Wildheart</b>, Kharanos ${crd(45.8,52.9,"Grif",false,1231)} : entraîne Aspect du faucon ${coin(0,4,0)} et Morsure de serpent rang 2 ${coin(0,4,0)}. Accepte <a href="https://www.wowhead.com/forever/quest=6064" target="_blank" rel="noopener">Taming the Beast</a>.`],
+  ["ps2",`Baguette sur un <b>Large Crag Boar</b> ${crd(48.0,56.7,"Boar",true,1126)}, puis retour chez Grif.`],
+  ["ps3",`Baguette sur un <b>Snow Leopard</b> ${crd(48.5,59.1,"Leopard",true,1201)}, retour chez Grif.`],
+  ["ps4",`Baguette sur un <b>Ice Claw Bear</b> ${crd(46.3,63.3,"Bear",true,1196)}, retour chez Grif : il t’apprend les sorts de familier.`],
+  ["ps5",`<b>Training the Beast</b> : Belia Thundergranite, dresseur de familiers à Forgefer ${crd(70.7,85.3,"Belia",false,10090)} (+420 XP), pour Dressage des bêtes.`],
+  ["ps6",`Apprivoise ton vrai familier. Mon conseil : un Ice Claw Bear ${onlyMap(1196)}. Pour un félin à ton niveau : Elder Snow Leopard niv. 9–10 ${onlyMap(260157)} ou le rare Ghostfang niv. 10 ${onlyMap(276111)}. Commence à portée max : ton armure tombe à 0 pendant l’apprivoisement.`],
+  ["ps7",`Dressage des bêtes : Grondement (Growl) en automatique, puis Grande endurance et Armure naturelle avec les points d’entraînement.`],
+  ["ps8",`Achète une giberne Medium Shot Pouch (10 cases, +10 % de vitesse) et des <i>Heavy Shot</i> (3,5 DPS). Prix non vérifiés : regarde chez le vendeur.`]
+ ];
+ return steps.map(([k,h])=>`<li><label class="chk ${S.checks[k]?"is-done":""}"><input type="checkbox" data-chk="${k}" ${S.checks[k]?"checked":""}><span>${h}</span></label></li>`).join("");
+}
+
+function renderNow(){
+ const L=S.lvl;
+ const box=$("#now-pet");
+ if(S.pet==="none"&&L<=12){
+  box.innerHTML=`<div class="panel key"><h3>Priorité absolue : la quête du familier</h3><p class="small muted">Le familier, c’est plus de la moitié de tes dégâts et toute ta survie. Fais-la avant toute autre quête. Carte et détails dans l’onglet <a href="#familier">Familier</a>. Si l’étape RestedXP correspondante bloque, avance-la à la main.</p><ol class="steps">${petSteps()}</ol></div>`;
+ }else if(S.pet!=="none"){
+  const f={bear:FAMILIES[0],boar:FAMILIES[1],cat:FAMILIES[2]}[S.pet];
+  const todo=PRIO.filter(([k])=>!S.checks[k]);
+  box.innerHTML=(todo.length&&L<=12?`<div class="panel key"><h3>Tes priorités (relevé en jeu du 10 nov.)</h3><ol class="steps">${todo.map(([k,fn])=>`<li><label class="chk"><input type="checkbox" data-chk="${k}"><span>${fn()}</span></label></li>`).join("")}</ol><p class="small"><a href="#perso">Ta fiche complète : stats, équipement, Pumba, métiers</a></p></div>`:"")+(f?`<div class="panel"><h3>Ton familier : ${S.pet==="boar"?"Pumba, sanglier":f.n}</h3><p class="small">Capacité : ${esc(f.a)}. Régime (Classic) : ${esc(f.d)}. Garde 20 rations sur toi.${S.pet==="bear"?" Laisse Swipe en automatique sur les packs.":""}${S.pet==="boar"?" Laisse Charge en automatique.":""}</p></div>`:"");
+ }else{box.innerHTML="";}
+
+ const g=[];
+ // Entraîneur
+ const due=SPELLS.filter(s=>s.l<=L&&!S.checks["sp-"+s.l+"-"+s.en+s.fr]).filter(s=>s.p!=="O");
+ const next=SPELLS.filter(s=>s.l>L&&s.l<=L+2&&s.p!=="O");
+ g.push(`<div class="panel"><span class="eyebrow">Entraîneur</span><h3>${due.length?"À acheter maintenant":"Rien d’important en attente"}</h3>${due.length?`<ul class="clean small">${due.map(s=>`<li><span class="prio p-${s.p}">${s.p}</span> ${esc(s.fr)} <span class="en">niv. ${s.l}</span> ${s.cost?coin(...s.cost):""}</li>`).join("")}</ul>`:""}${next.length?`<p class="small muted">Prochain passage (niv. ${next[0].l}) : ${next.map(s=>esc(s.fr)).join(", ")}.</p>`:""}<p class="small"><a href="#sorts">Cocher ce qui est appris</a></p></div>`);
+ // Talent
+ const P=path();const cur=L>=10?P[L-10]:null;const pts=pointsAt(L);
+ g.push(`<div class="panel"><span class="eyebrow">Talent du niveau</span><h3>${cur?esc(cur)+" "+'<span class="mono muted">'+pts[cur]+"/"+((BM.find(t=>t.n===cur)||MM.find(t=>t.n===cur)||{}).m||"")+"</span>":"—"}</h3><p class="small muted">${esc(((BM.find(t=>t.n===cur)||MM.find(t=>t.n===cur))||{}).d||"")}</p><ul class="clean small">${[1,2,3].filter(i=>L+i<=60).map(i=>`<li><span class="mono muted">${L+i}</span> ${esc(P[L+i-10])}</li>`).join("")}</ul><p class="small"><a href="#talents">Voir l’arbre</a></p></div>`);
+ // Zones
+ const b=bracketFor(L);
+ const dg=DUNGEONS.filter(d=>L>=d[2]&&L<=d[3]);
+ g.push(`<div class="panel"><span class="eyebrow">Où pexer (${b[0]}–${Math.min(b[1],60)})</span><h3>${esc(b[2].split(",")[0])}</h3><p class="small">${esc(b[2])}</p><p class="small"><b>Donjon conseillé :</b> ${esc(b[3])}</p>${dg.length?`<p class="small muted">Dans ta fourchette (Method) : ${dg.map(d=>esc(d[0])).join(", ")}.</p>`:""}${b[4]?`<p class="small">${esc(b[4])}</p>`:""}</div>`);
+ // Stuff
+ const rg=RANGED.filter(r=>r[0]>=L-3&&r[0]<=L+5);
+ const am=AMMO.filter(a=>a[0]<=L).pop();const qv=QUIVERS.filter(q=>q[0]<=L).pop();
+ g.push(`<div class="panel"><span class="eyebrow">Équipement</span><h3>Arme à distance</h3>${rg.length?`<ul class="clean small">${rg.map(r=>`<li><span class="mono muted">${r[0]}</span> ${esc(r[1])} <span class="en">${esc(r[2])}${r[3]!=="—"?" · "+r[3]+" DPS":""}</span></li>`).join("")}</ul>`:'<p class="small muted">Pas d’arme repérée dans cette fourchette : regarde l’hôtel des ventes (un fusil vert 2–3 niveaux au-dessus).</p>'}<p class="small">Balles : <b>${esc(am[1])}</b> (${am[3]} DPS). Giberne : ${esc(qv?qv[1]:"—")}.</p><p class="small"><a href="#stuff">Tout l’équipement</a></p></div>`);
+ // Bonus d'XP
+ g.push(`<div class="panel"><span class="eyebrow">Bonus d’XP</span><h3>À chaque session</h3><ul class="clean small"><li>Feu de camp + Camp Chair (Dépeçage 20) + Camp Tent (Cuir 20), assis 1 min. ${tag("off","officiel")}</li><li>Plat qui donne le buff d’XP avant une longue série de mobs. ${tag("guide","2 guides")}</li><li>Déconnecte-toi en auberge ou en capitale pour l’XP reposée.</li></ul><p class="small"><a href="#camping">Camping</a></p></div>`);
+ // Rappel correctif
+ g.push(`<div class="panel"><span class="eyebrow">Actualité ${tag("off","officiel")}</span><h3>Correctif des familiers aujourd’hui</h3><p class="small">Blizzard renforce les stats des familiers ce mardi 10 nov. Si ton familier meurt souvent avant, ce n’est pas toi. <a href="#forever">Détails</a></p></div>`);
+ $("#now-grid").innerHTML=g.join("");
+ renderNowProf();
+}
+function skinMax(sk){if(sk<1)return 0;if(sk<100)return 10+Math.floor(sk/10);return Math.floor(sk/5);}
+function skinReq(lv){if(lv<=10)return 1;if(lv<=20)return (lv-10)*10;return lv*5;}
+function lwStep(sk){return LW.find(r=>sk>=r[0]&&sk<r[1])||null;}
+function renderNowProf(){
+ const sk=S.skin,lw=S.lw,L=S.lvl;
+ const out=[];
+ if(sk<1)out.push(`<p class="small">Dépeçage pas encore appris : Balthus à Forgefer ${crd(39.7,32.3,"Balthus",false,6291)}, plus un couteau à dépecer (10 pc, Golorn Frostbeard ${onlyMap(1692)}).</p>`);
+ else{
+  out.push(`<p class="small">Dépeçage ${sk} : tu peux dépecer les bêtes jusqu’au niveau <b>${skinMax(sk)}</b> (formule Classic). ${sk<20?`Encore ${20-sk} points pour la <b>Camp Chair</b> (+2 % de critique).`:"Camp Chair débloquée."}</p>`);
+  if(sk>=50&&sk<75&&L>=10)out.push(`<p class="small">Pense au rang Compagnon chez Balthus, Forgefer ${crd(39.7,32.3,"Balthus",false,6291)}.</p>`);
+  if(sk>=70&&sk<=75)out.push(`<p class="small note">Plafond 75 atteint ou proche : rang Compagnon chez Balthus.</p>`);
+ }
+ if(lw<1)out.push(`<p class="small">Travail du cuir pas encore appris : Gretta Finespindle, Forgefer ${crd(39.0,37.7,"Gretta",false,1466)}. Commence par des Light Armor Kits (Cuir léger) jusqu’à 30.</p>`);
+ else{const st=lwStep(lw);out.push(`<p class="small">Travail du cuir ${lw} : fabrique <b>${st?esc(st[2]):"—"}</b>${st?` (de ${st[0]} à ${st[1]})`:""}. ${lw<20?`Camp Tent à 20 (encore ${20-lw}).`:"Camp Tent débloquée."}${lw>=50&&lw<75?" Rang Compagnon : essaie Gretta à Forgefer "+crd(39.0,37.7,"Gretta",false,1466)+", sinon Simon Tanner à Hurlevent "+crd(67.3,49.7,"Simon",false,5564)+".":""}</p>`);}
+ $("#now-prof").innerHTML=out.join("");
+}
+
+function renderTalents(){
+ const L=S.lvl,pts=pointsAt(L),P=path();const cur=L>=10?P[L-10]:null;
+ let bmc=0,mmc=0;
+ let h="";
+ for(let r=1;r<=7;r++){
+  const ts=BM.filter(t=>t.r===r);
+  h+=`<div class="tier"><div class="tier-n">R${r} · ${(r-1)*5}</div><div class="tier-t">${ts.map(t=>{const v=pts[t.n]||0;bmc+=v;return `<div class="tal ${v?"has":""} ${v===t.m?"full":""} ${t.n===cur?"next":""}"><b>${esc(t.n)}</b><span class="pts">${v}/${t.m}</span><p>${esc(t.d)}</p></div>`;}).join("")}</div></div>`;
+ }
+ $("#tree-bm").innerHTML=h;
+ $("#tree-mm").innerHTML=`<div class="tier-t">${MM.map(t=>{const v=pts[t.n]||0;mmc+=v;return `<div class="tal ${v?"has":""} ${v===t.m?"full":""} ${t.n===cur?"next":""}"><b>${esc(t.n)}</b><span class="pts">${v}/${t.m}</span><p>${esc(t.d)}</p></div>`;}).join("")}</div><p class="small muted">Talents Précision non pris dans ce chemin : Improved Concussive Shot, Improved Stings, Efficiency, Improved Arcane Shot, Lone Wolf, Rapid Recuperation, Barrage, Scatter Shot, Ranged Weapon Specialization, Sniper Shot.</p>`;
+ $("#bm-count").textContent=bmc+" pts";$("#mm-count").textContent=mmc+" pts";
+ $("#path").innerHTML=P.map((n,i)=>{const lv=i+10;return `<div class="${lv===L?"cur":lv<L?"past":""}"><span>${lv}</span>${esc(n)}</div>`;}).join("");
+ $$("[data-var]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.var===S.variant)));
+ $("#var-note").textContent=S.variant==="tank"?"Variante : Endurance Training 5/5 d’abord (familier plus solide), Deadly Aspects 1/5 au 19. Mon ajustement, pas une source : utile si ton familier meurt trop avant le correctif.":S.variant==="mine"?"Ton point du niveau 10 est dans Œil de faucon (Précision), vu en jeu. Je le garde : tu suis ensuite le chemin de Feor avec un niveau de décalage (Courroux bestial au 41), et il ne restera que 2 points d’Œil de faucon à mettre à la fin. Une réinitialisation coûte de l’or qui sert mieux ailleurs.":"Chemin publié par Feor : Deadly Aspects 5/5 d’abord, pour tuer plus vite.";
+}
+
+function spellKey(s){return "sp-"+s.l+"-"+s.en+s.fr;}
+function renderSpells(){
+ const L=S.lvl;
+ $("#spell-table tbody").innerHTML=SPELLS.map(s=>{const k=spellKey(s),done=!!S.checks[k];const cls=done?"done":s.l<=L?"now":"";return `<tr class="${cls}"><td class="num mono">${s.l}</td><td>${esc(s.fr)}<div class="en">${esc(s.en)}</div></td><td><span class="prio p-${s.p}">${s.p}</span></td><td>${s.cost?coin(...s.cost)+" "+tag("game","jeu"):'<span class="muted">—</span>'}</td><td class="small">${esc(s.w)}</td><td><input type="checkbox" aria-label="Appris : ${esc(s.fr)}" data-chk="${esc(k)}" ${done?"checked":""}></td></tr>`;}).join("");
+}
+
+function renderRotation(){
+ const L=S.lvl;
+ const R=[
+  [10,17,"10 → 17 : familier et Tir des Arcanes",["Envoie le familier, Marque du chasseur, attends 2 à 3 coups.","Auto Shot + Tir des Arcanes à chaque recharge (6 s).","Morsure de serpent seulement si le mob tient 10 s ou plus.","Guérison du familier sous 50 % (dès 12).","Trait de choc puis recule si un mob arrive sur toi."]],
+  [18,24,"18 → 24 : Flèches multiples, puis Visée",["Même ouverture.","Visée (dès 20) ou Flèches multiples (2+ mobs) toutes les 6 s : recharge partagée.","Tir des Arcanes sur sa propre recharge.","Piège givrant si un deuxième mob arrive (dès 20).","Aspect du guépard pour les trajets, faucon dès que tu engages."]],
+  [25,39,"25 → 39 : Summon Hawk et Intimidation",["Familier + Marque, puis Visée ou Flèches multiples.","Tir des Arcanes reste meilleur que Summon Hawk en solo pour l’instant (Feor, 7 nov.) ; ils partagent la même recharge. Re-teste après le correctif.","Intimidation (30) pour couper une incantation ou rendre l’aggro au familier.","Feindre la mort (30) pour sortir d’un combat raté.","Tir rapide sur les élites (26)."]],
+  [40,60,"40 → 60 : Courroux bestial",["Courroux bestial + Tir rapide sur les gros combats.","Même cœur de rotation : Visée ou Flèches multiples, Tir des Arcanes, Morsure de serpent.","Double spécialisation au 40 : une spé pex, une pour les donjons.","Mailles à l’entraîneur au 40."]]
+ ];
+ $("#rot-grid").innerHTML=R.map(r=>`<div class="panel ${L>=r[0]&&L<=r[1]?"key":""}"><h3>${r[2]}</h3><ol class="steps small">${r[3].map(x=>`<li>${esc(x)}</li>`).join("")}</ol></div>`).join("");
+}
+
+const MACROS=[
+ ["Engager proprement","Familier puis Marque, un seul bouton.","#showtooltip Marque du chasseur\n/petattack\n/cast Marque du chasseur"],
+ ["Soigner ou ressusciter le familier","Soigne s’il est vivant, ressuscite s’il est mort (Feor).","#showtooltip\n/cast [target=pet,dead] Ressusciter le familier; [target=pet,exists] Guérison du familier; Ressusciter le familier"],
+ ["Feindre la mort sans rater","Coupe ton incantation avant (Feor).","#showtooltip\n/stopcasting\n/cast Feindre la mort"],
+ ["Couper le guépard","Retire Aspect du guépard sans recharge globale (Feor).","/cancelaura Aspect du guépard"],
+ ["Guépard ↔ faucon","Alterne les deux aspects sur un bouton.","#showtooltip\n/castsequence Aspect du guépard, Aspect du faucon"],
+ ["Œil d’aigle","Repérer un mob rare sans perdre le sort (Feor).","#showtooltip\n/cast !Œil d’aigle"]
+];
+function renderMacros(){
+ $("#macros").innerHTML=MACROS.map((m,i)=>`<div class="panel"><div class="macro-h"><h3>${esc(m[0])}</h3><button type="button" data-copy-pre="m${i}">Copier</button></div><p class="small muted">${esc(m[1])}</p><pre class="macro" id="m${i}">${esc(m[2])}</pre></div>`).join("");
+}
+
+function renderRoute(){
+ const L=S.lvl,b=bracketFor(L);
+ $("#route-now").innerHTML=`<span class="eyebrow">Niveau ${L} · palier ${b[0]}–${Math.min(b[1],60)}</span><h3>${esc(b[2])}</h3><p class="small"><b>Donjon(s) :</b> ${esc(b[3])}</p>${b[4]?`<p class="small">${esc(b[4])}</p>`:""}<p class="small muted">Riverglades : nouvelle zone, pas de fourchette dans la carte Mobalytics ; Method la place en 35–45.</p>`;
+ // Graphique zones
+ const lw=270,px=11,rh=21,top=26,W=lw+60*px+48,H=top+ZONES.length*rh+14;
+ const X=v=>lw+(v-1)*px;
+ const rec=b[2];
+ let s="";
+ for(let v=10;v<=60;v+=10){s+=`<line class="gl" x1="${X(v)}" y1="${top-4}" x2="${X(v)}" y2="${H-10}"/><text class="ax" x="${X(v)}" y="${top-10}" text-anchor="middle">${v}</text>`;}
+ s+=`<text class="ax" x="${X(1)}" y="${top-10}" text-anchor="middle">1</text>`;
+ ZONES.forEach((z,i)=>{
+  const y=top+i*rh;const inRange=L>=z[2]&&L<=z[3];
+  const named=b[5].includes(z[0]);
+  const cls=inRange&&named?"on":inRange?"near":"";
+  s+=`<text x="${lw-8}" y="${y+14}" text-anchor="end" font-size="12.5">${esc(z[0])}${z[1]?` <tspan style="fill:var(--muted)" font-size="11">${esc(z[1])}</tspan>`:""}</text>`;
+  s+=`<rect class="bar ${cls}" x="${X(z[2])}" y="${y+4}" width="${Math.max((z[3]-z[2])*px,4)}" height="${rh-8}" rx="3"/>`;
+  s+=`<text class="ax" x="${X(z[3])+5}" y="${y+14}">${z[2]}–${z[3]}</text>`;
+ });
+ s+=`<line class="lvl-line" x1="${X(L)}" y1="${top-4}" x2="${X(L)}" y2="${H-10}"/>`;
+ $("#chart-zones").innerHTML=`<svg viewBox="0 0 ${W} ${H}" width="${W}" role="img" aria-label="Fourchettes de niveaux des zones Alliance">${s}</svg>`;
+ // Donjons
+ const H2=top+DUNGEONS.length*rh+14;let d="";
+ for(let v=10;v<=60;v+=10){d+=`<line class="gl" x1="${X(v)}" y1="${top-4}" x2="${X(v)}" y2="${H2-10}"/><text class="ax" x="${X(v)}" y="${top-10}" text-anchor="middle">${v}</text>`;}
+ DUNGEONS.forEach((g,i)=>{
+  const y=top+i*rh;const inR=L>=g[2]&&L<=g[3];
+  d+=`<text x="${lw-8}" y="${y+14}" text-anchor="end" font-size="12.5">${esc(g[0])}${g[1]==="nouveau"?` <tspan style="fill:var(--pet)" font-size="11">nouveau</tspan>`:""}</text>`;
+  d+=`<rect class="bar ${inR?"on":""}" x="${X(g[2])}" y="${y+4}" width="${(g[3]-g[2])*px}" height="${rh-8}" rx="3"/>`;
+  if(g[4])d+=`<circle class="rec" cx="${X(g[4])}" cy="${y+rh/2}" r="5"/>`;
+ });
+ d+=`<line class="lvl-line" x1="${X(L)}" y1="${top-4}" x2="${X(L)}" y2="${H2-10}"/>`;
+ $("#chart-dungeons").innerHTML=`<svg viewBox="0 0 ${W} ${H2}" width="${W}" role="img" aria-label="Fourchettes de niveaux des donjons">${d}</svg>`;
+ $("#dg-table tbody").innerHTML=DUNGEONS.map(g=>`<tr class="${L>=g[2]&&L<=g[3]?"now":""}"><td>${esc(g[0])}${g[1]&&g[1]!=="nouveau"?`<div class="en">${esc(g[1])}</div>`:""}${g[1]==="nouveau"?" "+tag("me","nouveau"):""}</td><td class="num mono">${g[2]}–${g[3]}</td><td class="num mono">${g[4]||"—"}</td><td class="small">${esc(g[5])}</td></tr>`).join("");
+}
+
+function renderGear(){
+ const L=S.lvl;
+ $("#rng-table tbody").innerHTML=RANGED.map(r=>{const src=r[4]==="HEGNAR"?`Vendeur Hegnar Rumbleshot, Dun Morogh ${crd(40.8,65.1,"Hegnar",false,1243)}, ${coin(0,4,14)} ${tag("db","3 bases Forever")}`:esc(r[4]);return `<tr class="${r[0]<=L&&r[0]>=L-4?"now":r[0]<L-4?"past":""}"><td class="num mono">${r[0]}</td><td>${esc(r[1])}</td><td>${esc(r[2])}</td><td class="num mono">${r[3]}</td><td class="small">${src}</td></tr>`;}).join("");
+ const am=AMMO.filter(a=>a[0]<=L).pop();
+ $("#ammo-table tbody").innerHTML=AMMO.map(a=>`<tr class="${a===am?"now":""}"><td class="num mono">${a[0]}</td><td>${esc(a[1])}</td><td>${esc(a[2])}</td><td class="num mono">${a[3]}</td></tr>`).join("");
+ const qv=QUIVERS.filter(q=>q[0]<=L).pop();
+ $("#quiver-table tbody").innerHTML=QUIVERS.map(q=>`<tr class="${q===qv?"now":""}"><td class="num mono">${q[0]}</td><td>${esc(q[1])}</td><td>${esc(q[2])}</td><td class="small">${esc(q[3])}</td></tr>`).join("");
+}
+
+function renderProf(){
+ $("#skin2").value=S.skin;$("#lw2").value=S.lw;$("#skin").value=S.skin;$("#lw").value=S.lw;
+ const ml=Math.max(1,Math.min(63,parseInt($("#moblvl").value,10)||1));
+ const req=skinReq(ml);
+ $("#skin-calc").innerHTML=`Mob niveau <b>${ml}</b> : compétence requise <b>${req}</b>. ${S.skin>=req?'<span style="color:var(--ok)">Tu peux le dépecer.</span>':`<span style="color:var(--bad)">Il te manque ${req-S.skin} points.</span>`} Avec ${S.skin}, tu dépèces jusqu’au niveau ${skinMax(S.skin)}.`;
+ const st=lwStep(S.lw);
+ $("#lw-table tbody").innerHTML=LW.map(r=>`<tr class="${r===st?"now":S.lw>=r[1]?"past":""}"><td class="num mono">${r[0]}–${r[1]}</td><td>${esc(r[2])}</td></tr>`).join("");
+ $("#trainers").innerHTML=TRAINERS.map(t=>`<tr><td>${esc(t[0])}</td><td>${esc(t[1])} ${crd(t[2],t[3],t[0].split(" ")[0],false,t[5])}</td><td class="small">${esc(t[4])}</td></tr>`).join("");
+ $("#shop").innerHTML=SHOP.map(sh=>`<div class="panel"><h3>${esc(sh[0])}</h3><div class="tw"><table><thead><tr><th>Matériau</th><th class="num">Qté</th></tr></thead><tbody>${sh[1].map(i=>`<tr><td>${esc(i[0])}<div class="en">${esc(i[1])}</div></td><td class="num mono">${i[2]}</td></tr>`).join("")}</tbody></table></div></div>`).join("");
+ $("#camp-status").innerHTML=`Toi : Dépeçage ${S.skin}/20 ${S.skin>=20?"✓":""} · Travail du cuir ${S.lw}/20 ${S.lw>=20?"✓":""}`;
+}
+
+function renderFamilies(){
+ const f=S.ff;
+ $("#fam-table tbody").innerHTML=FAMILIES.filter(x=>f==="all"||x.u.includes(f)).map(x=>`<tr class="${x.n==="Ours"?"now":""}"><td><b>${esc(x.n)}</b></td><td class="small">${esc(x.a)}</td><td class="small">${esc(x.w)}</td><td class="small">${esc(x.d)}</td><td class="small">${esc(x.me||"")}</td></tr>`).join("");
+ $$("[data-ff]").forEach(b=>b.setAttribute("aria-pressed",String(b.dataset.ff===f)));
+}
+function renderSources(){
+ $("#src-grid").innerHTML=SOURCES.map(g=>`<div class="panel"><h3>${tag(g[0],{off:"officiel",game:"jeu",guide:"guide",db:"base de données",weak:"faible"}[g[0]])} ${esc(g[1])}</h3><ul class="clean small">${g[2].map(i=>`<li>${i[1]?`<a href="${esc(i[1])}" target="_blank" rel="noopener">${esc(i[0])}</a>`:esc(i[0])}</li>`).join("")}</ul></div>`).join("");
+}
+
+function renderLevel(){
+ S.lvl=Math.max(10,Math.min(60,S.lvl|0));
+ $("#lvl").value=S.lvl;$("#lvl-range").value=S.lvl;$("#badge").textContent=S.lvl;
+ $$("[data-lvl]").forEach(e=>e.textContent=S.lvl);
+ $("#pet").value=S.pet;
+ renderNow();renderTalents();renderSpells();renderRotation();renderRoute();renderGear();renderProf();
+}
+
+/* ---------- Navigation ---------- */
+const VIEWS=["maintenant","perso","familier","talents","sorts","rotation","route","stuff","metiers","camping","forever","sources"];
+function show(){
+ let h=(location.hash||"").replace("#","");if(!VIEWS.includes(h))h="maintenant";
+ VIEWS.forEach(v=>{$("#v-"+v).hidden=v!==h;});
+ $$("nav.tabs a").forEach(a=>{if(a.getAttribute("href")==="#"+h)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current");});
+}
+window.addEventListener("hashchange",()=>{show();window.scrollTo(0,0);});
+
+/* ---------- Événements ---------- */
+function setLvl(v){S.lvl=v;save();renderLevel();}
+$("#lvl-down").addEventListener("click",()=>setLvl(S.lvl-1));
+$("#lvl-up").addEventListener("click",()=>setLvl(S.lvl+1));
+$("#lvl").addEventListener("change",e=>setLvl(parseInt(e.target.value,10)||10));
+$("#lvl-range").addEventListener("input",e=>setLvl(parseInt(e.target.value,10)));
+$("#pet").addEventListener("change",e=>{S.pet=e.target.value;save();renderNow();});
+function setSkill(k,v,max){S[k]=Math.max(0,Math.min(max,parseInt(v,10)||0));save();renderNowProf();renderProf();}
+$("#skin").addEventListener("change",e=>setSkill("skin",e.target.value,320));
+$("#skin2").addEventListener("change",e=>setSkill("skin",e.target.value,320));
+$("#lw").addEventListener("change",e=>setSkill("lw",e.target.value,300));
+$("#lw2").addEventListener("change",e=>setSkill("lw",e.target.value,300));
+$("#moblvl").addEventListener("input",renderProf);
+document.addEventListener("change",e=>{
+ const k=e.target.dataset&&e.target.dataset.chk;if(!k)return;
+ if(e.target.checked)S.checks[k]=1;else delete S.checks[k];save();
+ $("#pet-steps").innerHTML=petSteps();
+ renderPrio();renderNow();renderSpells();
+});
+document.addEventListener("click",e=>{
+ const v=e.target.closest("[data-var]");if(v){S.variant=v.dataset.var;save();renderTalents();renderNow();return;}
+ const f=e.target.closest("[data-ff]");if(f){S.ff=f.dataset.ff;save();renderFamilies();return;}
+ const c=e.target.closest("[data-copy],[data-copy-pre]");
+ if(c){const txt=c.dataset.copy||($("#"+c.dataset.copyPre)||{}).textContent||"";copy(txt,c);}
+});
+function copy(t,btn){
+ const ok=()=>toast(btn.dataset.copy?"Commande copiée : "+t:"Macro copiée");
+ const fail=()=>{const pre=btn.dataset.copyPre&&$("#"+btn.dataset.copyPre);if(pre){const r=document.createRange();r.selectNodeContents(pre);const sel=getSelection();sel.removeAllRanges();sel.addRange(r);toast("Texte sélectionné : copie-le avec Ctrl+C");}else toast(t);};
+ try{navigator.clipboard.writeText(t).then(ok,fail);}catch(err){fail();}
+}
+let tt;function toast(m){const el=$("#toast");el.textContent=m;el.hidden=false;clearTimeout(tt);tt=setTimeout(()=>{el.hidden=true;},2400);}
+
+/* Premier chargement après le relevé en jeu : coche ce qui est déjà appris */
+if(SEED){
+ SPELLS.filter(s=>s.l<=10&&s.en!=="Raptor Strike"&&s.en!=="Track Humanoids").forEach(s=>{S.checks[spellKey(s)]=1;});
+ ["ps1","ps2","ps3","ps4","ps5","ps6","ps7"].forEach(k=>{S.checks[k]=1;});
+ save();
+}
+$("#pet-steps").innerHTML=petSteps();
+renderPrio();renderRealMaps();renderMacros();renderFamilies();renderSources();renderLevel();show();
+})();
+</script>
+
+</body>
+</html>

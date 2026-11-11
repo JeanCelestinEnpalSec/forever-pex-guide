@@ -1,0 +1,393 @@
+{
+  "id": "jeanpalsec-releve-manuel",
+  "key": "Jeanpalsec (relevé manuel)",
+  "schema": 1,
+  "source": "manuel",
+  "addonVersion": null,
+  "exportedAt": "2026-11-11T04:16:00Z",
+  "reason": "relevé à l'écran par Claude",
+  "client": {
+    "version": "1.60.1",
+    "build": "70888",
+    "interface": 16001,
+    "locale": "frFR"
+  },
+  "character": {
+    "name": "Jeanpalsec",
+    "realm": null,
+    "level": 10,
+    "race": "Nain",
+    "raceId": "Dwarf",
+    "class": "Chasseur",
+    "classId": "HUNTER",
+    "faction": "Alliance",
+    "money": 605
+  },
+  "position": {
+    "zone": "Dun Morogh",
+    "subzone": "Kharanos",
+    "mapID": 1426,
+    "x": 46.0,
+    "y": 48.4
+  },
+  "stats": {
+    "health": 269,
+    "mana": 286,
+    "attributes": {
+      "strength": {
+        "total": 26
+      },
+      "agility": {
+        "total": 31
+      },
+      "stamina": {
+        "total": 34
+      },
+      "intellect": {
+        "total": 24
+      },
+      "spirit": {
+        "total": 25
+      }
+    },
+    "meleeAttackPower": {
+      "base": 57,
+      "bonus": 0
+    },
+    "rangedAttackPower": {
+      "base": 62,
+      "bonus": 20
+    },
+    "rangedDamage": {
+      "min": 20,
+      "max": 26
+    },
+    "meleeDamage": {
+      "min": 14,
+      "max": 22
+    },
+    "armor": 225,
+    "crit": 4.9,
+    "rangedCrit": 4.9,
+    "dodge": 9.0,
+    "parry": 4.9,
+    "hit": 1.0,
+    "rangedHaste": 10.0,
+    "defense": {
+      "base": 48,
+      "bonus": 0
+    }
+  },
+  "equipment": [
+    {
+      "slot": 18,
+      "slotKey": "RANGED",
+      "itemID": 2509,
+      "name": "Tromblon orné",
+      "quality": 1,
+      "subType": "Armes à feu",
+      "durability": [
+        25,
+        30
+      ]
+    },
+    {
+      "slot": 0,
+      "slotKey": "AMMO",
+      "itemID": 2516,
+      "name": "Balle légère",
+      "quality": 1,
+      "subType": "Balle",
+      "count": 444
+    },
+    {
+      "slot": 16,
+      "slotKey": "MAINHAND",
+      "itemID": null,
+      "name": "Dague d'artisan",
+      "quality": 2,
+      "subType": "Dague",
+      "durability": [
+        30,
+        30
+      ]
+    },
+    {
+      "slot": 15,
+      "slotKey": "BACK",
+      "itemID": null,
+      "name": "Cape râpée",
+      "quality": 1
+    },
+    {
+      "slot": 5,
+      "slotKey": "CHEST",
+      "itemID": null,
+      "name": "Tunique en cuir souple",
+      "quality": 2,
+      "subType": "Cuir",
+      "durability": [
+        59,
+        60
+      ]
+    },
+    {
+      "slot": 9,
+      "slotKey": "WRIST",
+      "itemID": null,
+      "name": "Brassards rapiécés en cuir",
+      "quality": 1,
+      "subType": "Cuir",
+      "durability": [
+        13,
+        16
+      ]
+    },
+    {
+      "slot": 10,
+      "slotKey": "HANDS",
+      "itemID": null,
+      "name": "Gants d'éleveur de loups",
+      "quality": 1,
+      "subType": "Cuir",
+      "durability": [
+        14,
+        16
+      ]
+    },
+    {
+      "slot": 6,
+      "slotKey": "WAIST",
+      "itemID": null,
+      "name": "Ceinture rapiécée en cuir",
+      "quality": 1,
+      "subType": "Cuir",
+      "durability": [
+        13,
+        16
+      ]
+    },
+    {
+      "slot": 7,
+      "slotKey": "LEGS",
+      "itemID": null,
+      "name": "Pantalon nain en cuir",
+      "quality": 1,
+      "subType": "Cuir",
+      "durability": [
+        29,
+        35
+      ]
+    },
+    {
+      "slot": 8,
+      "slotKey": "FEET",
+      "itemID": null,
+      "name": "Bottes rapiécées en cuir",
+      "quality": 1,
+      "subType": "Cuir",
+      "durability": [
+        12,
+        20
+      ]
+    }
+  ],
+  "bags": [
+    {
+      "bag": 4,
+      "name": "Petite giberne",
+      "slots": 6,
+      "used": 3,
+      "items": [
+        {
+          "itemID": 2516,
+          "name": "Balle légère",
+          "count": 444
+        }
+      ]
+    },
+    {
+      "bag": 0,
+      "name": "Sac à dos",
+      "slots": 16,
+      "used": 12,
+      "items": [
+        {
+          "itemID": 2318,
+          "name": "Cuir léger",
+          "count": 22
+        }
+      ]
+    }
+  ],
+  "pet": {
+    "name": "Pumba",
+    "family": "Sanglier",
+    "level": 10,
+    "xp": 0,
+    "xpMax": 1900,
+    "loyalty": "1 (Rebelle)",
+    "health": 287,
+    "armor": 632,
+    "damage": {
+      "min": 16,
+      "max": 21
+    },
+    "abilities": [
+      {
+        "name": "Charge",
+        "rank": "Rang 1",
+        "autocast": true
+      },
+      {
+        "name": "Grondement",
+        "rank": "Rang 2",
+        "autocast": true
+      }
+    ],
+    "foodTypes": []
+  },
+  "talents": {
+    "unspent": 0,
+    "tabs": [
+      {
+        "name": "Maîtrise des bêtes",
+        "pointsSpent": 0,
+        "talents": []
+      },
+      {
+        "name": "Précision",
+        "pointsSpent": 1,
+        "talents": [
+          {
+            "name": "Œil de faucon",
+            "rank": 1,
+            "maxRank": 3
+          }
+        ]
+      },
+      {
+        "name": "Survie",
+        "pointsSpent": 0,
+        "talents": []
+      }
+    ]
+  },
+  "spells": [
+    {
+      "tab": "Général",
+      "name": "Attaque",
+      "rank": ""
+    },
+    {
+      "tab": "Général",
+      "name": "Dressage des bêtes",
+      "rank": ""
+    },
+    {
+      "tab": "Général",
+      "name": "Forme de pierre",
+      "rank": "Raciale"
+    },
+    {
+      "tab": "Général",
+      "name": "Parade",
+      "rank": "Passif"
+    },
+    {
+      "tab": "Maîtrise des bêtes",
+      "name": "Aspect du faucon",
+      "rank": "Rang 1"
+    },
+    {
+      "tab": "Maîtrise des bêtes",
+      "name": "Aspect du singe",
+      "rank": ""
+    },
+    {
+      "tab": "Maîtrise des bêtes",
+      "name": "Apprivoiser une bête",
+      "rank": ""
+    },
+    {
+      "tab": "Précision",
+      "name": "Tir automatique",
+      "rank": ""
+    },
+    {
+      "tab": "Précision",
+      "name": "Tir des arcanes",
+      "rank": "Rang 1"
+    },
+    {
+      "tab": "Précision",
+      "name": "Marque du chasseur",
+      "rank": "Rang 1"
+    },
+    {
+      "tab": "Précision",
+      "name": "Morsure de serpent",
+      "rank": "Rang 2"
+    },
+    {
+      "tab": "Précision",
+      "name": "Trait de choc",
+      "rank": ""
+    },
+    {
+      "tab": "Survie",
+      "name": "Attaque du raptor",
+      "rank": "Rang 1"
+    },
+    {
+      "tab": "Survie",
+      "name": "Pistage des bêtes",
+      "rank": ""
+    }
+  ],
+  "skills": [
+    {
+      "name": "Métiers",
+      "header": true
+    },
+    {
+      "name": "Dépeçage",
+      "rank": 57,
+      "max": 75
+    },
+    {
+      "name": "Métiers secondaires",
+      "header": true
+    },
+    {
+      "name": "Cuisine",
+      "rank": 3,
+      "max": 75
+    },
+    {
+      "name": "Secourisme",
+      "rank": 3,
+      "max": 75
+    }
+  ],
+  "quests": [
+    {
+      "title": "Opération Recombobulation",
+      "level": 10,
+      "objectives": [
+        {
+          "text": "Rouage de rééquilibrage : 0/8",
+          "done": false
+        },
+        {
+          "text": "Engrenage gyromécanique : 0/8",
+          "done": false
+        }
+      ]
+    }
+  ],
+  "restedXP": {
+    "guide": "5-11 Dun Morogh Speedrun Guide 1-20",
+    "step": 82
+  }
+}

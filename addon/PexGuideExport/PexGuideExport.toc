@@ -1,0 +1,11 @@
+## Interface: 16001
+## Title: Pex Guide Export
+## Notes: Exports your character sheet (stats, gear, pet, talents, spells, skills, quests) for the Forever Pex Guide website.
+## Notes-frFR: Exporte ta fiche (stats, équipement, familier, talents, sorts, métiers, quêtes) pour le site Forever Pex Guide.
+## Author: Forever Pex Guide
+## Version: 0.1.0
+## SavedVariables: PexGuideExportDB
+## OptionalDeps: RXPGuides
+## IconTexture: Interface\Icons\INV_Misc_Book_09
+
+PexGuideExport.lua

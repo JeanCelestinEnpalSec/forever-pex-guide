@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Forever Pex Guide</title>
+<meta name="description" content="Guides de pex, de stuff et fiches de personnages pour WoW Forever, tenus à jour par une petite équipe de joueurs.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="./"><span class="brand-mark">FP</span><span>Forever Pex Guide</span></a>
+    <nav aria-label="Navigation principale">
+      <a href="./" aria-current="page">Accueil</a>
+      <a href="perso/">Fiches perso</a>
+      <a href="guides/chasseur-nain/">Carnet chasseur</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="stack">
+    <span class="eyebrow">WoW Forever · serveurs officiels</span>
+    <h1>Forever Pex Guide</h1>
+    <p class="lead">Des carnets de pex par classe et par race, vérifiés sur des sources datées, et la fiche de chaque personnage de l’équipe mise à jour par l’addon <b>Pex Guide Export</b>. RestedXP reste le guide de quêtes en jeu ; ce site couvre la classe, le familier, le stuff et les métiers.</p>
+  </section>
+
+  <section class="stack" aria-labelledby="h-guides">
+    <h2 id="h-guides">Carnets de pex</h2>
+    <div class="grid">
+      <a class="panel card-link" href="guides/chasseur-nain/">
+        <span class="eyebrow">Chasseur · Nain · Alliance</span>
+        <h3>Carnet du chasseur nain</h3>
+        <p class="small muted">Talents niveau par niveau, familier, sorts et prix, rotation et macros en français, route 10 → 60, donjons, équipement, métiers, camping.</p>
+        <span class="tag t-ok">en ligne</span>
+      </a>
+      <div class="panel">
+        <span class="eyebrow">À venir</span>
+        <h3>Les classes de l’équipe</h3>
+        <p class="small muted">Un carnet par personnage de l’équipe, sur le même modèle. Ajoute ta classe en ouvrant une demande sur GitHub.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="stack" aria-labelledby="h-chars">
+    <h2 id="h-chars">Personnages de l’équipe</h2>
+    <div class="grid" id="chars"><p class="muted">Chargement…</p></div>
+  </section>
+
+  <section class="grid" aria-labelledby="h-update">
+    <div class="panel">
+      <h3 id="h-update">Mettre ta fiche à jour</h3>
+      <ol class="steps small">
+        <li>Installe l’addon <b>Pex Guide Export</b> (dossier <code>addon/PexGuideExport</code> du dépôt) dans <code>World of Warcraft\_forever_\Interface\AddOns</code>.</li>
+        <li>En jeu, l’addon enregistre ta fiche tout seul (changement de niveau, d’équipement, de quête…). Tape <code>/pge</code> pour forcer une photo.</li>
+        <li>Fais <code>/reload</code> ou déconnecte-toi : le jeu écrit le fichier <code>PexGuideExport.lua</code> sur le disque.</li>
+        <li>Ouvre <a href="perso/">Fiches perso</a> et importe ce fichier, ou lance <code>node tools/sv2json.js</code>, puis fais un commit.</li>
+      </ol>
+    </div>
+    <div class="panel">
+      <h3>Règles de l’équipe</h3>
+      <ul class="small" style="margin:0;padding-left:1.1em">
+        <li>Chaque information porte sa source et sa date. Ordre de confiance : Blizzard, jeu, guides d’auteurs identifiés, bases de données, communauté.</li>
+        <li>Les prix et coordonnées ne sont publiés que vérifiés.</li>
+        <li>Une modification = une branche et une demande de fusion (pull request) relue par un autre membre.</li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">Forever Pex Guide · projet de fans, non affilié à Blizzard Entertainment. World of Warcraft est une marque de Blizzard Entertainment.</div></footer>
+
+<script src="assets/js/character-view.js"></script>
+<script>
+(function () {
+  "use strict";
+  var box = document.getElementById("chars");
+  function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
+  fetch("data/characters/index.json", { cache: "no-store" })
+    .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+    .then(function (index) {
+      var list = (index && index.characters) || [];
+      if (!list.length) { box.innerHTML = '<p class="muted">Aucune fiche publiée pour l’instant.</p>'; return; }
+      box.innerHTML = list.map(function (c) {
+        return '<a class="panel card-link" href="perso/?c=' + encodeURIComponent(c.id) + '">' +
+          '<span class="eyebrow">' + esc([c.race, c.class].filter(Boolean).join(" · ")) + "</span>" +
+          "<h3>" + esc(c.name) + ' <span class="mono muted">niv. ' + esc(c.level) + "</span></h3>" +
+          '<p class="small muted">' + esc([c.realm, c.faction].filter(Boolean).join(" · ")) + "</p>" +
+          '<p class="small">Mise à jour : ' + PexCharacterView.when(c.exportedAt) + "</p></a>";
+      }).join("");
+    })
+    .catch(function () {
+      box.innerHTML = '<p class="note info small">Page ouverte depuis le disque : la liste des personnages ne se charge qu’en ligne (GitHub Pages). Ouvre <a href="perso/">Fiches perso</a> pour importer ton fichier.</p>';
+    });
+})();
+</script>
+</body>
+</html>

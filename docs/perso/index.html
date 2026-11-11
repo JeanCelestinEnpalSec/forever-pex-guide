@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fiches perso – Forever Pex Guide</title>
+<meta name="description" content="Fiches de personnages WoW Forever exportées par l'addon Pex Guide Export.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/css/site.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../"><span class="brand-mark">FP</span><span>Forever Pex Guide</span></a>
+    <nav aria-label="Navigation principale">
+      <a href="../">Accueil</a>
+      <a href="./" aria-current="page">Fiches perso</a>
+      <a href="../guides/chasseur-nain/">Carnet chasseur</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="stack">
+    <span class="eyebrow">Données de l’addon Pex Guide Export</span>
+    <h1>Fiches perso</h1>
+    <p class="lead">Choisis un personnage déjà publié, ou importe ton fichier <code>PexGuideExport.lua</code> pour voir ta fiche du jour. L’import reste dans ton navigateur : rien n’est envoyé.</p>
+  </section>
+
+  <section class="grid">
+    <div class="panel">
+      <h3>Personnages publiés</h3>
+      <label class="small muted" for="pick">Personnage</label>
+      <select id="pick"><option value="">Chargement…</option></select>
+      <p class="small muted" id="pick-note"></p>
+    </div>
+    <div class="panel">
+      <h3>Importer ma fiche</h3>
+      <p class="small">Fichier : <code>World of Warcraft\_forever_\WTF\Account\&lt;COMPTE&gt;\SavedVariables\PexGuideExport.lua</code></p>
+      <input type="file" id="file" accept=".lua,text/plain">
+      <div class="row" id="import-actions" hidden>
+        <select id="import-pick" aria-label="Personnage importé"></select>
+        <button type="button" class="primary" id="download">Télécharger le JSON</button>
+      </div>
+      <p class="small muted" id="import-note">Pour publier : place le JSON dans <code>docs/data/characters/</code> et fais un commit (ou demande à Claude).</p>
+    </div>
+  </section>
+
+  <section id="view" class="stack" aria-live="polite">
+    <p class="muted">Choisis un personnage ou importe un fichier.</p>
+  </section>
+</main>
+
+<footer><div class="wrap">Forever Pex Guide · projet de fans, non affilié à Blizzard Entertainment.</div></footer>
+
+<script src="../assets/js/sv-parser.js"></script>
+<script src="../assets/js/character-view.js"></script>
+<script>
+(function () {
+  "use strict";
+  var view = document.getElementById("view");
+  var pick = document.getElementById("pick");
+  var note = document.getElementById("pick-note");
+  var imported = [];
+
+  function show(ch) { PexCharacterView.render(ch, view); }
+  function fail(msg) { view.innerHTML = '<p class="note bad">' + msg + "</p>"; }
+
+  function loadPublished(id) {
+    fetch("../data/characters/" + encodeURIComponent(id) + ".json", { cache: "no-store" })
+      .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+      .then(function (ch) {
+        show(ch);
+        var url = new URL(location.href);
+        url.searchParams.set("c", id);
+        history.replaceState(null, "", url);
+      })
+      .catch(function (e) { fail("Impossible de charger la fiche « " + id + " » (" + e.message + ")."); });
+  }
+
+  fetch("../data/characters/index.json", { cache: "no-store" })
+    .then(function (r) { if (!r.ok) throw new Error("HTTP " + r.status); return r.json(); })
+    .then(function (index) {
+      var list = (index && index.characters) || [];
+      pick.innerHTML = '<option value="">' + (list.length ? "Choisir…" : "Aucune fiche publiée") + "</option>" + list.map(function (c) {
+        return '<option value="' + c.id + '">' + [c.name, c.class, "niv. " + c.level, c.realm].filter(Boolean).join(" · ") + "</option>";
+      }).join("");
+      note.textContent = index.updatedAt ? "Liste mise à jour le " + PexCharacterView.when(index.updatedAt) + "." : "";
+      var wanted = new URL(location.href).searchParams.get("c") || (list.length === 1 ? list[0].id : "");
+      if (wanted) { pick.value = wanted; loadPublished(wanted); }
+    })
+    .catch(function () {
+      pick.innerHTML = '<option value="">Indisponible hors ligne</option>';
+      note.textContent = "Page ouverte depuis le disque : la liste en ligne n'est pas lisible. Utilise l'import de fichier.";
+    });
+
+  pick.addEventListener("change", function () { if (pick.value) loadPublished(pick.value); });
+
+  document.getElementById("file").addEventListener("change", function (ev) {
+    var file = ev.target.files && ev.target.files[0];
+    if (!file) return;
+    var reader = new FileReader();
+    reader.onload = function () {
+      try {
+        imported = PexSV.toCharacters(PexSV.parse(String(reader.result)));
+        if (!imported.length) throw new Error("aucun personnage dans ce fichier");
+        var sel = document.getElementById("import-pick");
+        sel.innerHTML = imported.map(function (c, i) { return '<option value="' + i + '">' + c.character.name + " · niv. " + c.character.level + "</option>"; }).join("");
+        document.getElementById("import-actions").hidden = false;
+        show(imported[0]);
+      } catch (e) {
+        fail("Ce fichier n'a pas pu être lu : " + e.message);
+      }
+    };
+    reader.onerror = function () { fail("Lecture du fichier impossible."); };
+    reader.readAsText(file, "utf-8");
+  });
+
+  document.getElementById("import-pick").addEventListener("change", function (e) { show(imported[Number(e.target.value)]); });
+
+  document.getElementById("download").addEventListener("click", function () {
+    var ch = imported[Number(document.getElementById("import-pick").value) || 0];
+    if (!ch) return;
+    var blob = new Blob([JSON.stringify(ch, null, 2) + "\n"], { type: "application/json" });
+    var a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = ch.id + ".json";
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function () { URL.revokeObjectURL(a.href); a.remove(); }, 1000);
+  });
+})();
+</script>
+</body>
+</html>

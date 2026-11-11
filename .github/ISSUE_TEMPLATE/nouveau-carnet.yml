@@ -1,0 +1,27 @@
+name: Nouveau carnet (classe / race)
+description: Demander un carnet de pex pour un nouveau personnage de l'équipe
+title: "[carnet] "
+labels: ["carnet"]
+body:
+  - type: input
+    id: perso
+    attributes:
+      label: Personnage
+      placeholder: "Guerrier humain, Alliance"
+    validations:
+      required: true
+  - type: dropdown
+    id: role
+    attributes:
+      label: Objectif principal
+      options:
+        - Pex le plus rapide possible
+        - Pex + donjons en groupe
+        - Préparation des raids
+    validations:
+      required: true
+  - type: textarea
+    id: metiers
+    attributes:
+      label: Métiers prévus et addons utilisés
+      placeholder: "Minage + Forge, RestedXP"
