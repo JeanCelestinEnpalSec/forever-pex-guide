@@ -1,6 +1,6 @@
 {
   "name": "forever-pex-guide",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "description": "Guides de pex et fiches de personnages WoW Forever, avec l'addon Pex Guide Export.",
   "license": "MIT",
@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "node --test",
-    "validate": "node tools/validate-data.js",
+    "validate": "node tools/validate-data.js && node tools/validate-classes.js",
     "sv2json": "node tools/sv2json.js",
     "serve": "python -m http.server 8000 --directory docs"
   }

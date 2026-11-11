@@ -8,14 +8,20 @@
 - [x] Page **Fiches perso** : fiches publiées + import local du fichier de l'addon
 - [x] Carnet du chasseur nain intégré au site
 - [ ] Premier test de l'addon dans le vrai client Forever (vérifier talents, sorts, métiers, valeurs secrètes)
-- [ ] Mise en ligne GitHub Pages et invitation de l'équipe
+- [x] Mise en ligne GitHub Pages
+- [ ] Invitation de l'équipe (collaborateurs GitHub)
 
-## v0.2 — carnets pour toute l'équipe
+## v0.2 — guides de classe pilotés par les données (11 nov. 2026)
 
-- [ ] Un carnet par personnage de l'équipe (classes et races à confirmer)
-- [ ] Séparer contenu et affichage : données de carnet en JSON (`docs/data/guides/<classe>.json`), une seule page modèle pour toutes les classes
-- [ ] Le carnet lit la fiche exportée : niveau, sorts appris, talents placés et métiers cochés automatiquement
-- [ ] Recherche et filtres (niveau, zone, métier)
+- [x] Contenu séparé de l'affichage : `docs/data/classes/<classe>/*.json`, une page de rendu commune (`class-guide.js`)
+- [x] Guide du chasseur : talents Wowhead (textes français rang 1 et rang max), chemin de Feor, sorts vérifiés, armes avec identifiants et DPS, métiers, familiers, races, macros
+- [x] Curseur « mon niveau » : prochain talent, entraîneur, meilleure arme, zones, potions
+- [x] Fiabilité affichée pour chaque section ; validation des données en CI (`tools/validate-classes.js`)
+- [x] Accueil et README refaits
+- [ ] Captures d'écran du site dans le README
+- [ ] Guides des classes de l'équipe (classes et races à confirmer)
+- [ ] Le guide lit la fiche exportée : sorts déjà appris, talents placés et métiers cochés automatiquement
+- [ ] Recherche et filtres transverses (zone, métier, objet)
 
 ## v0.3 — automatisation
 

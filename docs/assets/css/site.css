@@ -54,6 +54,7 @@ main { padding-block: 26px 60px; display: flex; flex-direction: column; gap: 26p
 .grid > * { min-width: 0; }
 .panel { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 16px 18px; display: flex; flex-direction: column; gap: 10px; min-width: 0; }
 .panel.key { border-color: var(--accent); box-shadow: 0 0 0 3px var(--accent-soft); }
+.panel > .tag, .panel > .btn { align-self: flex-start; }
 .card-link { text-decoration: none; color: inherit; transition: border-color .15s; }
 .card-link:hover { border-color: var(--accent); }
 .small { font-size: .9rem; }

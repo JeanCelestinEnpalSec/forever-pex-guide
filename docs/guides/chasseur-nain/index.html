@@ -208,7 +208,7 @@ footer{border-top:1px solid var(--line);padding-block:18px;color:var(--muted);fo
         <div class="lvl-badge" id="badge" aria-hidden="true">10</div>
         <div>
           <h1>Carnet de chasse de Jeanpalsec</h1>
-          <p>Nain · Chasseur · Alliance · WoW Forever · <a href="../../">Forever Pex Guide</a></p>
+          <p>Nain · Chasseur · Alliance · WoW Forever · <a href="../../">Forever Pex Guide</a> · <a href="../../classes/hunter/">Guide complet du chasseur</a></p>
         </div>
       </div>
       <div class="controls">
@@ -806,7 +806,7 @@ const SPELLS=[
  {l:12,fr:"Coupure d’ailes",en:"Wing Clip",p:"E",w:"Ralentit au contact, pour reprendre la distance."},
  {l:12,fr:"Tir des Arcanes (rang 2)",en:"Arcane Shot",p:"E",w:"Ton tir principal à chaque recharge."},
  {l:12,fr:"Trait provocateur",en:"Distracting Shot",p:"O",w:"Utile en groupe seulement."},
- {l:14,fr:"Œil d’aigle",en:"Eagle Eye",p:"O",w:"Repérer un mob rare."},
+ {l:14,fr:"Oeil d'aigle",en:"Eagle Eye",p:"O",w:"Repérer un mob rare."},
  {l:14,fr:"Œil de la bête",en:"Eyes of the Beast",p:"O",w:"Contrôler le familier à distance."},
  {l:14,fr:"Effrayer une bête",en:"Scare Beast",p:"O",w:"Contrôle sur une bête, situationnel."},
  {l:16,fr:"Piège d’immolation",en:"Immolation Trap",p:"U",w:"Dégâts de feu, utilisable en combat."},
@@ -1166,7 +1166,7 @@ const MACROS=[
  ["Feindre la mort sans rater","Coupe ton incantation avant (Feor).","#showtooltip\n/stopcasting\n/cast Feindre la mort"],
  ["Couper le guépard","Retire Aspect du guépard sans recharge globale (Feor).","/cancelaura Aspect du guépard"],
  ["Guépard ↔ faucon","Alterne les deux aspects sur un bouton.","#showtooltip\n/castsequence Aspect du guépard, Aspect du faucon"],
- ["Œil d’aigle","Repérer un mob rare sans perdre le sort (Feor).","#showtooltip\n/cast !Œil d’aigle"]
+ ["Oeil d'aigle","Repérer un mob rare sans perdre le sort (Feor).","#showtooltip\n/cast !Oeil d'aigle"]
 ];
 function renderMacros(){
  $("#macros").innerHTML=MACROS.map((m,i)=>`<div class="panel"><div class="macro-h"><h3>${esc(m[0])}</h3><button type="button" data-copy-pre="m${i}">Copier</button></div><p class="small muted">${esc(m[1])}</p><pre class="macro" id="m${i}">${esc(m[2])}</pre></div>`).join("");

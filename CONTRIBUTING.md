@@ -11,8 +11,9 @@ Trois personnes travaillent en parallèle, chacune sur son PC. Pour ne jamais s'
    - `addon/export-reputations` (addon)
    - `site/fiche-perso-mobile` (pages, CSS, scripts)
    - `donnees/jeanpalsec-niv-14` (fiches de personnages)
+   - `classe/warrior` ou `classe/hunter-armes-30-40` (données d'un guide de classe)
 3. **Travailler**, faire des commits courts. Messages au format :
-   `type(zone): ce qui change` — types : `carnet`, `addon`, `site`, `donnees`, `outils`, `docs`, `fix`.
+   `type(zone): ce qui change` — types : `classe`, `carnet`, `addon`, `site`, `donnees`, `outils`, `docs`, `fix`.
    Exemple : `carnet(chasseur): talents 20-30 d'après Feor du 12 nov.`
 4. **Pousser** la branche et **ouvrir une PR** vers `main`. Remplir la liste de vérification.
 5. **Relecture** par un autre membre, CI verte, puis *Squash and merge*.
@@ -27,6 +28,12 @@ Avec Claude : on peut lui demander de préparer la branche, les commits et la PR
 - **Cartes** : liens vers la vraie carte (Wowhead Forever, Guild Order), pas de cartes dessinées, pas d'images de cartes Blizzard copiées.
 - **Désaccord entre sources** : on garde les deux, on dit lequel on suit et pourquoi.
 - **Noms en jeu** : client français, noms anglais entre parenthèses quand les guides les utilisent. Les macros utilisent les noms français.
+
+## Guides de classe
+
+- Le contenu vit dans `docs/data/classes/<classe>/*.json` ; la page ne fait que l'afficher. Modèle et règles : [docs/data/README.md](docs/data/README.md).
+- Chaque bloc porte ses sources (`src`), déclarées dans `meta.json` avec leur fiabilité.
+- `npm run validate` vérifie la grille de talents et que le chemin de pex est jouable (paliers, prérequis, rangs).
 
 ## Fichiers et sécurité
 

@@ -1,0 +1,84 @@
+{
+  "id": "hunter",
+  "fr": "Chasseur",
+  "en": "Hunter",
+  "color": "#AAD372",
+  "icon": "classicon_hunter",
+  "checked": "2026-11-11",
+  "client": "1.60.1",
+  "spec": {"fr": "Maîtrise des bêtes", "en": "Beast Mastery", "points": "31 / 20 / 0", "src": ["moba"]},
+  "summary": "La classe la plus autonome pour monter seul : le tir automatique ne souffre pas d’un écart de niveau, et le familier encaisse et frappe à ta place. Les dix premiers niveaux sont lents ; au niveau 10, avec le familier, tout change. En donjon, tu restes utile sans changer de stuff, de spé ni de familier.",
+  "summarySrc": ["moba"],
+  "strengths": [
+    "Peu dépendant de la mana : le familier fait une grosse part des dégâts.",
+    "Bonne progression du début au milieu du jeu : pas besoin de talents profonds, juste du niveau 10.",
+    "Capable de tuer des mobs plus forts que toi grâce au tir automatique."
+  ],
+  "weaknesses": [
+    "Peu d’utilitaire : la Maîtrise des bêtes mise tout sur les dégâts.",
+    "Faible de 1 à 10, avant le familier.",
+    "Moins de place dans les sacs : giberne ou carquois obligatoire."
+  ],
+  "swSrc": ["moba"],
+  "races": {
+    "src": ["moba"],
+    "note": "Avis de Feor (Mobalytics). Noms des raciaux laissés en anglais tant que le nom français du client n’est pas vérifié.",
+    "alliance": [
+      {"fr": "Elfe de la nuit", "verdict": "Le meilleur choix des deux factions", "racials": ["Elune’s Light : +10 % de critique pendant 15 s, aussi pour le familier en Maîtrise des bêtes", "Shadowmeld : détourner les mobs vers le familier avant Feindre la mort", "Quickness : vitesse, se cumule avec Aspect du guépard", "Wisp Spirit : plus rapide une fois mort"]},
+      {"fr": "Humain", "verdict": "Polyvalent", "racials": ["Will to Survive : sortir d’un étourdissement", "Perception : repérer les camouflés, se cumule avec Pistage des camouflés", "Ruthless : +1 % de critique", "The Human Spirit : +10 % d’Esprit, rentable avec Discipline bestiale"]},
+      {"fr": "Nain", "verdict": "Un peu en retrait, mais deux bons raciaux de pex", "racials": ["Big Game Hunter : +5 % de dégâts contre les bêtes, le meilleur racial du nain en pex", "Artisan’s Precision : +1 % de toucher, précieux à bas niveau", "Stoneform : retire saignements et poisons", "Find Treasure : coffres sur la minicarte"]},
+      {"fr": "Skyborne (nouveau)", "verdict": "Le moins éprouvé", "racials": ["Wind Blessed : +3 % de hâte", "Elemental Insight : +5 % de dégâts contre les élémentaires", "Read Leyline : un peu de mana", "Walk on Air : sauter des falaises sans risque"]}
+    ],
+    "horde": [
+      {"fr": "Orc", "verdict": "Le seul vrai choix Horde selon Feor", "racials": ["Blood Fury : +10 % de puissance d’attaque, donc plus de dégâts pour toi et le familier", "Command : +5 % de dégâts du familier", "Shatter Curse", "Hardiness : résistance aux étourdissements"]},
+      {"fr": "Troll", "verdict": "Correct, surtout pour l’endurance en début de pex", "racials": ["Berserking", "Beast Slaying : bonus contre les bêtes", "Rapid Regeneration : gros soin toutes les 3 min", "Regeneration"]},
+      {"fr": "Tauren", "verdict": "Pour ceux qui veulent aller vite", "racials": ["Plainsrunning : vitesse avant Aspect du guépard", "Endurance : plus de vie", "War Stomp : se dégager", "Cultivation"]},
+      {"fr": "Skyborne (nouveau)", "verdict": "Le moins éprouvé", "racials": ["Skysight : vitesse en début de pex", "Wind Blessed : +3 % de hâte", "Elemental Insight", "Walk on Air"]}
+    ]
+  },
+  "tips": {
+    "src": ["moba"],
+    "list": [
+      {"t": "Familier à jour", "d": "Garde Claw et Bite au rang le plus haut : c’est le plus gros levier de vitesse."},
+      {"t": "Pas tous les sorts", "d": "L’essentiel des dégâts vient du tir automatique et du Tir des arcanes. Garde l’or pour la monture."},
+      {"t": "Donjons avec mesure", "d": "Une fois pour les quêtes ; cherche un groupe pendant que tu quêtes."},
+      {"t": "Farmer, c’est ta force", "d": "Sans quête sous la main, tuer des mobs rapporte XP et or sans risque."},
+      {"t": "Dépeçage à niveau", "d": "Le cuir finance tout et alimente le Travail du cuir."},
+      {"t": "Buff de nourriture", "d": "+5 % d’XP sur les mobs : 10 s de repas, rentable dès que tu enchaînes."},
+      {"t": "Bonus de camp", "d": "La Chaise du camp donne +2 % de critique ; la Tente du camp de l’XP reposée."},
+      {"t": "Mêlée à deux mains", "d": "Une arme à deux mains frappe plus fort qu’une arme à une main quand un mob te rattrape."}
+    ]
+  },
+  "macros": {
+    "src": ["moba", "wowhead", "carnet"],
+    "note": "Noms de sorts copiés à l’identique des infobulles françaises de Wowhead (même orthographe que le client). Une seule lettre ou apostrophe différente et la macro ne fait rien.",
+    "list": [
+      {"t": "Engager proprement", "d": "Familier puis Marque, un seul bouton.", "code": "#showtooltip Marque du chasseur\n/petattack\n/cast Marque du chasseur"},
+      {"t": "Soigner ou ressusciter le familier", "d": "Soigne s’il est vivant, ressuscite s’il est mort.", "code": "#showtooltip\n/cast [target=pet,dead] Ressusciter le familier; [target=pet,exists] Guérison du familier; Ressusciter le familier"},
+      {"t": "Feindre la mort sans rater", "d": "Coupe ton incantation avant.", "code": "#showtooltip\n/stopcasting\n/cast Feindre la mort"},
+      {"t": "Couper le guépard", "d": "Retire Aspect du guépard sans recharge globale.", "code": "/cancelaura Aspect du guépard"},
+      {"t": "Guépard ou faucon", "d": "Alterne les deux aspects sur un bouton.", "code": "#showtooltip\n/castsequence Aspect du guépard, Aspect du faucon"},
+      {"t": "Oeil d'aigle", "d": "Repérer un mob rare sans couper le sort.", "code": "#showtooltip\n/cast !Oeil d'aigle"},
+      {"t": "Flèche de dispersion propre", "d": "N’annule pas ta propre désorientation.", "code": "#showtooltip Flèche de dispersion\n/stopattack\n/stopcasting\n/cast Flèche de dispersion\n/stopattack"},
+      {"t": "Fusée éclairante", "d": "Le curseur de zone ne disparaît pas si tu appuies plusieurs fois.", "code": "#showtooltip\n/cast !Fusée éclairante"},
+      {"t": "Gros burst (40+)", "d": "Courroux bestial et Tir rapide ensemble.", "code": "#showtooltip Courroux bestial\n/cast Courroux bestial\n/cast Tir rapide"}
+    ]
+  },
+  "sources": {
+    "blizzard": {"fr": "Blizzard : annonces et notes de patch WoW Forever", "kind": "officiel", "url": "https://news.blizzard.com/en-us/article/24301515/world-of-warcraft-forever-class-deep-dives-hunter-and-druid", "date": "2026-09-30"},
+    "game": {"fr": "Captures du jeu (client français)", "kind": "jeu", "date": "2026-11-10"},
+    "wowhead": {"fr": "Wowhead Forever : calculateur de talents, sorts, objets, PNJ", "kind": "base", "url": "https://www.wowhead.com/forever/talent-calc/hunter", "date": "2026-11-11"},
+    "moba": {"fr": "Mobalytics : Hunter Leveling Guide, par Feor", "kind": "guide", "url": "https://mobalytics.gg/wow-forever/classes/hunter-leveling-guide", "date": "2026-11-09"},
+    "method": {"fr": "Method : guides WoW Forever (cuir, dépeçage, donjons)", "kind": "guide", "url": "https://www.method.gg/wow-forever", "date": "2026-11-08"},
+    "tavern": {"fr": "Warcraft Tavern : familiers de chasseur", "kind": "guide", "url": "https://www.warcrafttavern.com/forever/guides/hunter-pets/", "date": "2026-11-08"},
+    "carnet": {"fr": "Carnet de l’équipe (chasseur nain)", "kind": "equipe", "url": "../../guides/chasseur-nain/", "date": "2026-11-10"}
+  },
+  "kinds": {
+    "officiel": {"fr": "Officiel", "rank": 1, "about": "Blizzard : annonces, notes de patch, forums officiels."},
+    "jeu": {"fr": "Jeu", "rank": 2, "about": "Lu directement dans le client."},
+    "base": {"fr": "Base de données", "rank": 3, "about": "Wowhead Forever : données extraites du client, à jour du correctif."},
+    "guide": {"fr": "Guide d’auteur", "rank": 4, "about": "Avis d’un joueur identifié (Mobalytics, Method). Utile, mais c’est une opinion."},
+    "equipe": {"fr": "Équipe", "rank": 5, "about": "Notes de notre équipe, recoupées mais pas toujours vérifiées en jeu."},
+    "faible": {"fr": "Faible", "rank": 6, "about": "Datamine, forum anonyme, site commercial : à recouper avant usage."}
+  }
+}

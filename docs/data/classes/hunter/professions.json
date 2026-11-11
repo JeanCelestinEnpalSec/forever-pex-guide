@@ -1,0 +1,506 @@
+{
+  "class": "hunter",
+  "checked": "2026-11-11",
+  "src": [
+    "moba",
+    "method",
+    "wowhead",
+    "blizzard",
+    "carnet"
+  ],
+  "picks": [
+    {
+      "key": "skinning",
+      "fr": "Dépeçage",
+      "kind": "principal",
+      "verdict": "Recommandé",
+      "why": "Tu tues des bêtes toute la journée : le cuir devient de l’or sans détour. Au rang 20, il débloque la Chaise du camp (+2 % de critique pour toi et le familier).",
+      "src": [
+        "moba"
+      ]
+    },
+    {
+      "key": "leatherworking",
+      "fr": "Travail du cuir",
+      "kind": "principal",
+      "verdict": "Recommandé avec le Dépeçage",
+      "why": "Fabrique tes propres améliorations et surtout les meilleures gibernes et carquois : plus de vitesse de tir et moins d’allers-retours chez le vendeur.",
+      "src": [
+        "moba"
+      ]
+    },
+    {
+      "key": "firstaid",
+      "fr": "Secourisme",
+      "kind": "secondaire",
+      "verdict": "Indispensable",
+      "why": "Les bandages soignent toi ou le familier sans mana ni pause repas.",
+      "src": [
+        "moba"
+      ]
+    },
+    {
+      "key": "cooking",
+      "fr": "Cuisine",
+      "kind": "secondaire",
+      "verdict": "Indispensable dans Forever",
+      "why": "Les plats donnent +5 % d’XP sur les monstres ; la cuisine allume aussi le feu de camp.",
+      "src": [
+        "moba"
+      ]
+    }
+  ],
+  "campfire": {
+    "intro": "Système de camp de Forever : un feu de camp, puis des objets de camp liés aux métiers.",
+    "src": [
+      "blizzard",
+      "moba"
+    ],
+    "items": [
+      {
+        "id": 279979,
+        "fr": "Chaise du camp",
+        "en": "Camp Chair",
+        "needs": "Dépeçage 20 (Feor). Recette : 3 Cuir léger + 2 Bois simple (carnet).",
+        "effect": "+2 % de critique pour toi et ton familier pendant 1 h.",
+        "key": true,
+        "icon": "inv_crate_01",
+        "q": 1
+      },
+      {
+        "id": 279978,
+        "fr": "Tente du camp",
+        "en": "Camp Tent",
+        "needs": "Lié au Travail du cuir (rang 20 selon le carnet, à confirmer).",
+        "effect": "XP reposée gagnée chaque heure ; se cumule avec la chaise.",
+        "icon": "inv_misc_leatherscrap_01",
+        "q": 1
+      }
+    ],
+    "shopping": [
+      {
+        "id": 4471,
+        "fr": "Silex et amadou",
+        "en": "Flint and Tinder",
+        "price": [
+          0,
+          1,
+          35
+        ],
+        "where": "Kreg Bilmn, Kharanos 47.2, 52.4",
+        "npc": 1691,
+        "icon": "inv_stone_11",
+        "q": 1
+      },
+      {
+        "id": 4470,
+        "fr": "Bois simple",
+        "en": "Simple Wood",
+        "price": [
+          0,
+          0,
+          38
+        ],
+        "where": "Kreg Bilmn, Kharanos 47.2, 52.4",
+        "npc": 1691,
+        "icon": "inv_tradeskillitem_01",
+        "q": 1
+      }
+    ]
+  },
+  "leatherworking": {
+    "src": [
+      "method"
+    ],
+    "note": "Plan de montée de Method (chiffres de Method, vérifiés seulement jusqu’à 225). Au-delà, rien n’est encore publié pour Forever.",
+    "steps": [
+      {
+        "from": 1,
+        "to": 30,
+        "id": 2304,
+        "qty": "×30",
+        "fr": "Renfort d'armure léger",
+        "icon": "inv_misc_armorkit_17",
+        "q": 1
+      },
+      {
+        "from": 30,
+        "to": 55,
+        "id": 4231,
+        "fr": "Peau légère traitée",
+        "icon": "inv_misc_pelt_wolf_01",
+        "q": 1
+      },
+      {
+        "from": 55,
+        "to": 75,
+        "id": 4239,
+        "fr": "Gants en cuir estampé",
+        "icon": "inv_gauntlets_05",
+        "q": 2
+      },
+      {
+        "from": 75,
+        "to": 90,
+        "id": 4233,
+        "qty": "×15",
+        "fr": "Peau moyenne traitée",
+        "icon": "inv_misc_pelt_bear_02",
+        "q": 1
+      },
+      {
+        "from": 90,
+        "to": 105,
+        "id": 7282,
+        "fr": "Pantalon en cuir léger",
+        "icon": "inv_pants_02",
+        "q": 2
+      },
+      {
+        "from": 105,
+        "to": 125,
+        "id": 4251,
+        "qty": "×20",
+        "fr": "Epaulières d'homme des collines",
+        "icon": "inv_shoulder_08",
+        "q": 2
+      },
+      {
+        "from": 125,
+        "to": 130,
+        "id": 4234,
+        "fr": "Cuir lourd",
+        "icon": "inv_misc_leatherscrap_07",
+        "q": 1
+      },
+      {
+        "from": 130,
+        "to": 140,
+        "id": 4236,
+        "fr": "Peau lourde traitée",
+        "icon": "inv_misc_pelt_wolf_02",
+        "q": 1
+      },
+      {
+        "from": 140,
+        "to": 155,
+        "id": 4247,
+        "fr": "Gants d'homme des collines en cuir",
+        "icon": "inv_gauntlets_05",
+        "q": 2
+      },
+      {
+        "from": 155,
+        "to": 165,
+        "id": 5964,
+        "qty": "×10",
+        "fr": "Epaulières barbares",
+        "icon": "inv_shoulder_08",
+        "q": 2
+      },
+      {
+        "from": 165,
+        "to": 195,
+        "id": 5966,
+        "fr": "Gants de gardien",
+        "icon": "inv_gauntlets_05",
+        "q": 2
+      },
+      {
+        "from": 195,
+        "to": 210,
+        "id": 8176,
+        "fr": "Bandeau de la nuit",
+        "icon": "inv_belt_24",
+        "q": 2
+      },
+      {
+        "from": 210,
+        "to": 225,
+        "id": 8193,
+        "qty": "×15",
+        "fr": "Pantalon de la nuit",
+        "icon": "inv_pants_11",
+        "q": 2
+      }
+    ],
+    "shopping": [
+      {
+        "tier": "Apprenti (1–75)",
+        "mats": [
+          {
+            "fr": "Cuir léger",
+            "id": 2318,
+            "qty": 93,
+            "icon": "inv_misc_leatherscrap_03",
+            "q": 1
+          },
+          {
+            "fr": "Peau légère",
+            "id": 783,
+            "qty": 28,
+            "icon": "inv_misc_pelt_wolf_ruin_02",
+            "q": 1
+          },
+          {
+            "fr": "Sel",
+            "id": 4289,
+            "qty": 27,
+            "icon": "inv_misc_dust_02",
+            "q": 1
+          },
+          {
+            "fr": "Bobine de fil grossier",
+            "id": 2320,
+            "qty": 42,
+            "icon": "inv_fabric_linen_03",
+            "q": 1
+          }
+        ]
+      },
+      {
+        "tier": "Compagnon (75–150)",
+        "mats": [
+          {
+            "fr": "Peau moyenne",
+            "id": 4232,
+            "qty": 15,
+            "icon": "inv_misc_pelt_boar_ruin_02",
+            "q": 1
+          },
+          {
+            "fr": "Cuir léger",
+            "id": 2318,
+            "qty": 150,
+            "icon": "inv_misc_leatherscrap_03",
+            "q": 1
+          },
+          {
+            "fr": "Peau légère traitée",
+            "id": 4231,
+            "qty": 30,
+            "icon": "inv_misc_pelt_wolf_01",
+            "q": 1
+          },
+          {
+            "fr": "Cuir moyen",
+            "id": 2319,
+            "qty": 245,
+            "icon": "inv_misc_leatherscrap_05",
+            "q": 1
+          },
+          {
+            "fr": "Peau moyenne traitée",
+            "id": 4233,
+            "qty": 20,
+            "icon": "inv_misc_pelt_bear_02",
+            "q": 1
+          },
+          {
+            "fr": "Peau lourde",
+            "id": 4235,
+            "qty": 20,
+            "icon": "inv_misc_pelt_wolf_ruin_03",
+            "q": 1
+          },
+          {
+            "fr": "Bobine de fil raffiné",
+            "id": 2321,
+            "qty": 35,
+            "icon": "inv_fabric_wool_02",
+            "q": 1
+          },
+          {
+            "fr": "Sel",
+            "id": 4289,
+            "qty": 75,
+            "icon": "inv_misc_dust_02",
+            "q": 1
+          }
+        ]
+      },
+      {
+        "tier": "Expert (150–225)",
+        "mats": [
+          {
+            "fr": "Cuir moyen",
+            "id": 2319,
+            "qty": 70,
+            "icon": "inv_misc_leatherscrap_05",
+            "q": 1
+          },
+          {
+            "fr": "Cuir lourd",
+            "id": 4234,
+            "qty": 200,
+            "icon": "inv_misc_leatherscrap_07",
+            "q": 1
+          },
+          {
+            "fr": "Peau lourde traitée",
+            "id": 4236,
+            "qty": 40,
+            "icon": "inv_misc_pelt_wolf_02",
+            "q": 1
+          },
+          {
+            "fr": "Cuir épais",
+            "id": 4304,
+            "qty": 285,
+            "icon": "inv_misc_leatherscrap_08",
+            "q": 1
+          },
+          {
+            "fr": "Bobine de fil raffiné",
+            "id": 2321,
+            "qty": 80,
+            "icon": "inv_fabric_wool_02",
+            "q": 1
+          },
+          {
+            "fr": "Bobine de soie",
+            "id": 4291,
+            "qty": 90,
+            "icon": "inv_fabric_silk_02",
+            "q": 1
+          }
+        ]
+      }
+    ]
+  },
+  "bandages": [
+    {
+      "id": 1251,
+      "fr": "Bandage en lin",
+      "icon": "inv_misc_bandage_15",
+      "q": 1
+    },
+    {
+      "id": 2581,
+      "fr": "Bandage épais en lin",
+      "icon": "inv_misc_bandage_18",
+      "q": 1
+    },
+    {
+      "id": 3530,
+      "fr": "Bandage en laine",
+      "icon": "inv_misc_bandage_14",
+      "q": 1
+    },
+    {
+      "id": 3531,
+      "fr": "Bandage épais en laine",
+      "icon": "inv_misc_bandage_17",
+      "q": 1
+    },
+    {
+      "id": 6450,
+      "fr": "Bandage en soie",
+      "icon": "inv_misc_bandage_01",
+      "q": 1
+    },
+    {
+      "id": 6451,
+      "fr": "Bandage épais en soie",
+      "icon": "inv_misc_bandage_02",
+      "q": 1
+    },
+    {
+      "id": 8544,
+      "fr": "Bandage en tisse-mage",
+      "icon": "inv_misc_bandage_19",
+      "q": 1
+    },
+    {
+      "id": 8545,
+      "fr": "Bandage épais en tisse-mage",
+      "icon": "inv_misc_bandage_20",
+      "q": 1
+    },
+    {
+      "id": 14529,
+      "fr": "Bandage en étoffe runique",
+      "icon": "inv_misc_bandage_11",
+      "q": 1
+    },
+    {
+      "id": 14530,
+      "fr": "Bandage épais en étoffe runique",
+      "icon": "inv_misc_bandage_12",
+      "q": 1
+    }
+  ],
+  "trainers": {
+    "src": [
+      "wowhead",
+      "method"
+    ],
+    "note": "Coordonnées Wowhead Forever. Le rang maximum enseigné diffère parfois entre Wowhead et Method : vérifie en jeu.",
+    "list": [
+      {
+        "fr": "Balthus Stoneflayer",
+        "zone": "Forgefer",
+        "x": 39.7,
+        "y": 32.3,
+        "what": "Dépeçage, tous rangs (Method)",
+        "npc": 6291
+      },
+      {
+        "fr": "Gretta Finespindle",
+        "zone": "Forgefer",
+        "x": 39.0,
+        "y": 37.7,
+        "what": "Travail du cuir (Wowhead : Compagnon, Method : Apprenti)",
+        "npc": 1466
+      },
+      {
+        "fr": "Simon Tanner",
+        "zone": "Hurlevent",
+        "x": 67.3,
+        "y": 49.7,
+        "what": "Travail du cuir (Wowhead : Expert, Method : Compagnon)",
+        "npc": 5564
+      },
+      {
+        "fr": "Maris Granger",
+        "zone": "Hurlevent",
+        "x": 72.2,
+        "y": 62.5,
+        "what": "Dépeçage",
+        "npc": 1292
+      },
+      {
+        "fr": "Telonis",
+        "zone": "Darnassus",
+        "x": 64.4,
+        "y": 21.5,
+        "what": "Travail du cuir (Wowhead : Artisan, Method : Expert)",
+        "npc": 4212
+      },
+      {
+        "fr": "Eladriel",
+        "zone": "Darnassus",
+        "x": 64.2,
+        "y": 22.1,
+        "what": "Dépeçage",
+        "npc": 6292
+      },
+      {
+        "fr": "Jayla",
+        "zone": "Orneval",
+        "x": 49.9,
+        "y": 67.2,
+        "what": "Dépeçage, tous rangs (Method)",
+        "npc": 6288
+      },
+      {
+        "fr": "Drakk Stonehand",
+        "zone": "Hinterlands",
+        "x": 13.4,
+        "y": 43.3,
+        "what": "Travail du cuir, maître",
+        "npc": 11097
+      }
+    ]
+  }
+}

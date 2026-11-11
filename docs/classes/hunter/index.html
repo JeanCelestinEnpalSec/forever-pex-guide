@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chasseur – Forever Pex Guide</title>
+<meta name="description" content="Guide de pex du chasseur sur WoW Forever : talents niveau par niveau, sorts, rotation, équipement, familiers, métiers et macros en français, avec la fiabilité de chaque source.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Marcellus&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../../assets/css/site.css">
+<link rel="stylesheet" href="../../assets/css/guide.css">
+<script>const whTooltips = { colorLinks: false, iconizeLinks: false, renameLinks: false };</script>
+<script src="https://wow.zamimg.com/js/tooltips.js" defer></script>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="../../"><span class="brand-mark">FP</span><span>Forever Pex Guide</span></a>
+    <nav aria-label="Navigation principale">
+      <a href="../../">Accueil</a>
+      <a href="./" aria-current="page">Chasseur</a>
+      <a href="../../perso/">Fiches perso</a>
+      <a href="../../guides/chasseur-nain/">Carnet de Jeanpalsec</a>
+      <a href="https://github.com/JeanCelestinEnpalSec/forever-pex-guide" rel="noopener">GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <img class="hero-icon" src="https://wow.zamimg.com/images/wow/icons/large/classicon_hunter.jpg" alt="" width="72" height="72" onerror="this.style.visibility='hidden'">
+    <div class="hero-text">
+      <span class="eyebrow">Guide de classe · WoW Forever · <span id="h-checked">…</span></span>
+      <h1>Chasseur : pex de 1 à 60</h1>
+      <p class="lead" id="h-summary">Chargement du guide…</p>
+      <div class="chips" id="h-chips"></div>
+    </div>
+  </div>
+</section>
+
+<div class="lvlbar">
+  <div class="wrap">
+    <div class="lvl-ctl">
+      <label for="lvl">Mon niveau</label>
+      <button type="button" data-step="-1" aria-label="Niveau précédent">−</button>
+      <input type="range" id="lvl" min="1" max="60" value="10">
+      <button type="button" data-step="1" aria-label="Niveau suivant">+</button>
+      <output class="lvl-num" id="lvl-out" for="lvl">10</output>
+    </div>
+    <div class="lvl-sum" id="lvl-sum" aria-live="polite"></div>
+    <div class="who" id="who"></div>
+  </div>
+</div>
+
+<div class="wrap g-layout">
+  <nav class="toc" id="toc" aria-label="Sommaire">
+    <a href="#apercu">Aperçu</a>
+    <a href="#talents">Talents</a>
+    <a href="#rotation">Rotation</a>
+    <a href="#sorts">Sorts à l’entraîneur</a>
+    <a href="#progression">Progression</a>
+    <a href="#equipement">Équipement</a>
+    <a href="#familiers">Familiers</a>
+    <a href="#metiers">Métiers et camp</a>
+    <a href="#consommables">Consommables</a>
+    <a href="#races">Races</a>
+    <a href="#astuces">Astuces et macros</a>
+    <a href="#sources">Sources</a>
+  </nav>
+
+  <main class="g-main" id="guide" data-class="hunter" data-base="../../data/classes/hunter/">
+    <nav class="toc-m" aria-label="Sommaire">
+      <a href="#apercu">Aperçu</a><a href="#talents">Talents</a><a href="#rotation">Rotation</a><a href="#sorts">Sorts</a><a href="#progression">Progression</a><a href="#equipement">Équipement</a><a href="#familiers">Familiers</a><a href="#metiers">Métiers</a><a href="#consommables">Consommables</a><a href="#races">Races</a><a href="#astuces">Macros</a><a href="#sources">Sources</a>
+    </nav>
+
+    <p class="note bad" id="load-error" hidden></p>
+
+    <section class="g-sec" id="apercu">
+      <header><h2><span class="num">01</span>Aperçu</h2><div class="srcs" data-src="meta.summarySrc"></div></header>
+      <div class="grid">
+        <div class="panel"><h3>Forces</h3><ul class="pro" id="ov-pro"></ul></div>
+        <div class="panel"><h3>Faiblesses</h3><ul class="con" id="ov-con"></ul></div>
+      </div>
+      <div class="panel">
+        <div class="row" style="justify-content:space-between"><h3>Priorité des statistiques</h3><div class="srcs" data-src="gear.statSrc"></div></div>
+        <ol class="stat-rank" id="ov-stats"></ol>
+      </div>
+    </section>
+
+    <section class="g-sec" id="talents">
+      <header><h2><span class="num">02</span>Talents</h2><div class="srcs" data-src="talents.src"></div></header>
+      <p class="muted" id="tal-intro"></p>
+      <div class="tools">
+        <div class="seg" role="group" aria-label="Affichage des talents">
+          <button type="button" data-tview="level" aria-pressed="true">À mon niveau</button>
+          <button type="button" data-tview="full" aria-pressed="false">Build complet (60)</button>
+        </div>
+        <span class="small muted" id="tal-count"></span>
+      </div>
+      <div class="trees" id="trees"></div>
+      <div class="panel" id="tal-detail" aria-live="polite"><p class="muted small">Touche ou survole un talent pour lire ce qu’il fait.</p></div>
+      <div class="stack">
+        <h3>Ordre des points, niveau par niveau</h3>
+        <p class="small muted">Touche un niveau pour y placer le curseur.</p>
+        <ol class="path" id="tal-path"></ol>
+      </div>
+    </section>
+
+    <section class="g-sec" id="rotation">
+      <header><h2><span class="num">03</span>Rotation</h2><div class="srcs" data-src="leveling.rotation.src"></div></header>
+      <div class="grid" id="rot-methods"></div>
+      <h3>Par tranche de niveau</h3>
+      <div class="cards" id="rot-phases"></div>
+    </section>
+
+    <section class="g-sec" id="sorts">
+      <header><h2><span class="num">04</span>Sorts à l’entraîneur</h2><div class="srcs" data-src="spells.src"></div></header>
+      <p class="small muted" id="sp-notes"></p>
+      <div class="tools">
+        <div class="seg" role="group" aria-label="Priorité">
+          <button type="button" data-prio="all" aria-pressed="true">Tous</button>
+          <button type="button" data-prio="E" aria-pressed="false">Essentiels</button>
+          <button type="button" data-prio="EU" aria-pressed="false">Essentiels + utiles</button>
+        </div>
+        <label><input type="checkbox" id="sp-ranks" checked> Afficher les rangs supérieurs</label>
+      </div>
+      <div class="tw"><table><thead><tr><th class="num">Niv.</th><th>Sort</th><th>Prix</th><th>Priorité</th><th>Pourquoi</th></tr></thead><tbody id="sp-body"></tbody></table></div>
+    </section>
+
+    <section class="g-sec" id="progression">
+      <header><h2><span class="num">05</span>Progression par tranche</h2><div class="srcs" data-src="leveling.src"></div></header>
+      <div class="tabs" role="tablist" aria-label="Tranches de niveau" id="wk-tabs"></div>
+      <div class="panel" id="wk-body" role="tabpanel"></div>
+      <h3>Toutes les zones, tranche par tranche</h3>
+      <div class="tw"><table><thead><tr><th class="num">Niveaux</th><th>Zones (Alliance)</th><th>Donjons</th></tr></thead><tbody id="zb-body"></tbody></table></div>
+    </section>
+
+    <section class="g-sec" id="equipement">
+      <header><h2><span class="num">06</span>Équipement</h2><div class="srcs" data-src="gear.src"></div></header>
+      <p class="small muted" id="gear-notes"></p>
+      <h3>Armes à distance</h3>
+      <div class="tools">
+        <div class="seg" role="group" aria-label="Type d’arme" id="w-type">
+          <button type="button" data-wtype="all" aria-pressed="true">Toutes</button>
+          <button type="button" data-wtype="Fusil" aria-pressed="false">Fusils</button>
+          <button type="button" data-wtype="Arc" aria-pressed="false">Arcs</button>
+          <button type="button" data-wtype="Arbalète" aria-pressed="false">Arbalètes</button>
+        </div>
+        <label>Faction
+          <select id="w-fac"><option value="all">Toutes</option><option value="A">Alliance</option><option value="H">Horde</option></select>
+        </label>
+      </div>
+      <p class="small" id="w-best"></p>
+      <div class="tw"><table><thead><tr><th class="num">Niv.</th><th>Arme</th><th>Type</th><th>DPS</th><th>Comment l’obtenir</th></tr></thead><tbody id="w-body"></tbody></table></div>
+      <h3>Autres pièces qui comptent</h3>
+      <div class="tw"><table><thead><tr><th class="num">Niv.</th><th>Objet</th><th>Emplacement</th><th>Stats</th><th>Comment l’obtenir</th></tr></thead><tbody id="u-body"></tbody></table></div>
+      <div class="grid">
+        <div class="stack"><h3>Munitions</h3><div class="tw"><table><thead><tr><th class="num">Niv.</th><th>Balles</th><th>Flèches</th><th class="num">DPS</th></tr></thead><tbody id="ammo-body"></tbody></table></div></div>
+        <div class="stack"><h3>Gibernes et carquois</h3><div class="tw"><table><thead><tr><th class="num">Niv.</th><th>Giberne / carquois</th><th>Comment</th></tr></thead><tbody id="q-body"></tbody></table></div></div>
+      </div>
+      <div class="panel"><div class="row" style="justify-content:space-between"><h3>Compétences d’arme</h3><div class="srcs" data-src="gear.weaponSkills.src"></div></div><p class="small muted" id="ws-note"></p><div class="chips" id="ws-list"></div></div>
+    </section>
+
+    <section class="g-sec" id="familiers">
+      <header><h2><span class="num">07</span>Familiers</h2><div class="srcs" data-src="pets.src"></div></header>
+      <div class="panel"><ul class="list" id="pet-advice"></ul></div>
+      <div class="tools">
+        <div class="seg" role="group" aria-label="Usage du familier">
+          <button type="button" data-use="all" aria-pressed="true">Tous</button>
+          <button type="button" data-use="solo" aria-pressed="false">Solo</button>
+          <button type="button" data-use="groupe" aria-pressed="false">Groupe</button>
+          <button type="button" data-use="JcJ" aria-pressed="false">JcJ</button>
+        </div>
+      </div>
+      <div class="cards" id="pet-cards"></div>
+      <p class="small muted" id="pet-notes"></p>
+    </section>
+
+    <section class="g-sec" id="metiers">
+      <header><h2><span class="num">08</span>Métiers et camp</h2><div class="srcs" data-src="professions.src"></div></header>
+      <div class="cards" id="pro-picks"></div>
+      <div class="panel">
+        <div class="row" style="justify-content:space-between"><h3>Le camp</h3><div class="srcs" data-src="professions.campfire.src"></div></div>
+        <p class="small muted" id="camp-intro"></p>
+        <div class="grid" id="camp-items"></div>
+        <h3>À acheter pour le feu de camp</h3>
+        <div class="tw"><table><thead><tr><th>Objet</th><th>Prix</th><th>Où</th></tr></thead><tbody id="camp-shop"></tbody></table></div>
+      </div>
+      <h3>Monter le Travail du cuir</h3>
+      <p class="small muted" id="lw-note"></p>
+      <div class="tw"><table><thead><tr><th>Compétence</th><th>Fabriquer</th><th>Quantité</th></tr></thead><tbody id="lw-body"></tbody></table></div>
+      <div class="cards" id="lw-shop"></div>
+      <h3>Maîtres de métier</h3>
+      <p class="small muted" id="tr-note"></p>
+      <div class="tw"><table><thead><tr><th>PNJ</th><th>Zone</th><th>Coordonnées</th><th>Enseigne</th></tr></thead><tbody id="tr-body"></tbody></table></div>
+    </section>
+
+    <section class="g-sec" id="consommables">
+      <header><h2><span class="num">09</span>Consommables</h2><div class="srcs" data-src="gear.consumables.xpFood.src"></div></header>
+      <div class="panel"><h3>Nourriture +5 % d’XP</h3><p class="small muted" id="food-note"></p><div class="chips" id="food-list"></div></div>
+      <h3>Potions</h3>
+      <div class="tw"><table><thead><tr><th>Soins</th><th class="num">Requis</th><th>Mana</th><th class="num">Requis</th></tr></thead><tbody id="pot-body"></tbody></table></div>
+      <div class="panel"><h3>Bandages (Secourisme)</h3><div class="chips" id="band-list"></div></div>
+    </section>
+
+    <section class="g-sec" id="races">
+      <header><h2><span class="num">10</span>Races</h2><div class="srcs" data-src="meta.races.src"></div></header>
+      <p class="small muted" id="race-note"></p>
+      <div class="tabs" role="tablist" aria-label="Faction" id="race-tabs">
+        <button type="button" role="tab" data-fac="alliance" aria-selected="true">Alliance</button>
+        <button type="button" role="tab" data-fac="horde" aria-selected="false">Horde</button>
+      </div>
+      <div class="cards" id="race-cards" role="tabpanel"></div>
+    </section>
+
+    <section class="g-sec" id="astuces">
+      <header><h2><span class="num">11</span>Astuces et macros</h2><div class="srcs" data-src="meta.tips.src"></div></header>
+      <div class="cards" id="tips"></div>
+      <div class="row" style="justify-content:space-between"><h3>Macros en français</h3><div class="srcs" data-src="meta.macros.src"></div></div>
+      <p class="note info small" id="macro-note"></p>
+      <div class="cards" id="macros"></div>
+    </section>
+
+    <section class="g-sec" id="sources">
+      <header><h2><span class="num">12</span>Sources et fiabilité</h2></header>
+      <p class="small muted">Chaque section affiche ses sources. La couleur indique le niveau de confiance, du plus sûr au moins sûr :</p>
+      <div class="chips" id="kinds"></div>
+      <div class="tw"><table><thead><tr><th>Source</th><th>Type</th><th>Date</th></tr></thead><tbody id="src-body"></tbody></table></div>
+      <p class="small muted">Une erreur ? <a href="https://github.com/JeanCelestinEnpalSec/forever-pex-guide/issues/new/choose" rel="noopener">Signale-la sur GitHub</a> avec la source qui la corrige.</p>
+    </section>
+  </main>
+</div>
+
+<footer><div class="wrap">Forever Pex Guide · projet de fans, non affilié à Blizzard Entertainment. World of Warcraft est une marque de Blizzard Entertainment. Icônes et infobulles : Wowhead.</div></footer>
+
+<script src="../../assets/js/class-guide.js"></script>
+</body>
+</html>

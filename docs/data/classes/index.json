@@ -1,0 +1,14 @@
+{
+  "classes": [
+    {
+      "id": "hunter",
+      "fr": "Chasseur",
+      "color": "#AAD372",
+      "icon": "classicon_hunter",
+      "spec": "Maîtrise des bêtes",
+      "page": "classes/hunter/",
+      "status": "complet",
+      "checked": "2026-11-11"
+    }
+  ]
+}

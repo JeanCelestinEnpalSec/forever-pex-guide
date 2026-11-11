@@ -1,0 +1,890 @@
+{
+  "class": "hunter",
+  "checked": "2026-11-11",
+  "src": [
+    "wowhead",
+    "moba",
+    "carnet"
+  ],
+  "notes": "Identifiants, DPS, niveau requis et qualité : infobulles Wowhead Forever. « Niveau conseillé » et sources d’obtention : guides (Mobalytics, Method) et carnet de l’équipe.",
+  "statPriority": [
+    {
+      "stat": "Agilité",
+      "why": "La stat la plus importante : dégâts à distance, critique, et une partie profite au familier."
+    },
+    {
+      "stat": "Puissance d’attaque",
+      "why": "Plus de dégâts pour toi et le familier, mais pas de critique : un cran sous l’Agilité."
+    },
+    {
+      "stat": "Endurance",
+      "why": "Plus de vie pour toi et le familier : tu peux tirer plus de mobs à la fois."
+    },
+    {
+      "stat": "Esprit",
+      "why": "Utile surtout avec Discipline bestiale ; sinon il réduit seulement les pauses."
+    },
+    {
+      "stat": "Intelligence",
+      "why": "Réserve de mana et montée des compétences d’arme. En Maîtrise des bêtes, la plupart des dégâts viennent du tir automatique, qui n’en profite pas."
+    },
+    {
+      "stat": "Toucher et critique",
+      "why": "Rares en pex. Feor vise 5 % de toucher pour ne plus rater un mob de ton niveau, ce qui reste hors de portée tôt."
+    }
+  ],
+  "statSrc": [
+    "moba"
+  ],
+  "weaponSkills": {
+    "note": "Le nain commence avec les fusils. Les autres armes s’apprennent chez un maître d’armes (tarif à relever en jeu).",
+    "list": [
+      {
+        "fr": "Arcs",
+        "where": "Darnassus"
+      },
+      {
+        "fr": "Arbalètes",
+        "where": "Hurlevent, Forgefer"
+      },
+      {
+        "fr": "Fusils",
+        "where": "Forgefer"
+      },
+      {
+        "fr": "Bâtons",
+        "where": "Hurlevent, Forgefer, Darnassus"
+      },
+      {
+        "fr": "Épées et épées à deux mains",
+        "where": "Hurlevent"
+      },
+      {
+        "fr": "Haches à deux mains",
+        "where": "Forgefer"
+      },
+      {
+        "fr": "Dagues et armes de pugilat",
+        "where": "Darnassus"
+      }
+    ],
+    "src": [
+      "moba"
+    ]
+  },
+  "ranged": [
+    {
+      "lvl": 3,
+      "id": 2506,
+      "fr": "Arc courbe en bois de corne",
+      "en": "Hornwood Recurve Bow",
+      "type": "Arc",
+      "dps": 2.38,
+      "req": 3,
+      "q": 1,
+      "how": "Vendeur. Conseil de Feor en sortant de la zone de départ, pour les races qui ont les arcs.",
+      "faction": "both",
+      "icon": "inv_weapon_bow_11"
+    },
+    {
+      "lvl": 4,
+      "id": 2509,
+      "fr": "Tromblon orné",
+      "en": "Ornate Blunderbuss",
+      "type": "Fusil",
+      "dps": 2.95,
+      "req": 4,
+      "q": 1,
+      "how": "Vendeur : Hegnar Rumbleshot, Dun Morogh. Meilleur choix d’un nain avant 11.",
+      "faction": "A",
+      "npc": 1243,
+      "icon": "inv_weapon_rifle_02"
+    },
+    {
+      "lvl": 11,
+      "id": 2507,
+      "fr": "Arc courbe composite",
+      "en": "Laminated Recurve Bow",
+      "type": "Arc",
+      "dps": 5.77,
+      "req": 11,
+      "q": 1,
+      "how": "Vendeur. Conseil de Feor au niveau 11.",
+      "faction": "both",
+      "icon": "inv_weapon_bow_01"
+    },
+    {
+      "lvl": 11,
+      "id": 11303,
+      "fr": "Bon arc court",
+      "en": "Fine Shortbow",
+      "type": "Arc",
+      "dps": 6.18,
+      "req": 11,
+      "q": 2,
+      "how": "Vendeur.",
+      "faction": "both",
+      "icon": "inv_weapon_bow_07"
+    },
+    {
+      "lvl": 12,
+      "id": 2904,
+      "fr": "Carabine de chasse de Daryl",
+      "en": "Daryl's Hunting Rifle",
+      "type": "Fusil",
+      "dps": 6.4,
+      "q": 2,
+      "how": "Quête A Hunter’s Boast, Loch Modan (au choix avec l’arc).",
+      "faction": "A",
+      "icon": "inv_weapon_rifle_03"
+    },
+    {
+      "lvl": 12,
+      "id": 2903,
+      "fr": "Arc de chasse de Daryl",
+      "en": "Daryl's Hunting Bow",
+      "type": "Arc",
+      "dps": 5.87,
+      "q": 2,
+      "how": "Même quête, autre choix.",
+      "faction": "A",
+      "icon": "inv_weapon_bow_02"
+    },
+    {
+      "lvl": 13,
+      "id": 276695,
+      "fr": "Faucheteigne de moissonneur",
+      "en": "Harvester's Pestslayer",
+      "type": "Arc",
+      "dps": 6.04,
+      "q": 2,
+      "how": "Quête The Killing Fields, Marche de l’Ouest.",
+      "faction": "A",
+      "icon": "inv_weapon_bow_01"
+    },
+    {
+      "lvl": 14,
+      "id": 11304,
+      "fr": "Bon arc long",
+      "en": "Fine Longbow",
+      "type": "Arc",
+      "dps": 7.41,
+      "req": 14,
+      "q": 2,
+      "how": "Vendeurs de la Marche de l’Ouest et du Loch Modan (Feor) : la valeur sûre en solo.",
+      "faction": "both",
+      "icon": "inv_weapon_bow_02"
+    },
+    {
+      "lvl": 16,
+      "id": 279894,
+      "fr": "Tromblon calibré",
+      "en": "Calibrated Blunderbuss",
+      "type": "Fusil",
+      "dps": 9.57,
+      "q": 3,
+      "how": "Chaîne Underground Map puis Old Ironforge Incursion (quête niveau 16, requis 9), donjon Hall of Thanes. La carte tombe sur le Dark Iron Spy de Dun Morogh (Feor). La meilleure arme Alliance de 13 à 20.",
+      "faction": "A",
+      "quest": 96393,
+      "key": true,
+      "icon": "inv_weapon_rifle_01"
+    },
+    {
+      "lvl": 19,
+      "id": 6469,
+      "fr": "Venimeux",
+      "en": "Venomstrike",
+      "type": "Arc",
+      "dps": 12.08,
+      "req": 19,
+      "q": 3,
+      "how": "Butin, Cavernes des lamentations. Feor déconseille de le farmer.",
+      "faction": "both",
+      "icon": "inv_weapon_bow_10"
+    },
+    {
+      "lvl": 22,
+      "id": 3078,
+      "fr": "Perce-coeur naga",
+      "en": "Naga Heartpiercer",
+      "type": "Arc",
+      "dps": 13.33,
+      "req": 22,
+      "q": 3,
+      "how": "Butin, Brassenoire.",
+      "faction": "both",
+      "icon": "inv_weapon_bow_04"
+    },
+    {
+      "lvl": 23,
+      "id": 273843,
+      "fr": "Arc long sans-racines",
+      "en": "Fallenroot Longbow",
+      "type": "Arc",
+      "dps": 13.86,
+      "req": 23,
+      "q": 3,
+      "how": "Butin, Brassenoire.",
+      "faction": "both",
+      "icon": "inv_weapon_bow_03"
+    },
+    {
+      "lvl": 25,
+      "id": 3493,
+      "fr": "Carnassier",
+      "en": "Raptor's End",
+      "type": "Arc",
+      "dps": 12.07,
+      "q": 2,
+      "how": "Chaîne de quêtes au site de fouilles de Whelgar, Les Paluns (raptors 22 à 29). Feor conseille de la faire vers 25.",
+      "faction": "A",
+      "icon": "inv_weapon_bow_03"
+    },
+    {
+      "lvl": 26,
+      "id": 273829,
+      "fr": "Arbalète de poing dissimulée",
+      "en": "Concealed Hand Crossbow",
+      "type": "Arbalète",
+      "dps": 15.25,
+      "req": 26,
+      "q": 3,
+      "how": "Butin, la Prison (Hurlevent).",
+      "faction": "A",
+      "icon": "inv_weapon_crossbow_02"
+    },
+    {
+      "lvl": 26,
+      "id": 273033,
+      "fr": "Arbalète à répétition pointetombe",
+      "en": "Gravespike Repeater",
+      "type": "Arbalète",
+      "dps": 15.43,
+      "req": 26,
+      "q": 3,
+      "how": "Butin, City of Dalaran (nouveau donjon).",
+      "faction": "both",
+      "icon": "inv_weapon_crossbow_06"
+    },
+    {
+      "lvl": 28,
+      "id": 273029,
+      "fr": "Arme d’épaule mire-de-golem",
+      "en": "Golemsight Long Gun",
+      "type": "Fusil",
+      "dps": 16.6,
+      "req": 28,
+      "q": 3,
+      "how": "Butin, Excavation Site (Les Paluns). Feor : le meilleur choix de cette tranche.",
+      "faction": "both",
+      "key": true,
+      "icon": "inv_musket_02"
+    },
+    {
+      "lvl": 30,
+      "id": 274748,
+      "fr": "Chevrotine de cogneur de Baie-du-Butin",
+      "en": "Booty Bay Bruiser's Buckshot",
+      "type": "Fusil",
+      "dps": 18.04,
+      "req": 30,
+      "q": 3,
+      "how": "Vendeur à Baie-du-Butin (réputation, selon le carnet).",
+      "faction": "both",
+      "icon": "inv_weapon_rifle_02"
+    },
+    {
+      "lvl": 30,
+      "id": 9456,
+      "fr": "Crache-verre",
+      "en": "Glass Shooter",
+      "type": "Fusil",
+      "dps": 17.93,
+      "req": 30,
+      "q": 3,
+      "how": "Butin d’un monstre rare de Gnomeregan : faible chance.",
+      "faction": "both",
+      "icon": "inv_weapon_rifle_02"
+    },
+    {
+      "lvl": 33,
+      "id": 274084,
+      "fr": "Pétoire hurane",
+      "en": "Quilboar Blaster",
+      "type": "Fusil",
+      "dps": 18.57,
+      "q": 3,
+      "how": "Récompense de quête (Kraal de Tranchebauge selon le carnet, à confirmer).",
+      "faction": "both",
+      "icon": "inv_weapon_rifle_05"
+    },
+    {
+      "lvl": 38,
+      "id": 17687,
+      "fr": "Carabine de maître-chasseur",
+      "en": "Master Hunter's Rifle",
+      "type": "Fusil",
+      "dps": 19.42,
+      "q": 2,
+      "how": "Fin des quêtes de Nesingwary, Strangleronce (Feor).",
+      "faction": "both",
+      "icon": "inv_weapon_rifle_05"
+    },
+    {
+      "lvl": 38,
+      "id": 17686,
+      "fr": "Arc de maître-chasseur",
+      "en": "Master Hunter's Bow",
+      "type": "Arc",
+      "dps": 19.38,
+      "q": 2,
+      "how": "Même chaîne, autre choix.",
+      "faction": "both",
+      "icon": "inv_weapon_bow_11"
+    },
+    {
+      "lvl": 40,
+      "id": 277254,
+      "fr": "Arc de cherche-vérité",
+      "en": "Truthseeker's Bow",
+      "type": "Arc",
+      "dps": 23.75,
+      "req": 40,
+      "q": 3,
+      "how": "Quête Greater Friend of the Library (requis 40).",
+      "faction": "both",
+      "icon": "inv_weapon_bow_01"
+    }
+  ],
+  "upgrades": [
+    {
+      "lvl": 17,
+      "id": 2041,
+      "fr": "Tunique de la marche de l'Ouest",
+      "en": "Tunic of Westfall",
+      "slot": "Torse",
+      "stats": "+11 Agi, +5 End",
+      "q": 3,
+      "how": "Quête des Mortemines.",
+      "faction": "A",
+      "icon": "inv_chest_leather_07"
+    },
+    {
+      "lvl": 22,
+      "id": 3562,
+      "fr": "Ceinture de justification",
+      "en": "Belt of Vindication",
+      "slot": "Taille",
+      "stats": "+7 Agi, +3 End",
+      "q": 3,
+      "how": "Quête de la Prison (garantie).",
+      "faction": "A",
+      "icon": "inv_belt_05"
+    },
+    {
+      "lvl": 22,
+      "id": 1076,
+      "fr": "Anneau du renégat défias",
+      "en": "Defias Renegade Ring",
+      "slot": "Doigt",
+      "stats": "+4 Agi, +6 End",
+      "req": 21,
+      "q": 3,
+      "how": "Butin, la Prison.",
+      "faction": "A",
+      "icon": "inv_jewelry_ring_02"
+    },
+    {
+      "lvl": 24,
+      "id": 2280,
+      "fr": "Cane de Kam",
+      "en": "Kam's Walking Stick",
+      "slot": "Bâton",
+      "stats": "+10 Agi, +3 Int",
+      "req": 24,
+      "q": 3,
+      "how": "Butin, la Prison.",
+      "faction": "A",
+      "icon": "inv_staff_06"
+    },
+    {
+      "lvl": 26,
+      "id": 273824,
+      "fr": "Briseurs de barreaux défias",
+      "en": "Defias Jailbreakers",
+      "slot": "Mains",
+      "stats": "+6 Agi, +7 End",
+      "req": 26,
+      "q": 3,
+      "how": "Butin, la Prison.",
+      "faction": "A",
+      "icon": "inv_gauntlets_24"
+    },
+    {
+      "lvl": 28,
+      "id": 282283,
+      "fr": "Racine malveillante",
+      "en": "Malignant Root",
+      "slot": "Doigt",
+      "q": 3,
+      "how": "Objet à rendre, tombe sur Nightveiled Rotheap (élite 32, Les Paluns). Faisable seul en gardant la distance avec Aspect du guépard (Feor).",
+      "faction": "both",
+      "icon": "spell_nature_thorns_iron"
+    },
+    {
+      "lvl": 29,
+      "id": 273037,
+      "fr": "Bras de gangrebranche",
+      "en": "Felbough Arm",
+      "slot": "Arme d’hast",
+      "stats": "+10 Agi",
+      "req": 29,
+      "q": 3,
+      "how": "Butin, City of Dalaran (même boss que la tunique).",
+      "faction": "both",
+      "icon": "inv_spear_08"
+    },
+    {
+      "lvl": 29,
+      "id": 273038,
+      "fr": "Atours du déchu Gangrécorce",
+      "en": "Garb of Fallen Felbark",
+      "slot": "Torse",
+      "stats": "+9 Agi, +7 End, +13 Int",
+      "req": 29,
+      "q": 3,
+      "how": "Butin, City of Dalaran.",
+      "faction": "both",
+      "icon": "inv_shirt_09"
+    },
+    {
+      "lvl": 28,
+      "id": 273047,
+      "fr": "Protège-épaules cristallins instables",
+      "en": "Unstable Crystalline Shoulderpads",
+      "slot": "Épaules",
+      "stats": "+9 Agi, +6 End",
+      "req": 28,
+      "q": 3,
+      "how": "Butin, City of Dalaran.",
+      "faction": "both",
+      "icon": "inv_shoulder_07"
+    },
+    {
+      "lvl": 30,
+      "id": 9624,
+      "fr": "Chausses du coureur",
+      "en": "Triprunner Dungarees",
+      "slot": "Jambes",
+      "stats": "+3 For, +18 Agi, +6 End",
+      "q": 3,
+      "how": "Quête de Gnomeregan (garantie). Feor : dure très longtemps.",
+      "faction": "A",
+      "key": true,
+      "icon": "inv_pants_08"
+    },
+    {
+      "lvl": 30,
+      "id": 274068,
+      "fr": "Médaille d’honneur de Thermojoncteur",
+      "en": "Thermaplugg Medal of Honor",
+      "slot": "Cou",
+      "stats": "+6 End, +6 Esp",
+      "req": 29,
+      "q": 3,
+      "how": "Butin, Gnomeregan.",
+      "faction": "both",
+      "icon": "inv_jewelry_amulet_03"
+    },
+    {
+      "lvl": 45,
+      "id": 271811,
+      "fr": "Spallières claquantes en carapace",
+      "en": "Clacking Carapace Spaulders",
+      "slot": "Épaules (mailles)",
+      "stats": "+7 Agi, +14 End",
+      "q": 3,
+      "how": "Quête sur Corpsefeeder (élite 45), Shen’dralas, sud de Désolace : faisable seul en Maîtrise des bêtes, + 1 po 30 pa et 4 500 XP (Feor).",
+      "faction": "both",
+      "icon": "inv_shoulder_29"
+    }
+  ],
+  "ammo": [
+    {
+      "lvl": 1,
+      "bullet": {
+        "id": 2516,
+        "fr": "Balle légère",
+        "en": "Light Shot",
+        "icon": "inv_ammo_bullet_02",
+        "q": 1
+      },
+      "arrow": {
+        "id": 2512,
+        "fr": "Flèche grossière",
+        "en": "Rough Arrow",
+        "icon": "inv_ammo_arrow_02",
+        "q": 1
+      },
+      "dps": 1.5
+    },
+    {
+      "lvl": 10,
+      "bullet": {
+        "id": 2519,
+        "fr": "Balle lourde",
+        "en": "Heavy Shot",
+        "icon": "inv_ammo_bullet_02",
+        "q": 1
+      },
+      "arrow": {
+        "id": 2515,
+        "fr": "Flèche pointue",
+        "en": "Sharp Arrow",
+        "icon": "inv_ammo_arrow_02",
+        "q": 1
+      },
+      "dps": 3.5,
+      "price": "50 pc les 200 chez Hegnar Rumbleshot (Wowhead)"
+    },
+    {
+      "lvl": 25,
+      "bullet": {
+        "id": 3033,
+        "fr": "Balle dure",
+        "en": "Solid Shot",
+        "icon": "inv_ammo_bullet_02",
+        "q": 1
+      },
+      "arrow": {
+        "id": 3030,
+        "fr": "Flèche rasoir",
+        "en": "Razor Arrow",
+        "icon": "inv_ammo_arrow_02",
+        "q": 1
+      },
+      "dps": 7.5
+    },
+    {
+      "lvl": 40,
+      "bullet": {
+        "id": 11284,
+        "fr": "Balles de précision",
+        "en": "Accurate Slugs",
+        "icon": "inv_ammo_bullet_01",
+        "q": 1
+      },
+      "arrow": {
+        "id": 11285,
+        "fr": "Flèche barbelée",
+        "en": "Jagged Arrow",
+        "icon": "inv_weapon_shortblade_25",
+        "q": 1
+      },
+      "dps": 13.0
+    },
+    {
+      "lvl": 51,
+      "bullet": {
+        "id": 19317,
+        "fr": "Balle de glace",
+        "en": "Ice Threaded Bullet",
+        "icon": "spell_frost_frostblast",
+        "q": 2
+      },
+      "arrow": {
+        "id": 19316,
+        "fr": "Flèche de glace",
+        "en": "Ice Threaded Arrow",
+        "icon": "spell_frost_iceshard",
+        "q": 2
+      },
+      "dps": 16.5
+    },
+    {
+      "lvl": 52,
+      "bullet": {
+        "id": 15997,
+        "fr": "Obus en thorium",
+        "en": "Thorium Shells",
+        "icon": "inv_ammo_bullet_03",
+        "q": 2
+      },
+      "arrow": {
+        "id": 18042,
+        "fr": "Flèches à pointe de thorium",
+        "en": "Thorium Headed Arrow",
+        "icon": "inv_ammo_arrow_02",
+        "q": 2
+      },
+      "dps": 17.5
+    }
+  ],
+  "quivers": [
+    {
+      "lvl": 1,
+      "pouch": {
+        "id": 5441,
+        "fr": "Petite sacoche de poudre",
+        "icon": "inv_misc_ammo_bullet_01",
+        "q": 1
+      },
+      "quiver": {
+        "id": 5439,
+        "fr": "Petit carquois",
+        "icon": "inv_misc_quiver_09",
+        "q": 1
+      },
+      "how": "Vendeur."
+    },
+    {
+      "lvl": 10,
+      "pouch": {
+        "id": 11363,
+        "fr": "Sacoche moyenne de poudre",
+        "icon": "inv_misc_ammo_bullet_01",
+        "q": 1
+      },
+      "quiver": {
+        "id": 11362,
+        "fr": "Carquois moyen",
+        "icon": "inv_misc_quiver_10",
+        "q": 1
+      },
+      "how": "Vendeur ; 10 emplacements, +10 % de vitesse de tir."
+    },
+    {
+      "lvl": 15,
+      "pouch": {
+        "id": 3574,
+        "fr": "Giberne de chasse",
+        "icon": "inv_misc_ammo_bullet_01",
+        "q": 1
+      },
+      "quiver": {
+        "id": 3573,
+        "fr": "Carquois de chasse",
+        "icon": "inv_misc_quiver_03",
+        "q": 1
+      },
+      "how": "Quête Vyrin’s Revenge, Loch Modan."
+    },
+    {
+      "lvl": 18,
+      "pouch": {
+        "id": 3604,
+        "fr": "Besace des Veilleurs",
+        "icon": "inv_misc_bag_09_blue",
+        "q": 2
+      },
+      "quiver": {
+        "id": 3605,
+        "fr": "Carquois des Veilleurs",
+        "icon": "inv_misc_quiver_04",
+        "q": 2
+      },
+      "how": "Quête, Bois de la Pénombre ; 12 emplacements, +11 %."
+    },
+    {
+      "lvl": 30,
+      "pouch": {
+        "id": 7372,
+        "fr": "Giberne en cuir lourd",
+        "icon": "inv_misc_bag_09",
+        "q": 2
+      },
+      "quiver": {
+        "id": 7371,
+        "fr": "Carquois lourd",
+        "icon": "inv_misc_quiver_02",
+        "q": 2
+      },
+      "how": "Travail du cuir (le carquois se vend aussi) ; 14 emplacements, +12 %."
+    },
+    {
+      "lvl": 40,
+      "pouch": {
+        "id": 8218,
+        "fr": "Giberne en cuir épais",
+        "icon": "inv_misc_bag_09_black",
+        "q": 2
+      },
+      "quiver": {
+        "id": 8217,
+        "fr": "Carquois de tir rapide",
+        "icon": "inv_misc_quiver_07",
+        "q": 2
+      },
+      "how": "Travail du cuir ; 16 emplacements, +13 %."
+    },
+    {
+      "lvl": 55,
+      "pouch": {
+        "id": 19320,
+        "fr": "Cartouchière en peau de gnoll",
+        "icon": "inv_misc_ammo_bullet_01",
+        "q": 3
+      },
+      "quiver": {
+        "id": 19319,
+        "fr": "Carquois en cuir de harpie",
+        "icon": "inv_misc_quiver_06",
+        "q": 3
+      },
+      "how": "Vendeur ; 16 emplacements, +15 %."
+    }
+  ],
+  "consumables": {
+    "xpFood": {
+      "note": "Nouveau dans Forever : la plupart des plats donnent +5 % d’XP sur les monstres. Prends le moins cher, même de bas niveau (Feor).",
+      "src": [
+        "moba"
+      ],
+      "items": [
+        {
+          "id": 4592,
+          "fr": "Lutjan à longue mâchoire",
+          "en": "Longjaw Mud Snapper",
+          "req": 5,
+          "icon": "inv_misc_fish_32",
+          "q": 1
+        },
+        {
+          "id": 250077,
+          "fr": "Émincé de raptor aux deux épices",
+          "en": "Twice-Spiced Raptor Slice",
+          "req": 5,
+          "icon": "inv_misc_food_legion_saltpeppershank",
+          "q": 1
+        },
+        {
+          "id": 6890,
+          "fr": "Viande d'ours fumée",
+          "en": "Smoked Bear Meat",
+          "icon": "inv_misc_food_13",
+          "q": 1
+        },
+        {
+          "id": 12224,
+          "fr": "Aile de chauve-souris croustillante",
+          "en": "Crispy Bat Wing",
+          "icon": "inv_misc_food_46",
+          "q": 1
+        },
+        {
+          "id": 21072,
+          "fr": "Sagerelle fumée",
+          "en": "Smoked Sagefish",
+          "req": 10,
+          "icon": "inv_misc_fish_20",
+          "q": 1
+        },
+        {
+          "id": 4593,
+          "fr": "Poisson-chat moustachu",
+          "en": "Bristle Whisker Catfish",
+          "req": 15,
+          "icon": "inv_misc_fish_30",
+          "q": 1
+        }
+      ]
+    },
+    "potions": [
+      {
+        "heal": {
+          "id": 118,
+          "fr": "Potion de soins mineure",
+          "icon": "inv_potion_49",
+          "q": 1
+        },
+        "mana": {
+          "id": 2455,
+          "fr": "Potion de mana mineure",
+          "req": 5,
+          "icon": "inv_potion_70",
+          "q": 1
+        }
+      },
+      {
+        "heal": {
+          "id": 858,
+          "fr": "Potion de soins inférieure",
+          "req": 3,
+          "icon": "inv_potion_50",
+          "q": 1
+        },
+        "mana": {
+          "id": 3385,
+          "fr": "Potion de mana inférieure",
+          "req": 14,
+          "icon": "inv_potion_71",
+          "q": 1
+        }
+      },
+      {
+        "heal": {
+          "id": 929,
+          "fr": "Potion de soins",
+          "req": 12,
+          "icon": "inv_potion_51",
+          "q": 1
+        },
+        "mana": {
+          "id": 3827,
+          "fr": "Potion de mana",
+          "req": 22,
+          "icon": "inv_potion_72",
+          "q": 1
+        }
+      },
+      {
+        "heal": {
+          "id": 1710,
+          "fr": "Potion de soins supérieure",
+          "req": 21,
+          "icon": "inv_potion_52",
+          "q": 1
+        },
+        "mana": {
+          "id": 6149,
+          "fr": "Potion de mana supérieure",
+          "req": 31,
+          "icon": "inv_potion_73",
+          "q": 1
+        }
+      },
+      {
+        "heal": {
+          "id": 3928,
+          "fr": "Potion de soins excellente",
+          "req": 35,
+          "icon": "inv_potion_53",
+          "q": 1
+        },
+        "mana": {
+          "id": 13443,
+          "fr": "Potion de mana excellente",
+          "req": 41,
+          "icon": "inv_potion_74",
+          "q": 1
+        }
+      },
+      {
+        "heal": {
+          "id": 13446,
+          "fr": "Potion de soins majeure",
+          "req": 45,
+          "icon": "inv_potion_54",
+          "q": 1
+        },
+        "mana": {
+          "id": 13444,
+          "fr": "Potion de mana majeure",
+          "req": 49,
+          "icon": "inv_potion_76",
+          "q": 1
+        }
+      }
+    ]
+  }
+}

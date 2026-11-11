@@ -1,76 +1,101 @@
-# Forever Pex Guide
+<p align="center">
+  <img src=".github/assets/banner.svg" alt="Forever Pex Guide : guides de pex, fiches perso et addon d'export pour WoW Forever" width="100%">
+</p>
 
-Guides de pex, de stuff et fiches de personnages pour **WoW Forever** (serveurs officiels Blizzard, lancement le 4 nov. 2026), tenus par une petite équipe de joueurs.
+<p align="center">
+  <a href="https://jeancelestinenpalsec.github.io/forever-pex-guide/"><img alt="Site en ligne" src="https://img.shields.io/badge/site-en%20ligne-2c7a4c?style=flat-square"></a>
+  <a href="https://github.com/JeanCelestinEnpalSec/forever-pex-guide/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/JeanCelestinEnpalSec/forever-pex-guide/actions/workflows/ci.yml/badge.svg"></a>
+  <img alt="WoW Forever 1.60.1" src="https://img.shields.io/badge/WoW%20Forever-1.60.1-1c6886?style=flat-square">
+  <img alt="Addon 0.1.0" src="https://img.shields.io/badge/addon-0.1.0-946410?style=flat-square">
+  <a href="LICENSE"><img alt="Licence MIT" src="https://img.shields.io/badge/licence-MIT-66737c?style=flat-square"></a>
+</p>
 
-- **Site** : carnets interactifs par classe et race, fiche de chaque personnage de l'équipe. Publié automatiquement par GitHub Pages depuis le dossier `docs/`.
-- **Addon** : `Pex Guide Export` enregistre en jeu la fiche du personnage (stats, équipement, familier, talents, sorts, métiers, quêtes, étape RestedXP) pour mettre le site à jour.
-- **Règle d'or** : chaque information a une source datée. Ordre de confiance : Blizzard > jeu > guide d'auteur identifié > base de données > communauté. Un prix ou une coordonnée non vérifiés ne sont pas publiés.
+<p align="center">
+  <b><a href="https://jeancelestinenpalsec.github.io/forever-pex-guide/">Site</a></b> ·
+  <b><a href="https://jeancelestinenpalsec.github.io/forever-pex-guide/classes/hunter/">Guide du chasseur</a></b> ·
+  <a href="https://jeancelestinenpalsec.github.io/forever-pex-guide/perso/">Fiches perso</a> ·
+  <a href="addon/README.md">Addon</a> ·
+  <a href="docs/data/README.md">Données</a> ·
+  <a href="CONTRIBUTING.md">Contribuer</a> ·
+  <a href="ROADMAP.md">Feuille de route</a>
+</p>
 
-RestedXP reste le guide de quêtes en jeu. Ce projet couvre la classe, le familier, le stuff et les métiers.
+---
+
+**Forever Pex Guide** est le guide de pex d’une petite équipe de joueurs sur **WoW Forever** (serveurs officiels Blizzard, client français). RestedXP reste le guide de quêtes en jeu ; ce projet couvre tout le reste : talents niveau par niveau, sorts à l’entraîneur, rotation, équipement, familiers, métiers, consommables et macros en français.
+
+Trois principes :
+
+1. **Tout part des données.** Chaque guide de classe est rendu à partir de fichiers JSON relus et validés par la CI. Corriger une info, c’est modifier une ligne.
+2. **Chaque info a sa source et sa fiabilité.** Officiel › jeu › base de données (Wowhead) › guide d’auteur (Mobalytics, Method) › équipe › faible. Le site affiche la couleur de fiabilité à côté de chaque section.
+3. **Ta fiche vient du jeu.** L’addon *Pex Guide Export* enregistre ton personnage ; le site l’affiche et cale le guide sur ton niveau.
+
+## Ce qu’il y a dedans
+
+| | |
+| --- | --- |
+| **Guide de classe** ([chasseur](https://jeancelestinenpalsec.github.io/forever-pex-guide/classes/hunter/)) | Curseur « mon niveau » qui recalcule tout : arbres de talents interactifs avec textes français officiels (rang 1 et rang max), ordre des 51 points, sorts par niveau avec priorité, rotation par tranche, armes à distance avec la meilleure à ton niveau, munitions, carquois, familiers, métiers et camp, potions, races, astuces, macros prêtes à copier. |
+| **Carnet de personnage** ([Jeanpalsec](https://jeancelestinenpalsec.github.io/forever-pex-guide/guides/chasseur-nain/)) | Le suivi d’un perso précis : priorités du jour avec les vrais prix, PNJ sur la vraie carte, budget. |
+| **Fiches perso** ([site](https://jeancelestinenpalsec.github.io/forever-pex-guide/perso/)) | Stats, équipement, familier, talents, métiers, quêtes et étape RestedXP, importés depuis l’addon. L’import reste dans le navigateur. |
+| **Addon Pex Guide Export** ([doc](addon/README.md)) | Lecture seule, rien en combat. `/pge`, `/pge status`, `/pge reset`. TOC 16001 (client 1.60.1). |
 
 ## Comment ça marche
 
 ```mermaid
 flowchart LR
-  A[Jeu : addon Pex Guide Export] -- /reload ou déconnexion --> B[WTF\...\SavedVariables\PexGuideExport.lua]
-  B -- tools/sync-character.ps1<br/>ou import sur la page Fiches perso --> C[docs/data/characters/*.json]
-  C -- commit + push --> D[GitHub]
-  D -- GitHub Pages --> E[Site en ligne]
-  D -- tag addon-vX.Y.Z --> F[Release : PexGuideExport.zip]
+  subgraph Jeu
+    A[Addon Pex Guide Export]
+  end
+  subgraph Dépôt GitHub
+    B[docs/data/characters/*.json]
+    C[docs/data/classes/*/*.json]
+    D[CI : tests, validation, lint Lua]
+  end
+  A -- /reload --> S[SavedVariables/PexGuideExport.lua]
+  S -- import sur le site ou tools/sync-character.ps1 --> B
+  R[Sources : Wowhead, Blizzard, Mobalytics, Method] -- relevé + revue --> C
+  B & C --> D --> P[GitHub Pages : le site]
 ```
 
-## Organisation du dépôt
+## Le dépôt en un coup d’œil
 
-| Dossier | Contenu |
-| --- | --- |
-| `docs/` | Le site (GitHub Pages) : accueil, fiches perso, carnets (`docs/guides/<carnet>/`) |
-| `docs/data/characters/` | Fiches JSON publiées + `index.json` |
-| `docs/assets/` | CSS commun, lecteur SavedVariables (`sv-parser.js`), affichage des fiches |
-| `addon/PexGuideExport/` | L'addon WoW (TOC `16001`, Forever 1.60.1) |
-| `addon/tests/` | Test de fumée de l'addon avec une API WoW simulée (Lua 5.1 via `lupa`) |
-| `guides/` | Notes, sources et versions écrites des carnets (Markdown) |
-| `tools/` | Conversion SavedVariables → JSON, validation, scripts Windows d'installation et de synchro |
-| `.github/` | CI (tests, lint Lua, validation des données), release de l'addon, modèles d'issues et de PR |
-
-## Démarrage rapide
-
-### Installer l'addon (Windows, PowerShell)
-
-```powershell
-.\tools\install-addon.ps1
+```
+forever-pex-guide/
+├── docs/                      Le site (publié tel quel par GitHub Pages)
+│   ├── index.html             Accueil
+│   ├── classes/hunter/        Guide de classe (page + rendu JS)
+│   ├── guides/chasseur-nain/  Carnet de Jeanpalsec
+│   ├── perso/                 Fiches perso + import de l’addon
+│   ├── data/
+│   │   ├── classes/           Données des guides de classe (JSON, voir docs/data/README.md)
+│   │   └── characters/        Fiches publiées (JSON)
+│   └── assets/                CSS et JS communs
+├── addon/PexGuideExport/      L’addon WoW
+├── tools/                     Validation, conversion SavedVariables → JSON, scripts Windows
+├── guides/                    Notes et sources des carnets (Markdown)
+└── .github/                   CI, release de l’addon, modèles d’issues et de PR
 ```
 
-Ou à la main : copier `addon\PexGuideExport` dans `World of Warcraft\_forever_\Interface\AddOns\`. En jeu : `/reload`.
+## Démarrer
 
-Commandes : `/pge` (photo immédiate), `/pge status` (date de la dernière photo), `/pge reset` (efface la photo du personnage).
+**Je joue et je veux juste le guide** : ouvre le [site](https://jeancelestinenpalsec.github.io/forever-pex-guide/), choisis ta classe, règle ton niveau.
 
-### Mettre sa fiche à jour sur le site
+**Je veux ma fiche sur le site** : installe l’addon (copie `addon\PexGuideExport` dans `World of Warcraft\_forever_\Interface\AddOns\` ou lance `tools\install-addon.ps1`), joue, fais `/reload`, puis importe `WTF\Account\<COMPTE>\SavedVariables\PexGuideExport.lua` sur la page Fiches perso.
 
-1. Jouer normalement : l'addon prend une photo à chaque changement (niveau, équipement, quête, métier…). Jamais en combat.
-2. `/reload` ou déconnexion : le jeu écrit `PexGuideExport.lua` sur le disque.
-3. Au choix :
-   - `.\tools\sync-character.ps1` (Node.js 20+), puis commit + push ;
-   - ou la page **Fiches perso** du site → *Importer ma fiche* → *Télécharger le JSON*, à placer dans `docs/data/characters/`.
-
-### Travailler sur le site en local
+**Je contribue** :
 
 ```bash
-npm test             # tests du lecteur SavedVariables
-npm run validate     # vérifie les fiches publiées
-npm run serve        # site sur http://localhost:8000
+git clone https://github.com/JeanCelestinEnpalSec/forever-pex-guide.git
+cd forever-pex-guide
+npm test            # tests du lecteur SavedVariables
+npm run validate    # fiches + données de classe (talents, sources, chemin de pex)
+npm run serve       # site sur http://localhost:8000
 ```
 
-## Mise en ligne (une seule fois)
+Sous Windows, clone le dépôt **hors de OneDrive** (par exemple `C:\Dev\forever-pex-guide`) : OneDrive et git se marchent dessus. GitHub Desktop fait l’affaire si tu ne veux pas de ligne de commande.
 
-1. Dépôt public sur GitHub, branche `main`.
-2. *Settings → Pages → Build and deployment → Deploy from a branch* : `main`, dossier `/docs`.
-3. *Settings → Collaborators* : inviter les membres de l'équipe.
-4. *Settings → Branches* : protéger `main` (pull request obligatoire, CI verte).
-
-## Équipe et contribution
-
-Voir [CONTRIBUTING.md](CONTRIBUTING.md) : branches, pull requests, règles de sources, versions de l'addon. Feuille de route : [ROADMAP.md](ROADMAP.md).
+Ensuite : une branche par sujet, une demande de fusion (pull request), une relecture par un autre membre. La CI doit être verte. Tout est détaillé dans [CONTRIBUTING.md](CONTRIBUTING.md) ; pour ajouter une classe, suis [docs/data/README.md](docs/data/README.md).
 
 ## Licence
 
-Code sous licence MIT. Projet de fans non affilié à Blizzard Entertainment ; World of Warcraft est une marque de Blizzard Entertainment.
+Code sous licence MIT. Projet de fans, non affilié à Blizzard Entertainment ; World of Warcraft est une marque de Blizzard Entertainment. Icônes et infobulles : Wowhead.

@@ -1,0 +1,121 @@
+{
+  "class": "hunter",
+  "checked": "2026-11-11",
+  "src": ["moba", "wowhead", "carnet"],
+  "rotation": {
+    "src": ["moba", "carnet"],
+    "single": {
+      "fr": "Un seul mob (souvent un élite)",
+      "steps": [
+        "Marque du chasseur sur la cible, puis prends de la distance.",
+        "Ouvre avec Visée dès que tu l’as (20). Avant ça : tir automatique et Tir des arcanes avant tout.",
+        "Entre deux tirs automatiques, recule si le mob arrive : il ne doit jamais te toucher.",
+        "Morsure de serpent après Visée et Tir des arcanes.",
+        "Trait de choc pour regagner de la distance ; au contact, Coupure d’ailes puis Attaque du raptor.",
+        "Avec le familier : active ou coupe son Grondement pour que le mob fasse des allers-retours entre vous deux. Avec Aspect du guépard, il est plus simple de couper Grondement et de garder la menace."
+      ]
+    },
+    "multi": {
+      "fr": "Plusieurs mobs (le plus rapide)",
+      "steps": [
+        "But : ton tir automatique et ton arme de mêlée tournent sans arrêt, avec un ou deux mobs sur toi en permanence.",
+        "Tire sur un mob, puis cherche le suivant : ton prochain tir automatique part sur lui.",
+        "Le mob le plus proche prend l’Attaque du raptor, le plus loin prend le tir automatique.",
+        "Morsure de serpent sur les deux quand tu l’as (attention à la mana), Tir des arcanes et Trait de choc.",
+        "Coupure d’ailes pour espacer les deux mobs ; s’ils sont collés, Flèches multiples.",
+        "Le familier est une deuxième source de dégâts : il tue son propre mob, ou achève ceux qui sont sur toi."
+      ]
+    },
+    "phases": [
+      {"from": 10, "to": 17, "fr": "Familier et Tir des arcanes", "steps": ["Envoie le familier, Marque du chasseur, attends 2 ou 3 coups.", "Tir automatique + Tir des arcanes à chaque recharge (6 s).", "Morsure de serpent seulement si le mob tient 10 s ou plus.", "Guérison du familier sous 50 % (dès 12).", "Trait de choc puis recule si un mob arrive sur toi."]},
+      {"from": 18, "to": 24, "fr": "Flèches multiples, puis Visée", "steps": ["Même ouverture.", "Visée (20) ou Flèches multiples (2 mobs ou plus) toutes les 6 s : recharge partagée.", "Tir des arcanes sur sa propre recharge.", "Piège givrant si un deuxième mob arrive (20).", "Aspect du guépard pour les trajets, faucon dès que tu engages."]},
+      {"from": 25, "to": 39, "fr": "Invocation de faucon et Intimidation", "steps": ["Familier + Marque, puis Visée ou Flèches multiples.", "Tir des arcanes reste meilleur qu’Invocation de faucon en solo pour l’instant (Feor, 7 nov.) ; les deux partagent la recharge. À retester après chaque correctif.", "Intimidation (30) pour couper une incantation ou rendre la menace au familier.", "Feindre la mort (30) pour sortir d’un combat raté.", "Tir rapide sur les élites (26)."]},
+      {"from": 40, "to": 60, "fr": "Courroux bestial", "steps": ["Courroux bestial + Tir rapide sur les gros combats.", "Même cœur de rotation : Visée ou Flèches multiples, Tir des arcanes, Morsure de serpent.", "Double spécialisation au 40 : une pour le pex, une pour les donjons.", "Mailles chez l’entraîneur au 40."]}
+    ]
+  },
+  "walkthrough": [
+    {"from": 1, "to": 10, "fr": "Premiers pas", "src": ["moba"], "points": [
+      "Le chasseur est faible de 1 à 10 : c’est normal, tout change au familier.",
+      "Tir des arcanes au 6 est le premier vrai sort. Si tu veux aller vite, attends le 6 pour l’entraîneur ; sinon prends Morsure de serpent au 4.",
+      "Trait de choc au 8.",
+      "Au 10 : gros palier. Entraîneur, quête du familier, puis apprivoisement.",
+      "Pense au maître d’armes des capitales pour les compétences d’arme."
+    ]},
+    {"from": 11, "to": 20, "fr": "Le familier fait le travail", "src": ["moba", "wowhead"], "points": [
+      "Au 11, un arc de vendeur si tu as la compétence ; un nain garde le Tromblon orné jusqu’à mieux.",
+      "Coupure d’ailes au 12 : le sort le plus important de la tranche.",
+      "Garde les techniques du familier (Griffe, Morsure) à jour : c’est le plus gros levier de vitesse.",
+      "Alliance : le Tromblon calibré (9,57 DPS) via la chaîne Underground Map puis Old Ironforge Incursion, au Hall of Thanes. La carte tombe sur le Dark Iron Spy de Dun Morogh.",
+      "En solo, le Bon arc long des vendeurs (Marche de l’Ouest, Loch Modan) suffit.",
+      "Les donjons : une fois pour les quêtes, pas en boucle pour le stuff."
+    ]},
+    {"from": 21, "to": 30, "fr": "Vitesse et premiers bleus", "src": ["moba"], "points": [
+      "Au 20 : Aspect du guépard tout de suite, et le nouveau rang de Grondement chez le dresseur de familiers.",
+      "Alliance : Carnassier dès 22 via la chaîne du site de fouilles de Whelgar (Les Paluns) ; plutôt vers 25.",
+      "Aux Paluns, l’élite Nightveiled Rotheap (32) donne de quoi obtenir la Racine malveillante : faisable seul en gardant la distance.",
+      "Donjons utiles une fois : la Prison, Brassenoire, Excavation Site (Arme d’épaule mire-de-golem), City of Dalaran (Bras de gangrebranche, Atours du déchu Gangrécorce)."
+    ]},
+    {"from": 31, "to": 40, "fr": "Feindre la mort et Strangleronce", "src": ["moba"], "points": [
+      "Feindre la mort dès le 30 : semer des mobs et continuer à avancer.",
+      "Strangleronce : fais les quêtes de maîtrise de Nesingwary jusqu’au bout pour l’arc ou la carabine de maître-chasseur.",
+      "Gnomeregan (29 à 33), surtout pour l’Alliance : les Chausses du coureur sont garanties par quête."
+    ]},
+    {"from": 41, "to": 50, "fr": "Shen’dralas", "src": ["moba"], "points": [
+      "Nouvelle zone de Forever au sud de Désolace, près de la Vallée des Os : beaucoup de quêtes.",
+      "L’élite Corpsefeeder (45) se fait seul en Maîtrise des bêtes : Spallières claquantes en carapace, 1 po 30 pa et 4 500 XP."
+    ]},
+    {"from": 51, "to": 60, "fr": "Fin de pex", "src": ["moba"], "points": [
+      "Pas encore d’information publiée par Feor pour cette tranche (9 nov.)."
+    ]}
+  ],
+  "zoneBrackets": {
+    "src": ["moba", "carnet"],
+    "note": "Tranches Alliance tirées de la carte des zones de Mobalytics (9 nov.) et du carnet de l’équipe.",
+    "list": [
+      {"from": 10, "to": 17, "zones": "Loch Modan, Marche de l’Ouest, Sombrivage", "dungeons": "Hall of Thanes (13)", "tip": "Pour un nain : Loch Modan d’abord. Hall of Thanes dès 13 pour le Tromblon calibré."},
+      {"from": 17, "to": 20, "zones": "Sombrivage, Marche de l’Ouest, Les Carmines, Loch Modan, Orneval", "dungeons": "Mortemines (16)"},
+      {"from": 20, "to": 27, "zones": "Orneval, Bois de la Pénombre, Les Paluns", "dungeons": "La Prison (24), Brassenoire (25)"},
+      {"from": 27, "to": 30, "zones": "Bois de la Pénombre, Les Paluns, Hautebrande, Orneval", "dungeons": "Excavation Site (29), Gnomeregan (30)"},
+      {"from": 30, "to": 33, "zones": "Hautebrande, Arathi, Strangleronce", "dungeons": "City of Dalaran (32)"},
+      {"from": 33, "to": 36, "zones": "Mille pointes, Strangleronce, Désolace, Arathi, Alterac", "dungeons": "Monastère écarlate : Cimetière (31), Bibliothèque (33)"},
+      {"from": 36, "to": 40, "zones": "Riverglades (nouveau), Strangleronce, Alterac, Marais des Chagrins, Arathi", "dungeons": "Monastère : Armurerie (36), Cathédrale (37) ; Souilles de Tranchebauge (38)"},
+      {"from": 40, "to": 42, "zones": "Âprefange, Marais des Chagrins, Désolace, Terres ingrates", "dungeons": "The Drowned City (40), Krol’dok Stronghold (40)", "tip": "Double spécialisation disponible."},
+      {"from": 42, "to": 44, "zones": "Désolace, Strangleronce, Tanaris, Féralas", "dungeons": "Uldaman (42)"},
+      {"from": 44, "to": 48, "zones": "Strangleronce, Marais des Chagrins, Tanaris, Âprefange, Féralas", "dungeons": "Zul’Farrak (44), Temple englouti (45), Alcaz Prison (48)"},
+      {"from": 48, "to": 50, "zones": "Hinterlands, Tanaris, Féralas", "dungeons": "Maraudon (48)"},
+      {"from": 50, "to": 52, "zones": "Strangleronce, Gorge des Vents brûlants, Terres foudroyées, Gangrebois, Maleterres de l’Ouest", "dungeons": "Alcaz Prison, Maraudon"},
+      {"from": 52, "to": 55, "zones": "Féralas, Azshara, Un’Goro, Gangrebois", "dungeons": "Hache-Tripes (54)"},
+      {"from": 55, "to": 58, "zones": "Berceau-de-l’Hiver, Steppes ardentes, Maleterres de l’Ouest et de l’Est", "dungeons": "Profondeurs de Rochenoire (56), Stratholme (58), Blackmaw Hold"},
+      {"from": 58, "to": 60, "zones": "Berceau-de-l’Hiver, Silithus", "dungeons": "Scholomance, Pic Rochenoire (58), Shaper’s Terrace (59)", "tip": "Raids annoncés le 9 déc."}
+    ]
+  },
+  "dungeons": {
+    "src": ["moba", "method", "wowhead", "carnet"],
+    "list": [
+      {"fr": "Hall of Thanes", "isNew": true, "from": 13, "to": 18, "note": "Sous Forgefer, entrée par la salle du trône. Quête Old Ironforge Incursion : Tromblon calibré.", "loot": [279894]},
+      {"fr": "Mortemines", "en": "Deadmines", "from": 16, "to": 20, "note": "Marche de l’Ouest. Pas d’arme à distance, mais la Tunique de la marche de l’Ouest par quête.", "loot": [2041]},
+      {"fr": "Cavernes des lamentations", "en": "Wailing Caverns", "from": 17, "to": 24, "note": "Tarides : loin pour l’Alliance. Venimeux peut tomber, à ne pas farmer.", "loot": [6469]},
+      {"fr": "Donjon d’Ombrecroc", "en": "Shadowfang Keep", "from": 20, "to": 26, "note": "Bois des Pins-Argentés ; chauves-souris apprivoisables."},
+      {"fr": "La Prison", "en": "Stockade", "from": 22, "to": 29, "note": "Hurlevent. Rapide, beaucoup de cuir Agilité.", "loot": [273829, 3562, 1076, 2280, 273824]},
+      {"fr": "Brassenoire", "en": "Blackfathom Deeps", "from": 24, "to": 28, "note": "Orneval ; tortues apprivoisables. Deux arcs possibles avec les quêtes.", "loot": [3078, 273843]},
+      {"fr": "Excavation Site", "isNew": true, "from": 24, "to": 29, "note": "Les Paluns, au-dessus du site de fouilles de Whelgar.", "loot": [273029]},
+      {"fr": "City of Dalaran", "isNew": true, "from": 28, "to": 33, "note": "Harmonisation via Hautebrande. Bras de gangrebranche et Atours du déchu Gangrécorce tombent du même boss.", "loot": [273037, 273038, 273047, 273033]},
+      {"fr": "Gnomeregan", "from": 29, "to": 34, "note": "Dun Morogh.", "loot": [9624, 274068, 9456]},
+      {"fr": "Kraal de Tranchebauge", "en": "Razorfen Kraul", "from": 30, "to": 38, "note": "Tarides. Charge rang 3 sur les sangliers."},
+      {"fr": "Monastère écarlate", "en": "Scarlet Monastery", "from": 31, "to": 40, "note": "4 ailes, de 31 à 37."},
+      {"fr": "The Drowned City", "isNew": true, "from": 35, "to": 40},
+      {"fr": "Uldaman", "from": 37, "to": 45, "note": "Terres ingrates."},
+      {"fr": "Souilles de Tranchebauge", "en": "Razorfen Downs", "from": 37, "to": 45},
+      {"fr": "Zul’Farrak", "from": 40, "to": 47, "note": "Tanaris."},
+      {"fr": "Krol’dok Stronghold", "isNew": true, "from": 40, "to": 45, "note": "Riverglades."},
+      {"fr": "Maraudon", "from": 45, "to": 51, "note": "Désolace."},
+      {"fr": "Alcaz Prison", "isNew": true, "from": 48, "to": 53},
+      {"fr": "Temple englouti", "en": "Sunken Temple", "from": 45, "to": 55},
+      {"fr": "Profondeurs de Rochenoire", "en": "Blackrock Depths", "from": 52, "to": 60},
+      {"fr": "Blackmaw Hold", "isNew": true, "from": 55, "to": 60},
+      {"fr": "Pic Rochenoire", "en": "Blackrock Spire", "from": 57, "to": 60},
+      {"fr": "Shaper’s Terrace", "isNew": true, "from": 58, "to": 60},
+      {"fr": "Hache-Tripes, Stratholme, Scholomance", "from": 54, "to": 60}
+    ]
+  }
+}

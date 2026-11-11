@@ -1,0 +1,194 @@
+{
+  "class": "hunter",
+  "checked": "2026-11-11",
+  "src": [
+    "moba",
+    "wowhead",
+    "carnet",
+    "tavern"
+  ],
+  "advice": [
+    "Félin : le plus de dégâts actuellement (Feor), avec Claw, Bite puis Dash.",
+    "Charognard : presque autant de dégâts, plus solide, avec Demoralizing Screech (appris seulement sur certaines bêtes, dont les Young Fleshrippers de la Marche de l’Ouest).",
+    "Ours et sanglier : solides en solo, pour un familier qui tient.",
+    "Faster Attack (rangs I à VII) ne s’enseigne pas : apprivoise des bêtes de plus haut niveau pour l’améliorer.",
+    "Débloque tôt le 2e emplacement d’écurie. Pour un nouveau rang de Claw ou Bite : range ton familier, apprivoise une bête qui l’a, combats jusqu’au message « Vous avez appris… », relâche-la, reprends ton familier et enseigne-le-lui (Beast Training dans le grimoire).",
+    "Apprivoiser met ton armure à 0 : pose un Piège givrant avant, ou commence à portée maximale après un Trait de choc."
+  ],
+  "adviceSrc": [
+    "moba"
+  ],
+  "families": [
+    {
+      "fr": "Félin",
+      "en": "Cat",
+      "ability": "Prowl ; Claw, Bite, puis Dash",
+      "where": "Dun Morogh : Snow Leopard 7–8, Elder Snow Leopard 9–10 (nouveau), Ghostfang (rare 10) · Sombrivage : Moonstalkers · Teldrassil : Duskstalker (rare, attaque rapide)",
+      "diet": "viande, poisson",
+      "use": [
+        "solo",
+        "groupe"
+      ],
+      "verdict": "Le plus de dégâts (Feor)",
+      "npc": 1201
+    },
+    {
+      "fr": "Charognard",
+      "en": "Carrion Bird",
+      "ability": "Demoralizing Screech, Claw, Bite, Dive",
+      "where": "Marche de l’Ouest : Fleshrippers 10–17 · Loch Modan : Mountain Buzzards",
+      "diet": "viande, poisson",
+      "use": [
+        "solo"
+      ],
+      "verdict": "Équilibré, plus solide que le félin (Feor)"
+    },
+    {
+      "fr": "Ours",
+      "en": "Bear",
+      "ability": "Swipe : frappe plusieurs ennemis",
+      "where": "Dun Morogh : Ice Claw Bear 7–8 · Elwynn : Young Forest Bear 8–9 · Sombrivage : Thistle Bear 11–12 · Loch Modan : Black Bear Patriarch 16–17",
+      "diet": "viande, poisson, fruit, champignon, pain, fromage",
+      "use": [
+        "solo"
+      ],
+      "verdict": "Solide, mange de tout",
+      "npc": 1196
+    },
+    {
+      "fr": "Sanglier",
+      "en": "Boar",
+      "ability": "Charge : immobilise 1 s et renforce l’attaque suivante",
+      "where": "Dun Morogh : Crag Boars · Marche de l’Ouest : Goretusks · Charge rang 2 : sangliers de la Marche de l’Ouest et du Loch Modan",
+      "diet": "tout",
+      "use": [
+        "solo"
+      ],
+      "verdict": "Équivalent de l’ours en solo",
+      "npc": 1126
+    },
+    {
+      "fr": "Loup",
+      "en": "Wolf",
+      "ability": "Furious Howl : puissance d’attaque de mêlée pour le groupe",
+      "where": "Dun Morogh : plusieurs loups · Marche de l’Ouest : Coyote Pack Leader 11–12",
+      "diet": "viande",
+      "use": [
+        "groupe"
+      ],
+      "verdict": "Groupes avec beaucoup de mêlée"
+    },
+    {
+      "fr": "Raptor",
+      "en": "Raptor",
+      "ability": "Saignement",
+      "where": "Les Paluns dès 22 (ou Zephras Isle)",
+      "diet": "viande",
+      "use": [
+        "groupe"
+      ],
+      "verdict": "Dégâts"
+    },
+    {
+      "fr": "Araignée",
+      "en": "Spider",
+      "ability": "Web : immobilise",
+      "where": "Loch Modan : Forest Lurkers 11–12",
+      "diet": "viande",
+      "use": [
+        "JcJ"
+      ],
+      "verdict": "Contrôle"
+    },
+    {
+      "fr": "Crocilisque",
+      "en": "Crocolisk",
+      "ability": "−25 % de soins reçus pendant 6 s",
+      "where": "Loch Modan : Loch Crocolisks 14–15, rare 15–16, Large Loch Crocolisk 22",
+      "diet": "viande, poisson",
+      "use": [
+        "JcJ"
+      ],
+      "verdict": "Contre les soigneurs"
+    },
+    {
+      "fr": "Crabe",
+      "en": "Crab",
+      "ability": "Pinch : dégâts et ralentit de 50 %",
+      "where": "Sombrivage : Tide Crawlers 12–14 · Marche de l’Ouest : Shore Crawlers",
+      "diet": "pain, poisson, fruit, champignon",
+      "use": [
+        "solo"
+      ],
+      "verdict": "Solide"
+    },
+    {
+      "fr": "Haut-trotteur",
+      "en": "Tallstrider",
+      "ability": "Dust Cloud : réduit l’armure de la cible",
+      "where": "Sombrivage : Foreststriders dès 11",
+      "diet": "fruit, champignon, fromage",
+      "use": [
+        "groupe"
+      ],
+      "verdict": "Utilitaire"
+    },
+    {
+      "fr": "Oiseau de proie",
+      "en": "Bird of Prey",
+      "ability": "Désarme 3 s (recharge 90 s)",
+      "where": "Teldrassil : chouettes 5–9, Nightscreech rare 10",
+      "diet": "viande",
+      "use": [
+        "JcJ"
+      ],
+      "verdict": "Contre la mêlée"
+    },
+    {
+      "fr": "Chauve-souris",
+      "en": "Bat",
+      "ability": "Sonic Blast : ralentit les incantations",
+      "where": "Donjon d’Ombrecroc",
+      "diet": "fruit, champignon",
+      "use": [
+        "JcJ"
+      ],
+      "verdict": "Contre les lanceurs de sorts"
+    },
+    {
+      "fr": "Tortue",
+      "en": "Turtle",
+      "ability": "Shell Shield : défensif",
+      "where": "Tarides : Oasis Snapjaws 15–16 · Brassenoire",
+      "diet": "poisson, fruit, champignon",
+      "use": [
+        "solo",
+        "JcJ"
+      ],
+      "verdict": "Survie du familier"
+    },
+    {
+      "fr": "Renard (nouveau)",
+      "en": "Fox",
+      "ability": "Trickster’s Dance : +50 % d’esquive, attaques 30 % plus fréquentes",
+      "where": "Zephras Isle (navire céleste depuis Dalaran)",
+      "diet": "—",
+      "use": [
+        "JcJ"
+      ],
+      "verdict": "Nouveau dans Forever"
+    },
+    {
+      "fr": "Gorille",
+      "en": "Gorilla",
+      "ability": "Thunderstomp",
+      "where": "Strangleronce vers 32",
+      "diet": "fruit, champignon",
+      "use": [
+        "groupe"
+      ],
+      "verdict": "Dégâts de zone"
+    }
+  ],
+  "notes": "Noms des techniques de familier laissés en anglais tant que leur nom français dans le client n’est pas vérifié."
+}
