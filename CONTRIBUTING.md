@@ -35,6 +35,11 @@ Avec Claude : on peut lui demander de préparer la branche, les commits et la PR
 - Chaque bloc porte ses sources (`src`), déclarées dans `meta.json` avec leur fiabilité.
 - `npm run validate` vérifie la grille de talents et que le chemin de pex est jouable (paliers, prérequis, rangs).
 
+## Site
+
+- Après une modification d'un fichier `docs/assets/css/*.css` ou `docs/assets/js/*.js`, change le suffixe `?v=AAAAMMJJx` dans les pages qui le chargent : sinon les navigateurs gardent l'ancienne version jusqu'à 10 minutes (cache de GitHub Pages).
+- Vérifie la page en local (`npm run serve`) sur ordinateur, sur téléphone (outils de développement) et en thème sombre.
+
 ## Fichiers et sécurité
 
 - On ne supprime rien : un fichier à retirer va dans `a-supprimer/` (ignoré par git) pour relecture.

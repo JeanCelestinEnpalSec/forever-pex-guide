@@ -492,7 +492,7 @@
   }
 
   Promise.all(FILES.map(function (f) {
-    return fetch(BASE + f + ".json").then(function (r) { if (!r.ok) throw new Error(f + ".json : HTTP " + r.status); return r.json(); }).then(function (j) { D[f] = j; });
+    return fetch(BASE + f + ".json", { cache: "no-cache" }).then(function (r) { if (!r.ok) throw new Error(f + ".json : HTTP " + r.status); return r.json(); }).then(function (j) { D[f] = j; });
   })).then(start).catch(function (e) {
     var box = $("#load-error");
     box.hidden = false;
