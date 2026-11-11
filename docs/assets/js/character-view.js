@@ -12,7 +12,7 @@
   var SLOT_ORDER = ["RANGED", "AMMO", "MAINHAND", "OFFHAND", "HEAD", "NECK", "SHOULDER", "BACK", "CHEST", "WRIST", "HANDS", "WAIST", "LEGS", "FEET", "FINGER1", "FINGER2", "TRINKET1", "TRINKET2", "SHIRT", "TABARD"];
   var ATTR = [["strength", "Force"], ["agility", "Agilité"], ["stamina", "Endurance"], ["intellect", "Intelligence"], ["spirit", "Esprit"]];
   var HAPPINESS = { 1: "Mécontent", 2: "Content", 3: "Heureux" };
-  var WH = "https://www.wowhead.com/forever/";
+  var WH = "https://www.wowhead.com/forever/fr/";
 
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; });

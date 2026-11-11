@@ -9,7 +9,7 @@
   var BASE = root.getAttribute("data-base");
   var FILES = ["meta", "talents", "spells", "gear", "professions", "leveling", "pets"];
   var ICON = "https://wow.zamimg.com/images/wow/icons/medium/";
-  var WH = "https://www.wowhead.com/forever/";
+  var WH = "https://www.wowhead.com/forever/fr/";
   var KEY = "fpg:" + CLASS + ":";
   var D = {};
   var S = { lvl: 10, tview: "level", prio: "all", ranks: true, wtype: "all", fac: "all", use: "all", wk: null, race: "alliance", sel: null };
